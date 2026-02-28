@@ -314,6 +314,14 @@
   gap: var(--atom-space-xl);
 }
 
-.atom-grid-gap-3xxl {
-  gap: var(--atom-space-3xxl);
+.atom-grid-gap-2xl {
+  gap: var(--atom-space-2xl);
+}
+
+.atom-grid-gap-3xl {
+  gap: var(--atom-space-3xl);
+}
+
+.atom-grid-gap-4xl {
+  gap: var(--atom-space-4xl);
 }

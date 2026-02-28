@@ -1,7 +1,121 @@
 // ============================================
 // Colors — Utility Classes
 // ============================================
-// .atom-text-{semantic}  — text color
-// .atom-bg-{semantic}    — background color
-// .atom-border-{semantic} — border color
+// Generates text, background, and border color utilities
+// from semantic color tokens. All classes reference CSS
+// custom properties, so they adapt to light/dark themes
+// automatically.
+//
+// Text (foreground):
+//   .atom-text-primary        — color: var(--atom-fg-primary)
+//   .atom-text-brand          — color: var(--atom-fg-brand)
+//   .atom-text-status-error   — color: var(--atom-fg-status-error)
+//
+// Background:
+//   .atom-bg-primary          — background-color: var(--atom-bg-primary)
+//   .atom-bg-soft-primary     — background-color: var(--atom-bg-soft-primary)
+//   .atom-bg-status-error     — background-color: var(--atom-bg-status-error)
+//
+// Border:
+//   .atom-border-primary      — border-color: var(--atom-border-primary)
+//   .atom-border-brand        — border-color: var(--atom-border-brand)
+//   .atom-border-status-error — border-color: var(--atom-border-status-error)
+//
+// Brand:
+//   .atom-brand-primary       — color: var(--atom-brand-primary)
+//
+// Inherit / Reset:
+//   .atom-text-inherit        — color: inherit
+//   .atom-bg-transparent      — background-color: transparent
+//   .atom-border-transparent  — border-color: transparent
 // ============================================
+
+// ---- Foreground / Text ----
+
+$atom-fg-tokens: (
+  'primary',
+  'secondary',
+  'tertiary',
+  'quaternary',
+  'brand',
+  'disabled',
+  'inverse-primary',
+  'inverse-secondary',
+  'inverse-tertiary',
+  'inverse-disabled',
+  'status-error',
+  'status-warning',
+  'status-success',
+  'status-info',
+);
+
+@each $name in $atom-fg-tokens {
+  .atom-text-#{$name} { color: var(--atom-fg-#{$name}); }
+}
+
+// ---- Background ----
+
+$atom-bg-tokens: (
+  'primary',
+  'secondary',
+  'tertiary',
+  'quaternary',
+  'inverse-primary',
+  'inverse-secondary',
+  'inverse-tertiary',
+  'disabled',
+  'soft-primary',
+  'soft-secondary',
+  'danger-primary',
+  'danger-secondary',
+  'status-error',
+  'status-warning',
+  'status-success',
+  'status-info',
+);
+
+@each $name in $atom-bg-tokens {
+  .atom-bg-#{$name} { background-color: var(--atom-bg-#{$name}); }
+}
+
+// ---- Border Color ----
+
+$atom-border-tokens: (
+  'primary',
+  'secondary',
+  'tertiary',
+  'brand',
+  'disabled',
+  'status-error',
+  'status-warning',
+  'status-success',
+  'status-info',
+);
+
+@each $name in $atom-border-tokens {
+  .atom-border-#{$name} { border-color: var(--atom-border-#{$name}); }
+}
+
+// ---- Brand ----
+
+$atom-brand-tokens: (
+  'primary',
+  'secondary-blue',
+  'secondary-green',
+  'secondary-orange',
+  'secondary-rose',
+  'secondary-violet',
+);
+
+@each $name in $atom-brand-tokens {
+  .atom-brand-#{$name} { color: var(--atom-brand-#{$name}); }
+}
+
+// ---- Resets / Inherit ----
+
+.atom-text-inherit      { color: inherit; }
+.atom-text-current      { color: currentColor; }
+.atom-bg-transparent    { background-color: transparent; }
+.atom-bg-current        { background-color: currentColor; }
+.atom-border-transparent { border-color: transparent; }
+.atom-border-current    { border-color: currentColor; }

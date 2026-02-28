@@ -1,1 +1,203 @@
+.atom-text-primary {
+  color: var(--atom-fg-primary);
+}
 
+.atom-text-secondary {
+  color: var(--atom-fg-secondary);
+}
+
+.atom-text-tertiary {
+  color: var(--atom-fg-tertiary);
+}
+
+.atom-text-quaternary {
+  color: var(--atom-fg-quaternary);
+}
+
+.atom-text-brand {
+  color: var(--atom-fg-brand);
+}
+
+.atom-text-disabled {
+  color: var(--atom-fg-disabled);
+}
+
+.atom-text-inverse-primary {
+  color: var(--atom-fg-inverse-primary);
+}
+
+.atom-text-inverse-secondary {
+  color: var(--atom-fg-inverse-secondary);
+}
+
+.atom-text-inverse-tertiary {
+  color: var(--atom-fg-inverse-tertiary);
+}
+
+.atom-text-inverse-disabled {
+  color: var(--atom-fg-inverse-disabled);
+}
+
+.atom-text-status-error {
+  color: var(--atom-fg-status-error);
+}
+
+.atom-text-status-warning {
+  color: var(--atom-fg-status-warning);
+}
+
+.atom-text-status-success {
+  color: var(--atom-fg-status-success);
+}
+
+.atom-text-status-info {
+  color: var(--atom-fg-status-info);
+}
+
+.atom-bg-primary {
+  background-color: var(--atom-bg-primary);
+}
+
+.atom-bg-secondary {
+  background-color: var(--atom-bg-secondary);
+}
+
+.atom-bg-tertiary {
+  background-color: var(--atom-bg-tertiary);
+}
+
+.atom-bg-quaternary {
+  background-color: var(--atom-bg-quaternary);
+}
+
+.atom-bg-inverse-primary {
+  background-color: var(--atom-bg-inverse-primary);
+}
+
+.atom-bg-inverse-secondary {
+  background-color: var(--atom-bg-inverse-secondary);
+}
+
+.atom-bg-inverse-tertiary {
+  background-color: var(--atom-bg-inverse-tertiary);
+}
+
+.atom-bg-disabled {
+  background-color: var(--atom-bg-disabled);
+}
+
+.atom-bg-soft-primary {
+  background-color: var(--atom-bg-soft-primary);
+}
+
+.atom-bg-soft-secondary {
+  background-color: var(--atom-bg-soft-secondary);
+}
+
+.atom-bg-danger-primary {
+  background-color: var(--atom-bg-danger-primary);
+}
+
+.atom-bg-danger-secondary {
+  background-color: var(--atom-bg-danger-secondary);
+}
+
+.atom-bg-status-error {
+  background-color: var(--atom-bg-status-error);
+}
+
+.atom-bg-status-warning {
+  background-color: var(--atom-bg-status-warning);
+}
+
+.atom-bg-status-success {
+  background-color: var(--atom-bg-status-success);
+}
+
+.atom-bg-status-info {
+  background-color: var(--atom-bg-status-info);
+}
+
+.atom-border-primary {
+  border-color: var(--atom-border-primary);
+}
+
+.atom-border-secondary {
+  border-color: var(--atom-border-secondary);
+}
+
+.atom-border-tertiary {
+  border-color: var(--atom-border-tertiary);
+}
+
+.atom-border-brand {
+  border-color: var(--atom-border-brand);
+}
+
+.atom-border-disabled {
+  border-color: var(--atom-border-disabled);
+}
+
+.atom-border-status-error {
+  border-color: var(--atom-border-status-error);
+}
+
+.atom-border-status-warning {
+  border-color: var(--atom-border-status-warning);
+}
+
+.atom-border-status-success {
+  border-color: var(--atom-border-status-success);
+}
+
+.atom-border-status-info {
+  border-color: var(--atom-border-status-info);
+}
+
+.atom-brand-primary {
+  color: var(--atom-brand-primary);
+}
+
+.atom-brand-secondary-blue {
+  color: var(--atom-brand-secondary-blue);
+}
+
+.atom-brand-secondary-green {
+  color: var(--atom-brand-secondary-green);
+}
+
+.atom-brand-secondary-orange {
+  color: var(--atom-brand-secondary-orange);
+}
+
+.atom-brand-secondary-rose {
+  color: var(--atom-brand-secondary-rose);
+}
+
+.atom-brand-secondary-violet {
+  color: var(--atom-brand-secondary-violet);
+}
+
+.atom-text-inherit {
+  color: inherit;
+}
+
+.atom-text-current {
+  color: currentColor;
+}
+
+.atom-bg-transparent {
+  background-color: transparent;
+}
+
+.atom-bg-current {
+  background-color: currentColor;
+}
+
+.atom-border-transparent {
+  border-color: transparent;
+}
+
+.atom-border-current {
+  border-color: currentColor;
+}

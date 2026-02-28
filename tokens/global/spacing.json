@@ -1,11 +1,15 @@
 {
-  "$description": "Spacing primitive tokens — from Figma",
+  "$description": "Spacing primitive tokens — 8pt grid system from Figma",
   "spacing": {
+    "xxs": { "value": "2px" },
+    "xs": { "value": "4px" },
     "s": { "value": "8px" },
     "sm": { "value": "12px" },
     "m": { "value": "16px" },
     "l": { "value": "24px" },
     "xl": { "value": "32px" },
-    "3xxl": { "value": "44px" }
+    "2xl": { "value": "40px" },
+    "3xl": { "value": "48px" },
+    "4xl": { "value": "56px" }
   }
 }

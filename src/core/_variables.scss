@@ -259,6 +259,8 @@ $atom-type-h2-weight-map: (
 $atom-type-ls-zero-regular: ('display-xl', 'huge-title', 'h1') !default;
 
 // -- Spacing (8pt grid system) --
+// Full scale aligned with Figma: 8pt increments + micro values.
+// 4px allowed for tight spacing per design spec.
 $atom-spacing: (
   'xxs':  2px,
   'xs':   4px,
@@ -267,7 +269,9 @@ $atom-spacing: (
   'm':    16px,
   'l':    24px,
   'xl':   32px,
-  '3xxl': 44px,
+  '2xl':  40px,
+  '3xl':  48px,
+  '4xl':  56px,
 ) !default;
 
 // -- Border Radius --
