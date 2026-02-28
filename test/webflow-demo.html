@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -22,7 +22,7 @@
        Everything reusable lives in the design system.
        ══════════════════════════════════════════════ */
 
-    /* ── Hero background gradient (page-specific) ── */
+    /* ── Hero background gradient ── */
     .hero-bg {
       background:
         radial-gradient(ellipse 80% 60% at 20% 80%, var(--atom-color-violet-100) 0%, transparent 60%),
@@ -36,7 +36,7 @@
         var(--atom-bg-primary);
     }
 
-    /* ── Proof avatars overlap (page-specific layout) ── */
+    /* ── Proof avatars overlap ── */
     .proof-avatar {
       width: var(--atom-space-xl);
       height: var(--atom-space-xl);
@@ -91,19 +91,10 @@
     }
     .cta-box > * { position: relative; }
 
-    /* ── Responsive layout (page-specific breakpoints) ── */
-    @media (max-width: 960px) {
-      .hero-grid     { grid-template-columns: 1fr; text-align: center; }
-      .hero-headline { font-size: var(--atom-fs-32); line-height: var(--atom-lh-l); }
-      .hero-sub      { margin-inline: auto; }
-      .cta-row       { justify-content: center; }
-      .proof         { justify-content: center; }
-      .hero-visual   { order: -1; }
-      .phone-frame   { width: 240px; }
-      .float-card    { display: none; }
-      .features-grid { grid-template-columns: 1fr; }
-      .stats-inner   { flex-wrap: wrap; }
-      .stat          { min-width: 120px; }
+    /* ── Responsive (page-specific only — layout utilities handled by DS) ── */
+    @media (max-width: 959px) {
+      .phone-frame { width: 240px; }
+      .stat        { min-width: 120px; }
     }
   </style>
 </head>
@@ -129,7 +120,7 @@
   <!-- ═══════════════════════════════════════════ -->
   <section class="atom-relative atom-overflow-hidden">
     <div class="hero-bg atom-absolute atom-inset-0 atom-opacity-70"></div>
-    <div class="atom-container atom-relative atom-grid hero-grid atom-grid-cols-2 atom-gap-xl atom-items-center atom-py-3xl atom-px-l">
+    <div class="atom-container atom-relative atom-grid atom-grid-cols-1 atom-sm:grid-cols-2 atom-text-center atom-sm:text-left atom-gap-xl atom-items-center atom-py-3xl atom-px-l">
       <div>
         <!-- Badge -->
         <div class="atom-badge atom-mb-m">
@@ -138,21 +129,21 @@
         </div>
 
         <!-- Headline -->
-        <h1 class="hero-headline atom-font-titles atom-font-bold atom-fs-48 atom-lh-xxl atom-tracking-snug atom-mb-m">
+        <h1 class="atom-font-titles atom-font-bold atom-fs-32 atom-sm:fs-48 atom-lh-l atom-sm:lh-xxl atom-tracking-snug atom-mb-m">
           Tu equipo de ventas<br>
           <span class="atom-color-text-violet-600">nunca duerme</span><br>
           en <span class="atom-color-text-green-500">WhatsApp</span>
         </h1>
 
         <!-- Subtitle -->
-        <p class="hero-sub atom-fs-16 atom-lh-sm atom-text-secondary atom-mb-l atom-max-w-lg">
+        <p class="atom-fs-16 atom-lh-sm atom-text-secondary atom-mb-l atom-max-w-lg atom-mx-auto atom-sm:mx-0">
           Atom conecta IA multimodal a tu WhatsApp Business.
           Responde preguntas, califica leads y cierra ventas las 24 horas,
           en el idioma de tu cliente.
         </p>
 
         <!-- CTA row -->
-        <div class="cta-row atom-flex atom-gap-s atom-flex-wrap atom-items-center atom-mb-l">
+        <div class="atom-flex atom-gap-s atom-flex-wrap atom-items-center atom-mb-l atom-justify-center atom-sm:justify-start">
           <a href="#" class="atom-btn atom-btn--primary atom-btn--lg">
             <i class="fa-brands fa-whatsapp"></i>
             Probar en WhatsApp
@@ -163,7 +154,7 @@
         </div>
 
         <!-- Social proof -->
-        <div class="proof atom-flex atom-items-center atom-gap-m">
+        <div class="atom-flex atom-items-center atom-gap-m atom-justify-center atom-sm:justify-start">
           <div class="atom-flex">
             <div class="proof-avatar atom-rounded-full atom-bg-tertiary atom-flex atom-items-center atom-justify-center atom-fs-10 atom-font-semibold atom-text-tertiary">KO</div>
             <div class="proof-avatar atom-rounded-full atom-bg-tertiary atom-flex atom-items-center atom-justify-center atom-fs-10 atom-font-semibold atom-text-tertiary">MR</div>
@@ -177,21 +168,21 @@
       </div>
 
       <!-- Hero visual -->
-      <div class="hero-visual atom-relative atom-flex atom-justify-center atom-items-center">
+      <div class="atom-relative atom-flex atom-justify-center atom-items-center atom-order-first atom-sm:order-none">
         <!-- Floating cards -->
-        <div class="float-card float-card--tl atom-absolute atom-animate-float atom-bg-primary atom-border atom-border-primary atom-rounded-md atom-px-sm atom-py-xs atom-fs-12 atom-flex atom-items-center atom-gap-xs atom-whitespace-nowrap atom-shadow-lg">
+        <div class="float-card float-card--tl atom-absolute atom-animate-float atom-bg-primary atom-border atom-border-primary atom-rounded-md atom-px-sm atom-py-xs atom-fs-12 atom-hidden atom-sm:flex atom-items-center atom-gap-xs atom-whitespace-nowrap atom-shadow-lg">
           <div class="atom-icon-status--success atom-size-l atom-flex atom-items-center atom-justify-center atom-rounded-sm atom-fs-12 atom-shrink-0">
             <i class="fa-solid fa-check"></i>
           </div>
           <span>Lead calificado</span>
         </div>
-        <div class="float-card float-card--tr atom-absolute atom-animate-float atom-bg-primary atom-border atom-border-primary atom-rounded-md atom-px-sm atom-py-xs atom-fs-12 atom-flex atom-items-center atom-gap-xs atom-whitespace-nowrap atom-shadow-lg">
+        <div class="float-card float-card--tr atom-absolute atom-animate-float atom-bg-primary atom-border atom-border-primary atom-rounded-md atom-px-sm atom-py-xs atom-fs-12 atom-hidden atom-sm:flex atom-items-center atom-gap-xs atom-whitespace-nowrap atom-shadow-lg">
           <div class="atom-icon-status--info atom-size-l atom-flex atom-items-center atom-justify-center atom-rounded-sm atom-fs-12 atom-shrink-0">
             <i class="fa-solid fa-language"></i>
           </div>
           <span>5 idiomas</span>
         </div>
-        <div class="float-card float-card--bl atom-absolute atom-animate-float atom-bg-primary atom-border atom-border-primary atom-rounded-md atom-px-sm atom-py-xs atom-fs-12 atom-flex atom-items-center atom-gap-xs atom-whitespace-nowrap atom-shadow-lg">
+        <div class="float-card float-card--bl atom-absolute atom-animate-float atom-bg-primary atom-border atom-border-primary atom-rounded-md atom-px-sm atom-py-xs atom-fs-12 atom-hidden atom-sm:flex atom-items-center atom-gap-xs atom-whitespace-nowrap atom-shadow-lg">
           <div class="atom-icon-status--brand atom-size-l atom-flex atom-items-center atom-justify-center atom-rounded-sm atom-fs-12 atom-shrink-0">
             <i class="fa-solid fa-bolt"></i>
           </div>
@@ -237,7 +228,7 @@
   <!-- STATS STRIP                                 -->
   <!-- ═══════════════════════════════════════════ -->
   <div class="atom-bg-secondary atom-border-t atom-border-b atom-border-primary">
-    <div class="stats-inner atom-container atom-flex atom-justify-between atom-text-center atom-p-l">
+    <div class="atom-container atom-flex atom-flex-wrap atom-sm:flex-nowrap atom-justify-between atom-text-center atom-p-l">
       <div class="stat atom-flex-1">
         <div class="atom-font-titles atom-fs-28 atom-font-bold atom-tracking-normal atom-text-primary">10K+</div>
         <div class="atom-fs-12 atom-text-tertiary atom-mt-xxs">Conversaciones / día</div>
@@ -266,7 +257,7 @@
       <h2 class="atom-h2-bold">Todo lo que necesitas, un solo link</h2>
       <p class="atom-fs-14 atom-text-tertiary atom-mt-xs">Tokens, tipografía, componentes y temas. Sin instalar nada.</p>
     </div>
-    <div class="features-grid atom-grid atom-grid-cols-3 atom-gap-m">
+    <div class="atom-grid atom-grid-cols-1 atom-sm:grid-cols-3 atom-gap-m">
       <div class="feat-card atom-p-l atom-rounded-lg atom-bg-secondary atom-border atom-border-primary atom-transition atom-hover-lift atom-cursor-pointer">
         <div class="atom-icon-status--brand atom-size-2xl atom-flex atom-items-center atom-justify-center atom-rounded-md atom-fs-16 atom-mb-sm">
           <i class="fa-solid fa-brain"></i>

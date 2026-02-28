@@ -602,6 +602,10 @@
   margin-inline: auto;
 }
 
+.atom-mx-0 {
+  margin-inline: 0;
+}
+
 .atom-ml-auto {
   margin-left: auto;
 }

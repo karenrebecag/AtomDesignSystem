@@ -1,0 +1,86 @@
+// ============================================
+// Utilities — Responsive Prefixes (Mobile-First)
+// ============================================
+// Generates breakpoint-prefixed variants of key
+// utility classes using min-width (mobile-first).
+//
+// Pattern: .atom-{bp}:{utility}
+// Example: .atom-sm:hidden — applies display:none at >=960px
+//
+// Breakpoints:
+//   sm: 960px   (tablet landscape+)
+//   md: 1280px  (desktop+)
+//   lg: 1920px  (wide+)
+// ============================================
+
+@use '../core/variables' as *;
+@use '../foundations/layout/breakpoints' as *;
+
+// Only generate for the 3 most-used breakpoints
+$_responsive-bps: ('sm', 'md', 'lg');
+
+@each $bp in $_responsive-bps {
+  @include atom-breakpoint-up($bp) {
+
+    // ── Display ──
+    .atom-#{$bp}\:block        { display: block; }
+    .atom-#{$bp}\:flex         { display: flex; }
+    .atom-#{$bp}\:inline-flex  { display: inline-flex; }
+    .atom-#{$bp}\:grid         { display: grid; }
+    .atom-#{$bp}\:hidden       { display: none; }
+
+    // ── Grid Columns ──
+    .atom-#{$bp}\:grid-cols-1  { grid-template-columns: repeat(1, 1fr); }
+    .atom-#{$bp}\:grid-cols-2  { grid-template-columns: repeat(2, 1fr); }
+    .atom-#{$bp}\:grid-cols-3  { grid-template-columns: repeat(3, 1fr); }
+    .atom-#{$bp}\:grid-cols-4  { grid-template-columns: repeat(4, 1fr); }
+
+    // ── Flex Direction ──
+    .atom-#{$bp}\:flex-row     { flex-direction: row; }
+    .atom-#{$bp}\:flex-col     { flex-direction: column; }
+    .atom-#{$bp}\:flex-wrap    { flex-wrap: wrap; }
+    .atom-#{$bp}\:flex-nowrap  { flex-wrap: nowrap; }
+
+    // ── Justify Content ──
+    .atom-#{$bp}\:justify-start   { justify-content: flex-start; }
+    .atom-#{$bp}\:justify-center  { justify-content: center; }
+    .atom-#{$bp}\:justify-end     { justify-content: flex-end; }
+    .atom-#{$bp}\:justify-between { justify-content: space-between; }
+
+    // ── Align Items ──
+    .atom-#{$bp}\:items-start   { align-items: flex-start; }
+    .atom-#{$bp}\:items-center  { align-items: center; }
+    .atom-#{$bp}\:items-end     { align-items: flex-end; }
+    .atom-#{$bp}\:items-stretch { align-items: stretch; }
+
+    // ── Text Alignment ──
+    .atom-#{$bp}\:text-left    { text-align: left; }
+    .atom-#{$bp}\:text-center  { text-align: center; }
+    .atom-#{$bp}\:text-right   { text-align: right; }
+
+    // ── Order ──
+    .atom-#{$bp}\:order-first  { order: -1; }
+    .atom-#{$bp}\:order-last   { order: 9999; }
+    .atom-#{$bp}\:order-none   { order: 0; }
+
+    // ── Margin Auto ──
+    .atom-#{$bp}\:mx-auto { margin-inline: auto; }
+    .atom-#{$bp}\:mx-0    { margin-inline: 0; }
+    .atom-#{$bp}\:ml-auto { margin-left: auto; }
+    .atom-#{$bp}\:mr-auto { margin-right: auto; }
+
+    // ── Width ──
+    .atom-#{$bp}\:w-full  { width: 100%; }
+    .atom-#{$bp}\:w-auto  { width: auto; }
+
+    // ── Font Size (from token scale) ──
+    @each $size in map-keys($atom-font-sizes) {
+      .atom-#{$bp}\:fs-#{$size} { font-size: var(--atom-fs-#{$size}); }
+    }
+
+    // ── Line Height (from token scale) ──
+    @each $key in map-keys($atom-line-heights) {
+      .atom-#{$bp}\:lh-#{$key} { line-height: var(--atom-lh-#{$key}); }
+    }
+  }
+}
