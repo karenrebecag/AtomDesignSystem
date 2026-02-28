@@ -1,0 +1,119 @@
+// ============================================
+// Tier 3: Component Tokens
+// ============================================
+// Component-specific tokens. Reference primitive tokens.
+// These are scoped to each component and change via
+// variant/state modifier classes.
+//
+// Naming: --atom-{component}-{property}
+// ============================================
+
+:root {
+  // ---- Button ----
+
+  --atom-btn-bg: var(--atom-color-zinc-950);
+  --atom-btn-fg: var(--atom-color-zinc-50);
+  --atom-btn-border-color: transparent;
+  --atom-btn-border-width: 0px;
+  --atom-btn-radius: var(--atom-space-s);
+  --atom-btn-gap: var(--atom-space-s);
+  --atom-btn-padding: var(--atom-space-sm);
+  --atom-btn-font-size: var(--atom-fs-12);
+  --atom-btn-line-height: var(--atom-lh-xs);
+  --atom-btn-font-weight: var(--atom-fw-medium);
+  --atom-btn-font-family: var(--atom-font-family-titles);
+  --atom-btn-icon-size: 16px;
+
+  // Focus ring
+  --atom-btn-focus-ring-color: var(--atom-color-zinc-200);
+  --atom-btn-focus-ring-width: 2px;
+  --atom-btn-focus-ring-offset: 2px;
+
+  // ---- Input ----
+
+  --atom-input-bg: var(--atom-color-neutral-0);
+  --atom-input-fg: var(--atom-color-zinc-600);
+  --atom-input-border-color: var(--atom-color-zinc-300);
+  --atom-input-border-width: 1px;
+  --atom-input-radius: var(--atom-space-s);
+  --atom-input-padding: var(--atom-space-sm);
+  --atom-input-gap: var(--atom-space-sm);
+  --atom-input-inner-gap: var(--atom-space-s);
+  --atom-input-font-size: var(--atom-fs-12);
+  --atom-input-line-height: var(--atom-lh-xs);
+  --atom-input-font-family: var(--atom-font-family-content);
+  --atom-input-font-weight: var(--atom-fw-regular);
+  --atom-input-label-font-family: var(--atom-font-family-titles);
+  --atom-input-label-font-weight: var(--atom-fw-medium);
+  --atom-input-label-color: var(--atom-color-zinc-600);
+  --atom-input-helper-color: var(--atom-color-zinc-600);
+  --atom-input-error-color: var(--atom-color-red-800);
+  --atom-input-error-border: var(--atom-color-red-500);
+  --atom-input-icon-size: 16px;
+  --atom-input-helper-icon-size: 12px;
+
+  // Input state tokens (overridden per state)
+  --atom-input-hover-fg: var(--atom-color-zinc-800);
+  --atom-input-hover-border: var(--atom-color-zinc-400);
+  --atom-input-focus-border: var(--atom-color-zinc-900);
+  --atom-input-filled-fg: var(--atom-color-zinc-800);
+  --atom-input-disabled-fg: var(--atom-color-zinc-400);
+  --atom-input-disabled-bg: var(--atom-color-zinc-100);
+  --atom-input-disabled-border: var(--atom-color-zinc-100);
+
+  // ---- Radio Button ----
+
+  --atom-radio-size: 16px;
+  --atom-radio-dot-size: 6px;
+  --atom-radio-border-width: 2px;
+  --atom-radio-bg: var(--atom-color-neutral-0);
+  --atom-radio-border: #71717b;
+  --atom-radio-dot-color: var(--atom-color-zinc-50);
+  --atom-radio-checked-bg: var(--atom-color-zinc-950);
+  --atom-radio-hover-bg: var(--atom-color-zinc-50);
+  --atom-radio-hover-border: #71717b;
+  --atom-radio-checked-hover-bg: var(--atom-color-zinc-800);
+  --atom-radio-focus-shadow: 0 0 0 2px rgba(161, 161, 161, 0.7);
+  --atom-radio-disabled-bg: var(--atom-color-zinc-100);
+  --atom-radio-disabled-border: var(--atom-color-zinc-100);
+  --atom-radio-disabled-dot-color: #9f9fa9;
+  --atom-radio-error-border: var(--atom-color-red-500);
+  --atom-radio-label-color: var(--atom-color-zinc-800);
+  --atom-radio-description-color: var(--atom-color-zinc-600);
+  --atom-radio-error-color: #9e0812;
+  --atom-radio-font-size: var(--atom-fs-12);
+  --atom-radio-line-height: var(--atom-lh-xs);
+  --atom-radio-gap: var(--atom-space-s);
+
+  // ---- Toggle ----
+
+  --atom-toggle-track-width: 36px;
+  --atom-toggle-track-height: 20px;
+  --atom-toggle-track-padding: 2px;
+  --atom-toggle-track-radius: 16px;
+  --atom-toggle-knob-size: 16px;
+  --atom-toggle-knob-shadow: 0 0 4px rgba(10, 13, 18, 0.1);
+  --atom-toggle-focus-shadow: 0 0 0 2px rgba(161, 161, 161, 0.7);
+
+  // Off (unchecked)
+  --atom-toggle-track-bg: var(--atom-color-zinc-100);
+  --atom-toggle-knob-bg: var(--atom-color-zinc-50);
+  --atom-toggle-hover-track-bg: var(--atom-color-zinc-200);
+  --atom-toggle-disabled-track-bg: var(--atom-color-zinc-100);
+  --atom-toggle-disabled-knob-bg: var(--atom-color-zinc-200);
+
+  // On (checked)
+  --atom-toggle-checked-track-bg: var(--atom-color-zinc-950);
+  --atom-toggle-checked-knob-bg: var(--atom-color-zinc-50);
+  --atom-toggle-checked-hover-track-bg: var(--atom-color-zinc-800);
+  --atom-toggle-checked-disabled-track-bg: var(--atom-color-zinc-100);
+  --atom-toggle-checked-disabled-knob-bg: var(--atom-color-zinc-200);
+
+  // Toggle text (shared with radio)
+  --atom-toggle-label-color: var(--atom-color-zinc-800);
+  --atom-toggle-description-color: var(--atom-color-zinc-600);
+  --atom-toggle-error-color: #9e0812;
+  --atom-toggle-font-size: var(--atom-fs-12);
+  --atom-toggle-line-height: var(--atom-lh-xs);
+  --atom-toggle-gap: var(--atom-space-s);
+}

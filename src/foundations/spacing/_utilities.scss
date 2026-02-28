@@ -1,0 +1,60 @@
+// ============================================
+// Spacing — Utility Classes
+// ============================================
+// Generates padding, margin, and gap utilities
+// from the spacing token scale.
+//
+// Classes:
+//   .atom-p-{key}   — padding (all sides)
+//   .atom-px-{key}  — padding inline (left + right)
+//   .atom-py-{key}  — padding block (top + bottom)
+//   .atom-pt-{key}  — padding top
+//   .atom-pr-{key}  — padding right
+//   .atom-pb-{key}  — padding bottom
+//   .atom-pl-{key}  — padding left
+//
+//   .atom-m-{key}   — margin (all sides)
+//   .atom-mx-{key}  — margin inline
+//   .atom-my-{key}  — margin block
+//   .atom-mt-{key}  — margin top
+//   .atom-mr-{key}  — margin right
+//   .atom-mb-{key}  — margin bottom
+//   .atom-ml-{key}  — margin left
+//
+//   .atom-gap-{key} — gap (for flex/grid)
+// ============================================
+
+@use '../../core/variables' as *;
+
+@each $key, $value in $atom-spacing {
+  // Padding
+  .atom-p-#{$key}  { padding: var(--atom-space-#{$key}); }
+  .atom-px-#{$key} { padding-inline: var(--atom-space-#{$key}); }
+  .atom-py-#{$key} { padding-block: var(--atom-space-#{$key}); }
+  .atom-pt-#{$key} { padding-top: var(--atom-space-#{$key}); }
+  .atom-pr-#{$key} { padding-right: var(--atom-space-#{$key}); }
+  .atom-pb-#{$key} { padding-bottom: var(--atom-space-#{$key}); }
+  .atom-pl-#{$key} { padding-left: var(--atom-space-#{$key}); }
+
+  // Margin
+  .atom-m-#{$key}  { margin: var(--atom-space-#{$key}); }
+  .atom-mx-#{$key} { margin-inline: var(--atom-space-#{$key}); }
+  .atom-my-#{$key} { margin-block: var(--atom-space-#{$key}); }
+  .atom-mt-#{$key} { margin-top: var(--atom-space-#{$key}); }
+  .atom-mr-#{$key} { margin-right: var(--atom-space-#{$key}); }
+  .atom-mb-#{$key} { margin-bottom: var(--atom-space-#{$key}); }
+  .atom-ml-#{$key} { margin-left: var(--atom-space-#{$key}); }
+
+  // Gap
+  .atom-gap-#{$key} { gap: var(--atom-space-#{$key}); }
+}
+
+// Auto margin utilities
+.atom-mx-auto { margin-inline: auto; }
+.atom-ml-auto { margin-left: auto; }
+.atom-mr-auto { margin-right: auto; }
+
+// Zero spacing
+.atom-p-0  { padding: 0; }
+.atom-m-0  { margin: 0; }
+.atom-gap-0 { gap: 0; }

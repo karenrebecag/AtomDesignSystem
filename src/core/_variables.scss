@@ -1,0 +1,312 @@
+// ============================================
+// Core Variables
+// ============================================
+// Internal SCSS variables used by functions, mixins, and generators.
+// NOT exposed as CSS custom properties — these are build-time only.
+// ============================================
+
+// -- Prefix --
+$atom-prefix: 'atom' !default;
+
+// -- Color Palettes --
+// Each palette is a map of step => value.
+
+$atom-colors-zinc: (
+  50:  #fafafa,
+  100: #f4f4f5,
+  200: #e4e4e7,
+  300: #d4d4d8,
+  400: #9f9fa9,
+  500: #71717b,
+  600: #52525c,
+  800: #27272a,
+  900: #18181b,
+  950: #09090b,
+) !default;
+
+$atom-colors-violet: (
+  50:  #f5f3ff,
+  100: #ede9ff,
+  200: #ddd6ff,
+  300: #c5b3ff,
+  500: #8e51ff,
+  600: #8023ff,
+  700: #7107e7,
+  950: #2f0d68,
+) !default;
+
+$atom-colors-purple: (
+  600: #990ffa,
+) !default;
+
+$atom-colors-orange: (
+  50:  #fff4ed,
+  100: #ffdec8,
+  200: #ffc8a4,
+  300: #ff9d5b,
+  500: #ff6600,
+  900: #5b2400,
+) !default;
+
+$atom-colors-neutral: (
+  0:   #ffffff,
+  50:  #fafafa,
+  950: #0a0a0a,
+) !default;
+
+$atom-colors-alpha: (
+  0:   #ffffff00,
+  300: #d4d4d4b2,
+  800: #262626b2,
+  950: #0a0a0ab2,
+) !default;
+
+$atom-colors-red: (
+  50:  #fef3f3,
+  100: #ffe2e3,
+  400: #ff6467,
+  500: #fb2c37,
+  600: #e7000b,
+  700: #c10008,
+  800: #9e0812,
+) !default;
+
+$atom-colors-blue: (
+  50:  #eff6ff,
+  100: #dbeaff,
+  400: #52a2ff,
+  500: #2c7fff,
+  600: #165dfc,
+  700: #1447e6,
+  800: #193cb9,
+) !default;
+
+$atom-colors-green: (
+  50:  #f1fdf4,
+  500: #00c951,
+  800: #0e542c,
+) !default;
+
+$atom-colors-yellow: (
+  50:  #fefce8,
+  500: #f1b100,
+  800: #894b00,
+) !default;
+
+$atom-colors-amber: (
+  50:  #fffbea,
+  800: #973c00,
+) !default;
+
+$atom-colors-emerald: (
+  50:  #ecfef6,
+  800: #006145,
+) !default;
+
+$atom-colors-cyan: (
+  50:  #ebffff,
+  950: #053345,
+) !default;
+
+$atom-colors-pink: (
+  100: #fde7f4,
+  700: #c7005c,
+) !default;
+
+$atom-colors-rose: (
+  50: #fff2f2,
+) !default;
+
+$atom-colors-sky: (
+  900: #004a71,
+) !default;
+
+// Master palette map (all palettes)
+$atom-palettes: (
+  'zinc':    $atom-colors-zinc,
+  'violet':  $atom-colors-violet,
+  'purple':  $atom-colors-purple,
+  'orange':  $atom-colors-orange,
+  'neutral': $atom-colors-neutral,
+  'alpha':   $atom-colors-alpha,
+  'red':     $atom-colors-red,
+  'blue':    $atom-colors-blue,
+  'green':   $atom-colors-green,
+  'yellow':  $atom-colors-yellow,
+  'amber':   $atom-colors-amber,
+  'emerald': $atom-colors-emerald,
+  'cyan':    $atom-colors-cyan,
+  'pink':    $atom-colors-pink,
+  'rose':    $atom-colors-rose,
+  'sky':     $atom-colors-sky,
+) !default;
+
+// -- Font Families --
+$atom-font-family-titles:    'Inter', sans-serif !default;
+$atom-font-family-content:   'Inter', sans-serif !default;
+$atom-font-family-secondary: 'Open Sauce One', sans-serif !default;
+
+$atom-font-families: (
+  'titles':    $atom-font-family-titles,
+  'content':   $atom-font-family-content,
+  'secondary': $atom-font-family-secondary,
+) !default;
+
+// -- Font Weights --
+$atom-font-weight-regular:  400 !default;
+$atom-font-weight-medium:   500 !default;
+$atom-font-weight-semibold: 600 !default;
+$atom-font-weight-bold:     700 !default;
+
+$atom-font-weights: (
+  'regular':  $atom-font-weight-regular,
+  'medium':   $atom-font-weight-medium,
+  'semibold': $atom-font-weight-semibold,
+  'bold':     $atom-font-weight-bold,
+) !default;
+
+// -- Font Sizes --
+$atom-font-sizes: (
+  72: 72px,
+  64: 64px,
+  56: 56px,
+  52: 52px,
+  48: 48px,
+  44: 44px,
+  36: 36px,
+  32: 32px,
+  28: 28px,
+  24: 24px,
+  20: 20px,
+  16: 16px,
+  12: 12px,
+  10: 10px,
+  8:  8px,
+) !default;
+
+// -- Line Heights --
+$atom-line-heights: (
+  '5xxl': 88px,
+  '4xxl': 80px,
+  '3xxl': 72px,
+  '2xxl': 64px,
+  'xxl':  56px,
+  'xl':   48px,
+  'l':    40px,
+  'm':    32px,
+  'md':   32px,
+  'sm':   24px,
+  'xs':   16px,
+  'xxs':  16px,
+) !default;
+
+// -- Letter Spacing --
+$atom-letter-spacing-tight:  -4px !default;
+$atom-letter-spacing-snug:   -2px !default;
+$atom-letter-spacing-normal:  0px !default;
+
+$atom-letter-spacings: (
+  'tight':  $atom-letter-spacing-tight,
+  'snug':   $atom-letter-spacing-snug,
+  'normal': $atom-letter-spacing-normal,
+) !default;
+
+// -- Type Scale --
+// Each style: (size, line-height-token, letter-spacing-token, family-key)
+// family-key: 'titles' for bold/medium, 'content' for regular, 'secondary' for h2
+
+$atom-type-scale: (
+  // Display
+  'display-xl': (size: 72, lh: '5xxl', ls: 'tight'),
+  'display-lg': (size: 64, lh: '4xxl', ls: 'tight'),
+  'display-md': (size: 56, lh: '3xxl', ls: 'tight'),
+  'display-sm': (size: 52, lh: '2xxl', ls: 'tight'),
+
+  // Titles
+  'huge-title': (size: 48, lh: '2xxl', ls: 'snug'),
+  'h1':         (size: 44, lh: 'xxl',  ls: 'snug'),
+  'h2':         (size: 36, lh: 'xl',   ls: 'snug', family: 'secondary'),
+  'h3':         (size: 32, lh: 'l',    ls: 'snug'),
+  'h4':         (size: 28, lh: 'md',   ls: 'snug'),
+
+  // Body
+  'heading':     (size: 24, lh: 'm',   ls: 'snug'),
+  'body':        (size: 20, lh: 'sm',  ls: 'normal'),
+  'caption':     (size: 16, lh: 'sm',  ls: 'normal'),
+  'label':       (size: 12, lh: 'xs',  ls: 'normal'),
+  'label-sm':    (size: 10, lh: 'xs',  ls: 'normal'),
+  'footnote':    (size: 8,  lh: 'xxs', ls: 'normal'),
+) !default;
+
+// Weight mapping per style variant
+// bold/medium use 'titles' family, regular uses 'content'
+// Exception: h2 uses 'secondary' for all weights, with semibold instead of bold
+$atom-type-weight-map: (
+  'bold':    (weight: 'bold',     family: 'titles'),
+  'medium':  (weight: 'medium',   family: 'titles'),
+  'regular': (weight: 'regular',  family: 'content'),
+) !default;
+
+// H2 exception: uses Open Sauce One with semibold
+$atom-type-h2-weight-map: (
+  'bold':    (weight: 'semibold', family: 'secondary'),
+  'medium':  (weight: 'semibold', family: 'secondary'),
+  'regular': (weight: 'regular',  family: 'secondary'),
+) !default;
+
+// Letter spacing exceptions for regular weight
+// These styles use 'normal' (0) letter-spacing in regular weight
+$atom-type-ls-zero-regular: ('display-xl', 'huge-title', 'h1') !default;
+
+// -- Spacing (8pt grid system) --
+$atom-spacing: (
+  'xxs':  2px,
+  'xs':   4px,
+  's':    8px,
+  'sm':   12px,
+  'm':    16px,
+  'l':    24px,
+  'xl':   32px,
+  '3xxl': 44px,
+) !default;
+
+// -- Border Radius --
+$atom-radius: (
+  'sm':   12px,
+  '2xxl': 40px,
+) !default;
+
+// -- Breakpoints --
+// 8pt grid system with 4/8/12 column layouts.
+// Max grid width: 1920px. All breakpoints are fluid until max.
+//
+// xs (x-Small):  0–599    → 4 columns,  design: 360px
+// sm (Small):    600–960  → 4 columns,  design: 600px
+// md (Medium):   961–1280 → 8 columns,  design: 1024px
+// lg (Large):    1281–1920 → 12 columns, design: 1280px
+// xl (X-Large):  1921+    → 12 columns, design: 1921px
+
+$atom-breakpoints: (
+  'xs': 600px,
+  'sm': 960px,
+  'md': 1280px,
+  'lg': 1920px,
+  'xl': 1921px,
+) !default;
+
+$atom-grid-max-width: 1920px !default;
+$atom-grid-base-unit: 8px !default;
+
+// Grid columns per breakpoint
+$atom-grid-columns: (
+  'xs': 4,
+  'sm': 4,
+  'md': 8,
+  'lg': 12,
+  'xl': 12,
+) !default;
+
+// -- Iconography --
+// Font Awesome 6 (Classic, Solid) — loaded via CDN
+$atom-icon-family: 'Font Awesome 6 Free' !default;
+$atom-icon-weight: 900 !default; // Solid

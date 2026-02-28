@@ -1,0 +1,197 @@
+// ============================================
+// Component — Icon Button
+// ============================================
+// Square button for icon-only actions.
+// Same variant system as Button but always square.
+//
+// Variants: primary, secondary, tertiary, link,
+//           danger-primary, danger-secondary, danger-tertiary
+// Sizes: xs(24), sm(32), md(40), lg(48), xl(56)
+//
+// Usage:
+//   <button class="atom-icon-btn atom-icon-btn--secondary atom-icon-btn--sm">
+//     <i class="fa-solid fa-plus"></i>
+//   </button>
+// ============================================
+
+@use '../../core/mixins' as *;
+
+// Size map: name → (size, icon-size, padding)
+$_icon-btn-sizes: (
+  'xs': (size: 24px, icon: 12px, padding: 4px),
+  'sm': (size: 32px, icon: 14px, padding: 8px),
+  'md': (size: 40px, icon: 16px, padding: 12px),
+  'lg': (size: 48px, icon: 16px, padding: 16px),
+  'xl': (size: 56px, icon: 20px, padding: 16px),
+);
+
+// -----------------------------------------------
+// Base
+// -----------------------------------------------
+
+.atom-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: clip;
+
+  // Default: md
+  width: 40px;
+  height: 40px;
+  padding: 12px;
+  border-radius: var(--atom-space-s);
+
+  // Icon sizing
+  font-size: 16px;
+  line-height: 1;
+
+  // Colors (primary default)
+  background-color: var(--atom-btn-bg);
+  color: var(--atom-btn-fg);
+  border: var(--atom-btn-border-width) solid var(--atom-btn-border-color);
+
+  // Interaction
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  @include atom-transition;
+
+  // Reset
+  appearance: none;
+  outline: none;
+  box-sizing: border-box;
+
+  // Icon inside
+  > i,
+  > svg,
+  > .atom-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+  }
+
+  &:focus-visible {
+    @include atom-focus-ring;
+  }
+}
+
+// -----------------------------------------------
+// Sizes
+// -----------------------------------------------
+
+@each $name, $config in $_icon-btn-sizes {
+  .atom-icon-btn--#{$name} {
+    width: map-get($config, size);
+    height: map-get($config, size);
+    padding: map-get($config, padding);
+    font-size: map-get($config, icon);
+  }
+}
+
+// -----------------------------------------------
+// Variants — reuse the same token overrides as .atom-btn
+// -----------------------------------------------
+
+// Primary (default)
+.atom-icon-btn,
+.atom-icon-btn--primary {
+  --atom-btn-bg: var(--atom-color-zinc-950);
+  --atom-btn-fg: var(--atom-color-zinc-50);
+  --atom-btn-border-color: transparent;
+  --atom-btn-border-width: 0px;
+
+  &:hover { --atom-btn-bg: var(--atom-color-zinc-800); }
+  &:focus-visible { --atom-btn-focus-ring-color: var(--atom-color-zinc-200); }
+  &:active { --atom-btn-bg: var(--atom-color-zinc-800); --atom-btn-fg: var(--atom-color-zinc-400); }
+  &[disabled] { --atom-btn-bg: var(--atom-color-zinc-100); --atom-btn-fg: var(--atom-color-zinc-400); pointer-events: none; }
+}
+
+// Secondary
+.atom-icon-btn--secondary {
+  --atom-btn-bg: var(--atom-color-neutral-0);
+  --atom-btn-fg: var(--atom-color-zinc-900);
+  --atom-btn-border-color: var(--atom-color-zinc-300);
+  --atom-btn-border-width: 1px;
+
+  &:hover { --atom-btn-bg: var(--atom-color-zinc-100); }
+  &:focus-visible { --atom-btn-border-color: var(--atom-color-zinc-500); --atom-btn-focus-ring-color: var(--atom-color-zinc-500); }
+  &:active { --atom-btn-bg: var(--atom-color-zinc-50); --atom-btn-fg: var(--atom-color-zinc-600); }
+  &[disabled] { --atom-btn-bg: var(--atom-color-zinc-100); --atom-btn-fg: var(--atom-color-zinc-400); --atom-btn-border-color: transparent; pointer-events: none; }
+}
+
+// Tertiary
+.atom-icon-btn--tertiary {
+  --atom-btn-bg: transparent;
+  --atom-btn-fg: var(--atom-color-zinc-900);
+  --atom-btn-border-color: transparent;
+  --atom-btn-border-width: 0px;
+
+  &:hover { --atom-btn-bg: var(--atom-color-zinc-100); }
+  &:focus-visible { --atom-btn-bg: var(--atom-color-neutral-0); --atom-btn-border-color: var(--atom-color-zinc-200); --atom-btn-border-width: 1px; }
+  &:active { --atom-btn-bg: var(--atom-color-zinc-50); --atom-btn-fg: var(--atom-color-zinc-600); }
+  &[disabled] { --atom-btn-bg: var(--atom-color-zinc-100); --atom-btn-fg: var(--atom-color-zinc-400); pointer-events: none; }
+}
+
+// Link
+.atom-icon-btn--link {
+  --atom-btn-bg: transparent;
+  --atom-btn-fg: var(--atom-color-blue-500);
+  --atom-btn-border-color: transparent;
+  --atom-btn-border-width: 0px;
+
+  &:hover { --atom-btn-bg: var(--atom-color-blue-50); --atom-btn-fg: var(--atom-color-blue-600); }
+  &:focus-visible { --atom-btn-border-color: var(--atom-color-blue-500); --atom-btn-border-width: 1px; }
+  &:active { --atom-btn-fg: var(--atom-color-blue-700); }
+  &[disabled] { --atom-btn-fg: var(--atom-color-zinc-400); pointer-events: none; }
+}
+
+// Danger Primary
+.atom-icon-btn--danger-primary {
+  --atom-btn-bg: var(--atom-color-red-500);
+  --atom-btn-fg: var(--atom-color-zinc-50);
+  --atom-btn-border-color: transparent;
+  --atom-btn-border-width: 0px;
+
+  &:hover { --atom-btn-bg: var(--atom-color-red-400); }
+  &:focus-visible { --atom-btn-focus-ring-color: var(--atom-color-red-50); }
+  &:active { --atom-btn-bg: var(--atom-color-red-600); }
+  &[disabled] { --atom-btn-bg: var(--atom-color-zinc-100); --atom-btn-fg: var(--atom-color-zinc-400); pointer-events: none; }
+}
+
+// Danger Secondary
+.atom-icon-btn--danger-secondary {
+  --atom-btn-bg: transparent;
+  --atom-btn-fg: var(--atom-color-red-500);
+  --atom-btn-border-color: var(--atom-color-red-500);
+  --atom-btn-border-width: 1px;
+
+  &:hover { --atom-btn-bg: var(--atom-color-red-50); --atom-btn-fg: var(--atom-color-red-600); --atom-btn-border-color: var(--atom-color-red-600); }
+  &:focus-visible { --atom-btn-focus-ring-color: var(--atom-color-red-500); }
+  &:active { --atom-btn-bg: var(--atom-color-red-100); --atom-btn-fg: var(--atom-color-red-700); }
+  &[disabled] { --atom-btn-bg: var(--atom-color-zinc-100); --atom-btn-fg: var(--atom-color-zinc-400); --atom-btn-border-color: transparent; pointer-events: none; }
+}
+
+// Danger Tertiary
+.atom-icon-btn--danger-tertiary {
+  --atom-btn-bg: transparent;
+  --atom-btn-fg: var(--atom-color-red-500);
+  --atom-btn-border-color: transparent;
+  --atom-btn-border-width: 0px;
+
+  &:hover { --atom-btn-fg: var(--atom-color-red-600); }
+  &:focus-visible { --atom-btn-bg: var(--atom-color-zinc-50); --atom-btn-border-color: var(--atom-color-red-500); --atom-btn-border-width: 1px; }
+  &:active { --atom-btn-bg: var(--atom-color-red-100); --atom-btn-fg: var(--atom-color-red-700); }
+  &[disabled] { --atom-btn-bg: var(--atom-color-zinc-100); --atom-btn-fg: var(--atom-color-zinc-400); pointer-events: none; }
+}
+
+// -----------------------------------------------
+// Disabled (global)
+// -----------------------------------------------
+
+.atom-icon-btn[disabled] {
+  pointer-events: none;
+  cursor: not-allowed;
+}

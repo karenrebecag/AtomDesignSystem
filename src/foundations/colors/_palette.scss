@@ -1,0 +1,38 @@
+// ============================================
+// Colors — Palette (Primitives)
+// ============================================
+// Complete color palette from Figma Atom Design System.
+// All values are exposed as CSS custom properties in _primitive.scss.
+// This file provides SCSS utility access and documentation.
+//
+// Usage in SCSS:
+//   color: atom-color('violet', 700);
+//
+// Usage in CSS:
+//   color: var(--atom-color-violet-700);
+//
+// Palettes:
+//   zinc      — Neutral grays (10 steps)
+//   violet    — Primary brand (8 steps)
+//   purple    — Accent (1 step)
+//   orange    — Warm accent (6 steps)
+//   neutral   — Pure black/white (3 steps)
+//   alpha     — Transparency (4 steps)
+//   red       — Error/danger (7 steps)
+//   blue      — Info/links (7 steps)
+//   green     — Success (3 steps)
+//   yellow    — Warning (3 steps)
+//   amber     — Warm warning (2 steps)
+//   emerald   — Alt success (2 steps)
+//   cyan      — Alt info (2 steps)
+//   pink      — Accent (2 steps)
+//   rose      — Soft accent (1 step)
+//   sky       — Alt info (1 step)
+// ============================================
+
+// Palette is generated via CSS custom properties in src/tokens/_primitive.scss
+// No additional output needed here — this file serves as documentation
+// and is available for @use in other SCSS files that need palette access.
+
+@use '../../core/variables' as *;
+@use '../../core/functions' as *;

@@ -1,0 +1,31 @@
+// ============================================
+// Typography — Type Scale
+// ============================================
+// 15 levels x 3 weights = 45 styles (+ 6 H2 variants = 51 total)
+//
+// CSS vars for sizes:   --atom-fs-{72|64|56|52|48|44|36|32|28|24|20|16|12|10|8}
+// CSS vars for heights: --atom-lh-{5xxl|4xxl|3xxl|2xxl|xxl|xl|l|m|md|sm|xs|xxs}
+// CSS vars for spacing: --atom-ls-{tight|snug|normal}
+//
+// Scale reference:
+//   display-xl  72px / 88px  ls: tight(-4)
+//   display-lg  64px / 80px  ls: tight(-4)
+//   display-md  56px / 72px  ls: tight(-4)
+//   display-sm  52px / 64px  ls: tight(-4)
+//   huge-title  48px / 64px  ls: snug(-2)
+//   h1          44px / 56px  ls: snug(-2)
+//   h2          36px / 48px  ls: snug(-2) [Open Sauce One]
+//   h3          32px / 40px  ls: snug(-2)
+//   h4          28px / 32px  ls: snug(-2)
+//   heading     24px / 32px  ls: snug(-2)
+//   body        20px / 24px  ls: normal(0)
+//   caption     16px / 24px  ls: normal(0)
+//   label       12px / 16px  ls: normal(0)
+//   label-sm    10px / 16px  ls: normal(0)
+//   footnote     8px / 16px  ls: normal(0)
+// ============================================
+
+// Scale is defined in core/_variables.scss as $atom-type-scale
+// and exposed as CSS custom properties in tokens/_primitive.scss.
+// This file serves as the scale reference documentation.
+// Actual class generation happens in _styles.scss.

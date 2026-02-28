@@ -1,0 +1,101 @@
+// ============================================
+// Typography — Mixins
+// ============================================
+// SCSS mixins for applying type styles.
+//
+// Usage:
+//   @include atom-type('h1', 'bold');
+//   @include atom-type('body', 'regular');
+//   @include atom-type('display-xl', 'medium');
+//
+// Or use CSS custom properties directly:
+//   font-size: var(--atom-fs-44);
+//   line-height: var(--atom-lh-xxl);
+// ============================================
+
+@use '../../core/variables' as *;
+@use '../../core/functions' as *;
+
+/// Apply a complete type style
+/// @param {String} $level - Type level (e.g. 'h1', 'body', 'display-xl')
+/// @param {String} $variant - Weight variant ('bold', 'medium', 'regular')
+@mixin atom-type($level, $variant: 'regular') {
+  $scale: map-get($atom-type-scale, $level);
+
+  @if not $scale {
+    @error 'Unknown type level: #{$level}. Available: #{map-keys($atom-type-scale)}';
+  }
+
+  $size: map-get($scale, size);
+  $lh-token: map-get($scale, lh);
+  $ls-token: map-get($scale, ls);
+  $has-custom-family: map-has-key($scale, family);
+
+  // Determine weight map (h2 is special)
+  $weight-map: $atom-type-weight-map;
+  @if $level == 'h2' {
+    $weight-map: $atom-type-h2-weight-map;
+  }
+
+  $variant-config: map-get($weight-map, $variant);
+  @if not $variant-config {
+    @error 'Unknown variant: #{$variant}. Available: bold, medium, regular';
+  }
+
+  $weight-key: map-get($variant-config, weight);
+  $family-key: map-get($variant-config, family);
+
+  // Override family if the level has a custom family (e.g. h2 -> secondary)
+  @if $has-custom-family and $level != 'h2' {
+    $family-key: map-get($scale, family);
+  }
+
+  // Letter spacing exception: some regular variants use 'normal' (0) instead
+  $final-ls: $ls-token;
+  @if $variant == 'regular' and index($atom-type-ls-zero-regular, $level) {
+    $final-ls: 'normal';
+  }
+
+  // Output properties
+  font-family: atom-font-family($family-key);
+  font-size: atom-font-size($size);
+  font-weight: atom-font-weight($weight-key);
+  line-height: atom-line-height($lh-token);
+  letter-spacing: atom-letter-spacing($final-ls);
+}
+
+/// Apply type style using CSS custom properties (runtime-flexible)
+/// @param {String} $level - Type level
+/// @param {String} $variant - Weight variant
+@mixin atom-type-var($level, $variant: 'regular') {
+  $scale: map-get($atom-type-scale, $level);
+
+  @if not $scale {
+    @error 'Unknown type level: #{$level}. Available: #{map-keys($atom-type-scale)}';
+  }
+
+  $size: map-get($scale, size);
+  $lh-token: map-get($scale, lh);
+  $ls-token: map-get($scale, ls);
+
+  $weight-map: $atom-type-weight-map;
+  @if $level == 'h2' {
+    $weight-map: $atom-type-h2-weight-map;
+  }
+
+  $variant-config: map-get($weight-map, $variant);
+  $weight-key: map-get($variant-config, weight);
+  $family-key: map-get($variant-config, family);
+
+  $final-ls: $ls-token;
+  @if $variant == 'regular' and index($atom-type-ls-zero-regular, $level) {
+    $final-ls: 'normal';
+  }
+
+  // Output using CSS custom properties
+  font-family: var(--atom-font-family-#{$family-key});
+  font-size: var(--atom-fs-#{$size});
+  font-weight: var(--atom-fw-#{$weight-key});
+  line-height: var(--atom-lh-#{$lh-token});
+  letter-spacing: var(--atom-ls-#{$final-ls});
+}

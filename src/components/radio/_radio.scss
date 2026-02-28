@@ -1,0 +1,229 @@
+// ============================================
+// Component — Radio Button
+// ============================================
+// A circle control that allows users to choose 1 option at a time.
+//
+// Anatomy:
+//   [Radio circle] [Label]
+//                  [Description]
+//   [Error icon + text]
+//
+// States: enabled, hover, focus, checked, disabled, error
+// Sizes: sm (16px, default), md (24px)
+//
+// Usage:
+//   <label class="atom-radio">
+//     <input class="atom-radio__control" type="radio" name="group">
+//     <span class="atom-radio__label">Remember me</span>
+//     <span class="atom-radio__description">Save my login details</span>
+//   </label>
+// ============================================
+
+@use '../../core/mixins' as *;
+
+// -----------------------------------------------
+// Wrapper
+// -----------------------------------------------
+
+.atom-radio {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--atom-radio-gap);
+  cursor: pointer;
+  position: relative;
+}
+
+// When only control, no label/description — center alignment
+.atom-radio:not(:has(.atom-radio__label)) {
+  align-items: center;
+}
+
+// -----------------------------------------------
+// Hidden native input + custom circle
+// -----------------------------------------------
+
+.atom-radio__control {
+  // Hide native radio but keep accessible
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  flex-shrink: 0;
+
+  // Custom circle
+  width: var(--atom-radio-size);
+  height: var(--atom-radio-size);
+  border: var(--atom-radio-border-width) solid var(--atom-radio-border);
+  border-radius: 50%;
+  background-color: var(--atom-radio-bg);
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  @include atom-transition((background-color, border-color, box-shadow));
+
+  // Inner dot (shown when checked)
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: var(--atom-radio-dot-size);
+    height: var(--atom-radio-dot-size);
+    border-radius: 50%;
+    background-color: var(--atom-radio-dot-color);
+    @include atom-transition((transform));
+  }
+
+  // Checked — fill circle and show dot
+  &:checked {
+    background-color: var(--atom-radio-checked-bg);
+    border-color: var(--atom-radio-checked-bg);
+
+    &::after {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+// -----------------------------------------------
+// Text elements
+// -----------------------------------------------
+
+.atom-radio__label {
+  font-family: var(--atom-font-family-titles);
+  font-weight: var(--atom-fw-medium);
+  font-size: var(--atom-radio-font-size);
+  line-height: var(--atom-radio-line-height);
+  color: var(--atom-radio-label-color);
+  white-space: nowrap;
+}
+
+.atom-radio__description {
+  font-family: var(--atom-font-family-content);
+  font-weight: var(--atom-fw-regular);
+  font-size: var(--atom-radio-font-size);
+  line-height: var(--atom-radio-line-height);
+  color: var(--atom-radio-description-color);
+}
+
+// Text wrapper — when label + description, stack vertically
+// The label and description sit next to the control in a column
+.atom-radio:has(.atom-radio__description) {
+  flex-wrap: wrap;
+
+  .atom-radio__control {
+    margin-top: 2px; // align with first line of text
+  }
+
+  .atom-radio__label,
+  .atom-radio__description {
+    // Take full remaining width after control
+    flex-basis: calc(100% - var(--atom-radio-size) - var(--atom-radio-gap));
+  }
+
+  .atom-radio__description {
+    margin-left: calc(var(--atom-radio-size) + var(--atom-radio-gap));
+    margin-top: 0;
+  }
+}
+
+// When only label (no description), center vertically
+.atom-radio:has(.atom-radio__label):not(:has(.atom-radio__description)):not(:has(.atom-radio__error)) {
+  align-items: center;
+}
+
+// -----------------------------------------------
+// Error
+// -----------------------------------------------
+
+.atom-radio__error {
+  display: flex;
+  align-items: center;
+  gap: var(--atom-radio-gap);
+  width: 100%;
+  font-family: var(--atom-font-family-content);
+  font-weight: var(--atom-fw-regular);
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--atom-radio-error-color);
+
+  > i,
+  > svg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+}
+
+// -----------------------------------------------
+// States
+// -----------------------------------------------
+
+// Hover
+.atom-radio:hover .atom-radio__control:not(:disabled):not(:checked) {
+  background-color: var(--atom-radio-hover-bg);
+  border-color: var(--atom-radio-hover-border);
+}
+
+.atom-radio:hover .atom-radio__control:not(:disabled):checked {
+  background-color: var(--atom-radio-checked-hover-bg);
+  border-color: var(--atom-radio-checked-hover-bg);
+}
+
+// Focus
+.atom-radio__control:focus-visible {
+  box-shadow: var(--atom-radio-focus-shadow);
+}
+
+// Disabled
+.atom-radio:has(.atom-radio__control:disabled) {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.atom-radio__control:disabled {
+  background-color: var(--atom-radio-disabled-bg);
+  border-color: var(--atom-radio-disabled-border);
+  cursor: not-allowed;
+
+  &:checked {
+    background-color: var(--atom-radio-disabled-bg);
+    border-color: var(--atom-radio-disabled-border);
+
+    &::after {
+      background-color: var(--atom-radio-disabled-dot-color);
+    }
+  }
+}
+
+.atom-radio:has(.atom-radio__control:disabled) .atom-radio__label,
+.atom-radio:has(.atom-radio__control:disabled) .atom-radio__description {
+  color: var(--atom-fg-disabled, #9f9fa9);
+}
+
+// Error state
+.atom-radio--error .atom-radio__control {
+  border-color: var(--atom-radio-error-border);
+}
+
+.atom-radio--error .atom-radio__control:checked {
+  border-color: var(--atom-radio-error-border);
+}
+
+// -----------------------------------------------
+// Sizes
+// -----------------------------------------------
+
+// sm is default (16px) — no modifier needed
+
+// md (24px)
+.atom-radio--md {
+  --atom-radio-size: 24px;
+  --atom-radio-dot-size: 10px;
+  --atom-radio-font-size: 16px;
+  --atom-radio-line-height: 24px;
+}

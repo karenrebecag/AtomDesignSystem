@@ -1,0 +1,62 @@
+// ============================================
+// Iconography — Font Awesome 6 (Classic, Solid)
+// ============================================
+// The design system uses Font Awesome 6 Free (Solid)
+// loaded via CDN. All icons reference the fa-solid style.
+//
+// CDN (add to <head>):
+//   <link rel="stylesheet"
+//         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+//         crossorigin="anonymous" />
+//
+// Usage:
+//   <i class="fa-solid fa-check"></i>
+//   <i class="atom-icon atom-icon-sm fa-solid fa-user"></i>
+//
+// With utility classes:
+//   .atom-icon          — base reset (inline-flex, centered)
+//   .atom-icon-xs       — 12px
+//   .atom-icon-sm       — 16px
+//   .atom-icon-md       — 20px (default)
+//   .atom-icon-lg       — 24px
+//   .atom-icon-xl       — 32px
+// ============================================
+
+@use '../../core/variables' as *;
+
+// Base icon class — normalizes FA icons for layout use
+.atom-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $atom-icon-family;
+  font-weight: $atom-icon-weight;
+  font-style: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Icon sizes
+$atom-icon-sizes: (
+  'xs': 12px,
+  'sm': 16px,
+  'md': 20px,
+  'lg': 24px,
+  'xl': 32px,
+) !default;
+
+@each $key, $value in $atom-icon-sizes {
+  .atom-icon-#{$key} {
+    font-size: #{$value};
+    width: #{$value};
+    height: #{$value};
+  }
+}
+
+// Default size (md)
+.atom-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}

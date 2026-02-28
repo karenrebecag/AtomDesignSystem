@@ -1,0 +1,90 @@
+// ============================================
+// Typography — Fluid Sizing
+// ============================================
+// Responsive typography using clamp().
+// Scales smoothly between mobile (375px) and desktop (1440px).
+//
+// Mobile sizes are approximately 60-75% of desktop sizes
+// for display/title levels, and 100% for body and below.
+//
+// Usage:
+//   @include atom-type-fluid('display-xl', 'bold');
+//   // or use the pre-built class:
+//   <h1 class="atom-fluid-display-xl-bold">...</h1>
+// ============================================
+
+@use 'sass:math';
+@use '../../core/variables' as *;
+@use '../../core/functions' as *;
+@use 'mixins' as *;
+
+// Viewport range for fluid scaling
+$atom-fluid-min-vw: 375px !default;
+$atom-fluid-max-vw: 1440px !default;
+
+// Mobile scale factor per level category
+$atom-fluid-scale: (
+  'display-xl': 0.58,   // 72px -> ~42px
+  'display-lg': 0.60,   // 64px -> ~38px
+  'display-md': 0.64,   // 56px -> ~36px
+  'display-sm': 0.65,   // 52px -> ~34px
+  'huge-title': 0.67,   // 48px -> ~32px
+  'h1':         0.73,   // 44px -> ~32px
+  'h2':         0.78,   // 36px -> ~28px
+  'h3':         0.81,   // 32px -> ~26px
+  'h4':         0.86,   // 28px -> ~24px
+  'heading':    0.83,   // 24px -> ~20px
+  'body':       1.00,   // 20px (no change)
+  'caption':    1.00,   // 16px (no change)
+  'label':      1.00,   // 12px (no change)
+  'label-sm':   1.00,   // 10px (no change)
+  'footnote':   1.00,   //  8px (no change)
+) !default;
+
+/// Generate a clamp() value for fluid typography
+/// @param {Number} $min-size - Minimum font size (mobile)
+/// @param {Number} $max-size - Maximum font size (desktop)
+/// @return {String} clamp() value
+@function atom-fluid-clamp($min-size, $max-size) {
+  $min-vw: math.div($atom-fluid-min-vw, 1px);
+  $max-vw: math.div($atom-fluid-max-vw, 1px);
+  $min-s: math.div($min-size, 1px);
+  $max-s: math.div($max-size, 1px);
+
+  $slope: math.div(($max-s - $min-s), ($max-vw - $min-vw));
+  $intercept: $min-s - ($slope * $min-vw);
+
+  $slope-vw: $slope * 100;
+
+  @return clamp(#{$min-size}, #{$intercept}px + #{$slope-vw}vw, #{$max-size});
+}
+
+/// Apply a fluid type style
+/// @param {String} $level - Type level
+/// @param {String} $variant - Weight variant
+@mixin atom-type-fluid($level, $variant: 'regular') {
+  // Apply base type style (family, weight, line-height, letter-spacing)
+  @include atom-type($level, $variant);
+
+  // Override font-size with fluid clamp
+  $scale: map-get($atom-type-scale, $level);
+  $max-size: atom-font-size(map-get($scale, size));
+  $factor: map-get($atom-fluid-scale, $level);
+
+  @if $factor and $factor < 1 {
+    $min-size: $max-size * $factor;
+    font-size: atom-fluid-clamp($min-size, $max-size);
+  }
+  // If factor is 1, font-size from atom-type stays as-is (no fluid needed)
+}
+
+// Generate fluid classes for levels that scale
+@each $level, $factor in $atom-fluid-scale {
+  @if $factor < 1 {
+    @each $variant in ('bold', 'medium', 'regular') {
+      .atom-fluid-#{$level}-#{$variant} {
+        @include atom-type-fluid($level, $variant);
+      }
+    }
+  }
+}

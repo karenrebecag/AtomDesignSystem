@@ -1,0 +1,7 @@
+{
+  "$description": "Motion/animation tokens — to be defined",
+  "motion": {
+    "duration": {},
+    "easing": {}
+  }
+}

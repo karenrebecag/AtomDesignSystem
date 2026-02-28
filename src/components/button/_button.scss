@@ -1,0 +1,426 @@
+// ============================================
+// Component — Button
+// ============================================
+// Variants: primary, secondary, tertiary, link,
+//           danger-primary, danger-secondary, danger-tertiary
+// Sizes: xs, sm, md (default), lg, xl
+// States: enabled, hover, focus-visible, active, disabled, loading
+// Icon configs: text-only, prefix, suffix, both, icon-only
+//
+// Usage:
+//   <button class="atom-btn atom-btn--secondary atom-btn--sm">
+//     <i class="atom-btn__icon fa-solid fa-plus"></i>
+//     <span class="atom-btn__label">Add</span>
+//   </button>
+// ============================================
+
+@use '../../core/mixins' as *;
+
+// -----------------------------------------------
+// Base
+// -----------------------------------------------
+
+.atom-btn {
+  // Layout
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--atom-btn-gap);
+  overflow: clip;
+
+  // Sizing (md default)
+  padding: var(--atom-btn-padding);
+  border-radius: var(--atom-btn-radius);
+
+  // Typography
+  font-family: var(--atom-btn-font-family);
+  font-weight: var(--atom-btn-font-weight);
+  font-size: var(--atom-btn-font-size);
+  line-height: var(--atom-btn-line-height);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  // Colors (primary defaults — via component tokens)
+  background-color: var(--atom-btn-bg);
+  color: var(--atom-btn-fg);
+  border: var(--atom-btn-border-width) solid var(--atom-btn-border-color);
+
+  // Interaction
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  @include atom-transition;
+
+  // Reset
+  appearance: none;
+  outline: none;
+  box-sizing: border-box;
+
+  &:focus-visible {
+    @include atom-focus-ring;
+  }
+}
+
+// -----------------------------------------------
+// Child elements
+// -----------------------------------------------
+
+.atom-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--atom-btn-icon-size);
+  height: var(--atom-btn-icon-size);
+  font-size: var(--atom-btn-icon-size);
+  line-height: 1;
+  color: inherit;
+}
+
+.atom-btn__label {
+  color: inherit;
+}
+
+// -----------------------------------------------
+// Loading state
+// -----------------------------------------------
+
+.atom-btn--loading {
+  pointer-events: none;
+  position: relative;
+}
+
+.atom-btn__spinner {
+  display: inline-block;
+  width: var(--atom-btn-icon-size);
+  height: var(--atom-btn-icon-size);
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: atom-btn-spin 600ms linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes atom-btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+// -----------------------------------------------
+// Disabled state
+// -----------------------------------------------
+
+.atom-btn[disabled],
+.atom-btn--disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+// -----------------------------------------------
+// Icon-only mode (square button)
+// -----------------------------------------------
+
+.atom-btn--icon-only {
+  // Make padding uniform so button is square
+  aspect-ratio: 1;
+  padding: var(--atom-btn-padding);
+
+  .atom-btn__icon {
+    margin: 0;
+  }
+}
+
+// -----------------------------------------------
+// Sizes
+// -----------------------------------------------
+
+.atom-btn--xs {
+  --atom-btn-padding: var(--atom-space-xs);
+  --atom-btn-icon-size: 12px;
+}
+
+.atom-btn--sm {
+  --atom-btn-padding: var(--atom-space-s);
+  --atom-btn-icon-size: 14px;
+}
+
+// md is default — no modifier needed
+.atom-btn--md {
+  --atom-btn-padding: var(--atom-space-sm);
+  --atom-btn-icon-size: 16px;
+}
+
+.atom-btn--lg {
+  --atom-btn-padding: var(--atom-space-m);
+  --atom-btn-icon-size: 16px;
+}
+
+.atom-btn--xl {
+  --atom-btn-padding: var(--atom-space-m);
+  --atom-btn-font-size: var(--atom-fs-16);
+  --atom-btn-line-height: var(--atom-lh-sm);
+  --atom-btn-icon-size: 20px;
+}
+
+// -----------------------------------------------
+// Variant: Primary (default — no modifier needed)
+// -----------------------------------------------
+
+.atom-btn,
+.atom-btn--primary {
+  --atom-btn-bg: var(--atom-color-zinc-950);
+  --atom-btn-fg: var(--atom-color-zinc-50);
+  --atom-btn-border-color: transparent;
+  --atom-btn-border-width: 0px;
+
+  &:hover {
+    --atom-btn-bg: var(--atom-color-zinc-800);
+  }
+
+  &:focus-visible {
+    --atom-btn-focus-ring-color: var(--atom-color-zinc-200);
+  }
+
+  &:active {
+    --atom-btn-bg: var(--atom-color-zinc-800);
+    --atom-btn-fg: var(--atom-color-zinc-400);
+  }
+
+  &[disabled],
+  &.atom-btn--disabled {
+    --atom-btn-bg: var(--atom-color-zinc-100);
+    --atom-btn-fg: var(--atom-color-zinc-400);
+  }
+
+  &.atom-btn--loading {
+    --atom-btn-bg: var(--atom-color-zinc-950);
+    --atom-btn-fg: var(--atom-color-zinc-50);
+  }
+}
+
+// -----------------------------------------------
+// Variant: Secondary
+// -----------------------------------------------
+
+.atom-btn--secondary {
+  --atom-btn-bg: var(--atom-color-neutral-0);
+  --atom-btn-fg: var(--atom-color-zinc-900);
+  --atom-btn-border-color: var(--atom-color-zinc-300);
+  --atom-btn-border-width: 1px;
+
+  &:hover {
+    --atom-btn-bg: var(--atom-color-zinc-100);
+  }
+
+  &:focus-visible {
+    --atom-btn-border-color: var(--atom-color-zinc-500);
+    --atom-btn-focus-ring-color: var(--atom-color-zinc-500);
+  }
+
+  &:active {
+    --atom-btn-bg: var(--atom-color-zinc-50);
+    --atom-btn-fg: var(--atom-color-zinc-600);
+  }
+
+  &[disabled],
+  &.atom-btn--disabled {
+    --atom-btn-bg: var(--atom-color-zinc-100);
+    --atom-btn-fg: var(--atom-color-zinc-400);
+    --atom-btn-border-color: transparent;
+  }
+
+  &.atom-btn--loading {
+    --atom-btn-bg: var(--atom-color-neutral-0);
+    --atom-btn-fg: var(--atom-color-zinc-900);
+    --atom-btn-border-color: var(--atom-color-zinc-300);
+  }
+}
+
+// -----------------------------------------------
+// Variant: Tertiary
+// -----------------------------------------------
+
+.atom-btn--tertiary {
+  --atom-btn-bg: transparent;
+  --atom-btn-fg: var(--atom-color-zinc-900);
+  --atom-btn-border-color: transparent;
+  --atom-btn-border-width: 0px;
+
+  &:hover {
+    --atom-btn-bg: var(--atom-color-zinc-100);
+  }
+
+  &:focus-visible {
+    --atom-btn-bg: var(--atom-color-neutral-0);
+    --atom-btn-border-color: var(--atom-color-zinc-200);
+    --atom-btn-border-width: 1px;
+    --atom-btn-focus-ring-color: var(--atom-color-zinc-200);
+  }
+
+  &:active {
+    --atom-btn-bg: var(--atom-color-zinc-50);
+    --atom-btn-fg: var(--atom-color-zinc-600);
+  }
+
+  &[disabled],
+  &.atom-btn--disabled {
+    --atom-btn-bg: var(--atom-color-zinc-100);
+    --atom-btn-fg: var(--atom-color-zinc-400);
+  }
+
+  &.atom-btn--loading {
+    --atom-btn-bg: transparent;
+    --atom-btn-fg: var(--atom-color-zinc-900);
+  }
+}
+
+// -----------------------------------------------
+// Variant: Link
+// -----------------------------------------------
+
+.atom-btn--link {
+  --atom-btn-bg: transparent;
+  --atom-btn-fg: var(--atom-color-blue-500);
+  --atom-btn-border-color: transparent;
+  --atom-btn-border-width: 0px;
+  --atom-btn-padding: var(--atom-space-xxs);
+
+  &:hover {
+    --atom-btn-bg: var(--atom-color-blue-50);
+    --atom-btn-fg: var(--atom-color-blue-600);
+  }
+
+  &:focus-visible {
+    --atom-btn-border-color: var(--atom-color-blue-500);
+    --atom-btn-border-width: 1px;
+    --atom-btn-focus-ring-color: var(--atom-color-blue-500);
+  }
+
+  &:active {
+    --atom-btn-bg: transparent;
+    --atom-btn-fg: var(--atom-color-blue-700);
+  }
+
+  &[disabled],
+  &.atom-btn--disabled {
+    --atom-btn-bg: transparent;
+    --atom-btn-fg: var(--atom-color-zinc-400);
+  }
+
+  &.atom-btn--loading {
+    --atom-btn-bg: transparent;
+    --atom-btn-fg: var(--atom-color-blue-500);
+  }
+}
+
+// -----------------------------------------------
+// Variant: Danger Primary
+// -----------------------------------------------
+
+.atom-btn--danger-primary {
+  --atom-btn-bg: var(--atom-color-red-500);
+  --atom-btn-fg: var(--atom-color-zinc-50);
+  --atom-btn-border-color: transparent;
+  --atom-btn-border-width: 0px;
+
+  &:hover {
+    --atom-btn-bg: var(--atom-color-red-400);
+  }
+
+  &:focus-visible {
+    --atom-btn-focus-ring-color: var(--atom-color-red-50);
+  }
+
+  &:active {
+    --atom-btn-bg: var(--atom-color-red-600);
+  }
+
+  &[disabled],
+  &.atom-btn--disabled {
+    --atom-btn-bg: var(--atom-color-zinc-100);
+    --atom-btn-fg: var(--atom-color-zinc-400);
+  }
+
+  &.atom-btn--loading {
+    --atom-btn-bg: var(--atom-color-red-500);
+    --atom-btn-fg: var(--atom-color-zinc-50);
+  }
+}
+
+// -----------------------------------------------
+// Variant: Danger Secondary
+// -----------------------------------------------
+
+.atom-btn--danger-secondary {
+  --atom-btn-bg: transparent;
+  --atom-btn-fg: var(--atom-color-red-500);
+  --atom-btn-border-color: var(--atom-color-red-500);
+  --atom-btn-border-width: 1px;
+
+  &:hover {
+    --atom-btn-bg: var(--atom-color-red-50);
+    --atom-btn-fg: var(--atom-color-red-600);
+    --atom-btn-border-color: var(--atom-color-red-600);
+  }
+
+  &:focus-visible {
+    --atom-btn-focus-ring-color: var(--atom-color-red-500);
+  }
+
+  &:active {
+    --atom-btn-bg: var(--atom-color-red-100);
+    --atom-btn-fg: var(--atom-color-red-700);
+    --atom-btn-border-color: var(--atom-color-red-500);
+  }
+
+  &[disabled],
+  &.atom-btn--disabled {
+    --atom-btn-bg: var(--atom-color-zinc-100);
+    --atom-btn-fg: var(--atom-color-zinc-400);
+    --atom-btn-border-color: transparent;
+  }
+
+  &.atom-btn--loading {
+    --atom-btn-bg: transparent;
+    --atom-btn-fg: var(--atom-color-red-500);
+    --atom-btn-border-color: var(--atom-color-red-500);
+  }
+}
+
+// -----------------------------------------------
+// Variant: Danger Tertiary
+// -----------------------------------------------
+
+.atom-btn--danger-tertiary {
+  --atom-btn-bg: transparent;
+  --atom-btn-fg: var(--atom-color-red-500);
+  --atom-btn-border-color: transparent;
+  --atom-btn-border-width: 0px;
+
+  &:hover {
+    --atom-btn-fg: var(--atom-color-red-600);
+  }
+
+  &:focus-visible {
+    --atom-btn-bg: var(--atom-color-zinc-50);
+    --atom-btn-border-color: var(--atom-color-red-500);
+    --atom-btn-border-width: 1px;
+    --atom-btn-focus-ring-color: var(--atom-color-red-500);
+  }
+
+  &:active {
+    --atom-btn-bg: var(--atom-color-red-100);
+    --atom-btn-fg: var(--atom-color-red-700);
+  }
+
+  &[disabled],
+  &.atom-btn--disabled {
+    --atom-btn-bg: var(--atom-color-zinc-100);
+    --atom-btn-fg: var(--atom-color-zinc-400);
+  }
+
+  &.atom-btn--loading {
+    --atom-btn-bg: transparent;
+    --atom-btn-fg: var(--atom-color-red-500);
+  }
+}

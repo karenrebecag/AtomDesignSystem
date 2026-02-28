@@ -1,0 +1,80 @@
+// ============================================
+// Theme — Base (Light)
+// ============================================
+// Default light theme. Always loaded.
+// Maps semantic tokens to primitive values.
+//
+// Applied via: :root (default), [data-theme="light"],
+//              .atom-theme-light
+// ============================================
+
+:root,
+[data-theme='light'],
+.atom-theme-light {
+  // ---- Global Semantics ----
+
+  --atom-fg-primary: var(--atom-color-zinc-900);
+  --atom-fg-secondary: var(--atom-color-zinc-800);
+  --atom-fg-tertiary: var(--atom-color-zinc-600);
+  --atom-fg-disabled: var(--atom-color-zinc-400);
+  --atom-bg-primary: var(--atom-color-neutral-0);
+  --atom-bg-tertiary: var(--atom-color-zinc-100);
+  --atom-border-secondary: var(--atom-color-zinc-300);
+  --atom-fg-status-error: var(--atom-color-red-800);
+
+  // ---- Input Controls ----
+
+  --atom-input-bg: var(--atom-color-neutral-0);
+  --atom-input-fg: var(--atom-color-zinc-600);
+  --atom-input-border-color: var(--atom-color-zinc-300);
+  --atom-input-label-color: var(--atom-color-zinc-600);
+  --atom-input-helper-color: var(--atom-color-zinc-600);
+
+  // States
+  --atom-input-hover-fg: var(--atom-color-zinc-800);
+  --atom-input-hover-border: var(--atom-color-zinc-400);
+  --atom-input-focus-border: var(--atom-color-zinc-900);
+  --atom-input-pressed-fg: var(--atom-color-zinc-900);
+  --atom-input-pressed-border: var(--atom-color-zinc-500);
+  --atom-input-filled-fg: var(--atom-color-zinc-800);
+  --atom-input-filled-border: var(--atom-color-zinc-300);
+  --atom-input-disabled-fg: var(--atom-color-zinc-400);
+  --atom-input-disabled-bg: var(--atom-color-zinc-100);
+  --atom-input-disabled-border: var(--atom-color-zinc-100);
+
+  // Error
+  --atom-input-error-border: var(--atom-color-red-500);
+  --atom-input-error-color: var(--atom-color-red-800);
+
+  // ---- Radio Button ----
+
+  --atom-radio-bg: var(--atom-color-neutral-0);
+  --atom-radio-border: #71717b;
+  --atom-radio-checked-bg: var(--atom-color-zinc-950);
+  --atom-radio-dot-color: var(--atom-color-zinc-50);
+  --atom-radio-hover-bg: var(--atom-color-zinc-50);
+  --atom-radio-checked-hover-bg: var(--atom-color-zinc-800);
+  --atom-radio-disabled-bg: var(--atom-color-zinc-100);
+  --atom-radio-disabled-border: var(--atom-color-zinc-100);
+  --atom-radio-disabled-dot-color: #9f9fa9;
+  --atom-radio-error-border: var(--atom-color-red-500);
+  --atom-radio-label-color: var(--atom-color-zinc-800);
+  --atom-radio-description-color: var(--atom-color-zinc-600);
+  --atom-radio-error-color: #9e0812;
+
+  // ---- Toggle ----
+
+  --atom-toggle-track-bg: var(--atom-color-zinc-100);
+  --atom-toggle-knob-bg: var(--atom-color-zinc-50);
+  --atom-toggle-hover-track-bg: var(--atom-color-zinc-200);
+  --atom-toggle-disabled-track-bg: var(--atom-color-zinc-100);
+  --atom-toggle-disabled-knob-bg: var(--atom-color-zinc-200);
+  --atom-toggle-checked-track-bg: var(--atom-color-zinc-950);
+  --atom-toggle-checked-knob-bg: var(--atom-color-zinc-50);
+  --atom-toggle-checked-hover-track-bg: var(--atom-color-zinc-800);
+  --atom-toggle-checked-disabled-track-bg: var(--atom-color-zinc-100);
+  --atom-toggle-checked-disabled-knob-bg: var(--atom-color-zinc-200);
+  --atom-toggle-label-color: var(--atom-color-zinc-800);
+  --atom-toggle-description-color: var(--atom-color-zinc-600);
+  --atom-toggle-error-color: #9e0812;
+}

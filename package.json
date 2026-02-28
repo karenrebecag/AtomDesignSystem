@@ -1,0 +1,50 @@
+{
+  "name": "@atom-ds/core",
+  "version": "0.1.0",
+  "description": "Atom Design System — Universal stylesheet-based design system compatible with code and no-code platforms",
+  "main": "dist/atom.css",
+  "style": "dist/atom.css",
+  "files": [
+    "dist/",
+    "src/",
+    "tokens/"
+  ],
+  "scripts": {
+    "tokens": "node scripts/tokens-to-scss.js",
+    "build:core": "sass src/_index.scss dist/atom.css --style=expanded --no-source-map",
+    "build:full": "sass src/_full.scss dist/atom-full.css --style=expanded --no-source-map",
+    "build:modules": "node scripts/build.js",
+    "build:min": "postcss dist/*.css dist/**/*.css --use autoprefixer cssnano --dir dist/ --ext .min.css",
+    "build": "npm run tokens && npm run build:core && npm run build:full && npm run build:modules",
+    "watch": "node scripts/watch.js",
+    "prepublishOnly": "npm run build && npm run build:min",
+    "clean": "rm -rf dist/*"
+  },
+  "keywords": [
+    "design-system",
+    "css",
+    "scss",
+    "tokens",
+    "typography",
+    "webflow",
+    "elementor",
+    "angular",
+    "astro",
+    "nextjs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.77.0",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^7.0.1",
+    "chokidar": "^3.6.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

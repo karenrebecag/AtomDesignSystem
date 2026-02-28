@@ -1,0 +1,93 @@
+// ============================================
+// Layout — Breakpoints & Responsive
+// ============================================
+// 8-point grid system with fluid breakpoints.
+//
+// Breakpoint Specs (from Figma):
+//   xs (x-Small):  0–599     4 col   design: 360px   mobile
+//   sm (Small):    600–960   4 col   design: 600px   tablet portrait
+//   md (Medium):   961–1280  8 col   design: 1024px  tablet landscape
+//   lg (Large):    1281–1920 12 col  design: 1280px  desktop
+//   xl (X-Large):  1921+     12 col  design: 1921px  wide desktop
+//
+// All breakpoints are fluid until max grid width 1920px.
+//
+// SCSS usage:
+//   @include atom-breakpoint-up('md') { ... }
+//   @include atom-breakpoint-down('sm') { ... }
+//   @include atom-breakpoint-between('sm', 'lg') { ... }
+//
+// CSS usage (via custom properties):
+//   var(--atom-breakpoint-xs)  → 600px
+//   var(--atom-breakpoint-sm)  → 960px
+//   var(--atom-breakpoint-md)  → 1280px
+//   var(--atom-breakpoint-lg)  → 1920px
+//   var(--atom-breakpoint-xl)  → 1921px
+// ============================================
+
+@use '../../core/variables' as *;
+
+/// Respond above a breakpoint (min-width, mobile-first)
+/// @param {String} $bp - Breakpoint name (xs, sm, md, lg, xl)
+@mixin atom-breakpoint-up($bp) {
+  $value: map-get($atom-breakpoints, $bp);
+  @if not $value {
+    @error 'Unknown breakpoint: #{$bp}. Available: #{map-keys($atom-breakpoints)}';
+  }
+  @media (min-width: #{$value}) {
+    @content;
+  }
+}
+
+/// Respond below a breakpoint (max-width)
+/// @param {String} $bp - Breakpoint name
+@mixin atom-breakpoint-down($bp) {
+  $value: map-get($atom-breakpoints, $bp);
+  @if not $value {
+    @error 'Unknown breakpoint: #{$bp}. Available: #{map-keys($atom-breakpoints)}';
+  }
+  @media (max-width: #{$value - 1px}) {
+    @content;
+  }
+}
+
+/// Respond between two breakpoints
+/// @param {String} $lower - Lower breakpoint name
+/// @param {String} $upper - Upper breakpoint name
+@mixin atom-breakpoint-between($lower, $upper) {
+  $min: map-get($atom-breakpoints, $lower);
+  $max: map-get($atom-breakpoints, $upper);
+  @if not $min {
+    @error 'Unknown breakpoint: #{$lower}.';
+  }
+  @if not $max {
+    @error 'Unknown breakpoint: #{$upper}.';
+  }
+  @media (min-width: #{$min}) and (max-width: #{$max - 1px}) {
+    @content;
+  }
+}
+
+/// Respond only at a specific breakpoint range
+/// @param {String} $bp - Breakpoint name
+@mixin atom-breakpoint-only($bp) {
+  $keys: map-keys($atom-breakpoints);
+  $index: index($keys, $bp);
+  @if not $index {
+    @error 'Unknown breakpoint: #{$bp}.';
+  }
+
+  $min: map-get($atom-breakpoints, $bp);
+
+  @if $index < length($keys) {
+    $next-key: nth($keys, $index + 1);
+    $max: map-get($atom-breakpoints, $next-key);
+    @media (min-width: #{$min}) and (max-width: #{$max - 1px}) {
+      @content;
+    }
+  } @else {
+    @media (min-width: #{$min}) {
+      @content;
+    }
+  }
+}

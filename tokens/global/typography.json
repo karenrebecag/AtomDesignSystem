@@ -1,0 +1,75 @@
+{
+  "$description": "Typography primitive tokens — from Figma Desktop (Inter)",
+  "font": {
+    "family": {
+      "titles": { "value": "Inter" },
+      "content": { "value": "Inter" },
+      "secondary": { "value": "Open Sauce One" }
+    },
+    "weight": {
+      "regular": { "value": 400 },
+      "medium": { "value": 500 },
+      "semibold": { "value": 600 },
+      "bold": { "value": 700 }
+    },
+    "size": {
+      "72": { "value": "72px" },
+      "64": { "value": "64px" },
+      "56": { "value": "56px" },
+      "52": { "value": "52px" },
+      "48": { "value": "48px" },
+      "44": { "value": "44px" },
+      "36": { "value": "36px" },
+      "32": { "value": "32px" },
+      "28": { "value": "28px" },
+      "24": { "value": "24px" },
+      "20": { "value": "20px" },
+      "16": { "value": "16px" },
+      "12": { "value": "12px" },
+      "10": { "value": "10px" },
+      "8": { "value": "8px" }
+    },
+    "lineHeight": {
+      "5xxl": { "value": "88px" },
+      "4xxl": { "value": "80px" },
+      "3xxl": { "value": "72px" },
+      "2xxl": { "value": "64px" },
+      "xxl": { "value": "56px" },
+      "xl": { "value": "48px" },
+      "l": { "value": "40px" },
+      "m": { "value": "32px" },
+      "md": { "value": "32px" },
+      "sm": { "value": "24px" },
+      "xs": { "value": "16px" },
+      "xxs": { "value": "16px" }
+    },
+    "letterSpacing": {
+      "tight": { "value": "-4px" },
+      "snug": { "value": "-2px" },
+      "normal": { "value": "0px" }
+    }
+  },
+  "typeStyles": {
+    "display": {
+      "xlarge": { "size": 72, "lineHeight": "5xxl", "letterSpacing": "tight" },
+      "large": { "size": 64, "lineHeight": "4xxl", "letterSpacing": "tight" },
+      "medium": { "size": 56, "lineHeight": "3xxl", "letterSpacing": "tight" },
+      "small": { "size": 52, "lineHeight": "2xxl", "letterSpacing": "tight" }
+    },
+    "titles": {
+      "hugeTitle": { "size": 48, "lineHeight": "2xxl", "letterSpacing": "snug" },
+      "h1": { "size": 44, "lineHeight": "xxl", "letterSpacing": "snug" },
+      "h2": { "size": 36, "lineHeight": "xl", "letterSpacing": "snug", "family": "secondary" },
+      "h3": { "size": 32, "lineHeight": "l", "letterSpacing": "snug" },
+      "h4": { "size": 28, "lineHeight": "md", "letterSpacing": "snug" }
+    },
+    "body": {
+      "heading": { "size": 24, "lineHeight": "m", "letterSpacing": "snug" },
+      "body": { "size": 20, "lineHeight": "sm", "letterSpacing": "normal" },
+      "caption": { "size": 16, "lineHeight": "sm", "letterSpacing": "normal" },
+      "label": { "size": 12, "lineHeight": "xs", "letterSpacing": "normal" },
+      "labelSmall": { "size": 10, "lineHeight": "xs", "letterSpacing": "normal" },
+      "footnote": { "size": 8, "lineHeight": "xxs", "letterSpacing": "normal" }
+    }
+  }
+}

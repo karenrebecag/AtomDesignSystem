@@ -1,0 +1,36 @@
+// ============================================
+// Typography — Font Families
+// ============================================
+// Primary:   Inter (titles + content)
+// Secondary: Open Sauce One (H2 exclusively)
+//
+// Inter is loaded from Google Fonts.
+// Open Sauce One must be self-hosted or loaded separately.
+//
+// CSS vars:
+//   --atom-font-family-titles
+//   --atom-font-family-content
+//   --atom-font-family-secondary
+// ============================================
+
+// Google Fonts import for Inter (400, 500, 700)
+// Include this in your HTML <head> or uncomment below:
+//
+// <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+//
+// For Open Sauce One, download from:
+// https://github.com/nicholasgalante/OpenSauceOne
+// and add @font-face declarations below.
+
+// Utility classes for font family
+.atom-font-titles {
+  font-family: var(--atom-font-family-titles);
+}
+
+.atom-font-content {
+  font-family: var(--atom-font-family-content);
+}
+
+.atom-font-secondary {
+  font-family: var(--atom-font-family-secondary);
+}

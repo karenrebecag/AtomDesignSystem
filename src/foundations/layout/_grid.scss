@@ -1,0 +1,66 @@
+// ============================================
+// Layout — Grid System
+// ============================================
+// 8-point grid with responsive columns:
+//   xs/sm: 4 columns
+//   md:    8 columns
+//   lg/xl: 12 columns
+//
+// Usage:
+//   <div class="atom-grid">
+//     <div class="atom-col-6">Half width (on 12-col)</div>
+//     <div class="atom-col-6">Half width</div>
+//   </div>
+//
+//   <div class="atom-grid atom-grid-4">4-column grid</div>
+//   <div class="atom-grid atom-grid-8">8-column grid</div>
+//   <div class="atom-grid atom-grid-12">12-column grid</div>
+// ============================================
+
+@use '../../core/variables' as *;
+@use 'breakpoints' as *;
+
+// Base grid
+.atom-grid {
+  display: grid;
+  gap: var(--atom-space-m);
+  grid-template-columns: repeat(4, 1fr);
+
+  @include atom-breakpoint-up('md') {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include atom-breakpoint-up('lg') {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+// Fixed column grids
+.atom-grid-4  { grid-template-columns: repeat(4, 1fr); }
+.atom-grid-8  { grid-template-columns: repeat(8, 1fr); }
+.atom-grid-12 { grid-template-columns: repeat(12, 1fr); }
+
+// Column spans (1–12)
+@for $i from 1 through 12 {
+  .atom-col-#{$i} {
+    grid-column: span #{$i};
+  }
+}
+
+// Responsive column spans
+@each $bp-name, $bp-value in $atom-breakpoints {
+  @include atom-breakpoint-up($bp-name) {
+    @for $i from 1 through 12 {
+      .atom-col-#{$bp-name}-#{$i} {
+        grid-column: span #{$i};
+      }
+    }
+  }
+}
+
+// Grid gap variants using spacing tokens
+@each $key, $value in $atom-spacing {
+  .atom-grid-gap-#{$key} {
+    gap: var(--atom-space-#{$key});
+  }
+}

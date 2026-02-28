@@ -1,0 +1,72 @@
+// ============================================
+// Tier 1: Primitive Tokens
+// ============================================
+// Raw values. Immutable across themes and brands.
+// These NEVER change — they are the source palette.
+// ============================================
+
+@use '../core/variables' as *;
+
+:root {
+  // ---- Colors ----
+
+  @each $palette-name, $palette in $atom-palettes {
+    @each $step, $value in $palette {
+      --atom-color-#{$palette-name}-#{$step}: #{$value};
+    }
+  }
+
+  // ---- Font Families ----
+
+  --atom-font-family-titles: #{$atom-font-family-titles};
+  --atom-font-family-content: #{$atom-font-family-content};
+  --atom-font-family-secondary: #{$atom-font-family-secondary};
+
+  // ---- Font Weights ----
+
+  --atom-fw-regular: #{$atom-font-weight-regular};
+  --atom-fw-medium: #{$atom-font-weight-medium};
+  --atom-fw-semibold: #{$atom-font-weight-semibold};
+  --atom-fw-bold: #{$atom-font-weight-bold};
+
+  // ---- Font Sizes ----
+
+  @each $key, $value in $atom-font-sizes {
+    --atom-fs-#{$key}: #{$value};
+  }
+
+  // ---- Line Heights ----
+
+  @each $key, $value in $atom-line-heights {
+    --atom-lh-#{$key}: #{$value};
+  }
+
+  // ---- Letter Spacing ----
+
+  --atom-ls-tight: #{$atom-letter-spacing-tight};
+  --atom-ls-snug: #{$atom-letter-spacing-snug};
+  --atom-ls-normal: #{$atom-letter-spacing-normal};
+
+  // ---- Spacing (8pt grid) ----
+
+  @each $key, $value in $atom-spacing {
+    --atom-space-#{$key}: #{$value};
+  }
+
+  // ---- Border Radius ----
+
+  @each $key, $value in $atom-radius {
+    --atom-radius-#{$key}: #{$value};
+  }
+
+  // ---- Breakpoints ----
+
+  @each $key, $value in $atom-breakpoints {
+    --atom-breakpoint-#{$key}: #{$value};
+  }
+
+  // ---- Grid ----
+
+  --atom-grid-max-width: #{$atom-grid-max-width};
+  --atom-grid-base-unit: #{$atom-grid-base-unit};
+}

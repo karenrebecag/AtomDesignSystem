@@ -1,0 +1,8 @@
+// Extensions — Product-specific tokens
+// These are NOT part of the core design system.
+// Import only in products that need them.
+
+@forward 'inbox';
+@forward 'ai';
+@forward 'notifications';
+@forward 'indicators';

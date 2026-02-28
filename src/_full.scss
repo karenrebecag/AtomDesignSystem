@@ -1,0 +1,17 @@
+// ============================================
+// Atom Design System — Full Bundle
+// ============================================
+// Includes everything: core + components + product extensions.
+//
+// Usage:
+//   @import '@atom-ds/core/dist/atom-full.css';
+// ============================================
+
+// Core (tokens + foundations + themes + utilities)
+@forward 'index';
+
+// Components
+@forward 'components';
+
+// Product extensions (inbox, AI, notifications, indicators)
+@forward 'extensions';

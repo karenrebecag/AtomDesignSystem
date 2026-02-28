@@ -1,0 +1,22 @@
+// ============================================
+// Borders — Border Widths
+// ============================================
+// Standard border width utilities.
+//
+// .atom-border       — 1px solid
+// .atom-border-2     — 2px solid
+// .atom-border-0     — no border
+// .atom-border-t     — top only
+// .atom-border-r     — right only
+// .atom-border-b     — bottom only
+// .atom-border-l     — left only
+// ============================================
+
+.atom-border   { border-width: 1px; border-style: solid; }
+.atom-border-2 { border-width: 2px; border-style: solid; }
+.atom-border-0 { border-width: 0; }
+
+.atom-border-t { border-top-width: 1px; border-top-style: solid; }
+.atom-border-r { border-right-width: 1px; border-right-style: solid; }
+.atom-border-b { border-bottom-width: 1px; border-bottom-style: solid; }
+.atom-border-l { border-left-width: 1px; border-left-style: solid; }

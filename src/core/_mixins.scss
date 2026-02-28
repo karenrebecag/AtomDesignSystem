@@ -1,0 +1,40 @@
+// ============================================
+// Core Mixins
+// ============================================
+// Global mixins used across the design system.
+// ============================================
+
+/// Standard transition for interactive elements
+/// @param {List} $properties - CSS properties to transition
+@mixin atom-transition($properties: (background-color, color, border-color, box-shadow)) {
+  $value: ();
+  @each $prop in $properties {
+    $value: append($value, #{$prop} 150ms ease-in-out, comma);
+  }
+  transition: #{$value};
+}
+
+/// Focus-visible ring for keyboard accessibility
+/// Uses box-shadow to avoid layout shift.
+@mixin atom-focus-ring(
+  $color: var(--atom-btn-focus-ring-color),
+  $width: 2px,
+  $offset: 2px
+) {
+  outline: none;
+  box-shadow: 0 0 0 #{$offset} var(--atom-btn-bg, transparent),
+              0 0 0 calc(#{$offset} + #{$width}) #{$color};
+}
+
+/// Screen-reader only (visually hidden)
+@mixin atom-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

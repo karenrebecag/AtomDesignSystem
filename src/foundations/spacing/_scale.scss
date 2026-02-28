@@ -1,0 +1,28 @@
+// ============================================
+// Spacing — Scale
+// ============================================
+// 8-point grid system. All spacing derives from base unit (8px).
+//
+// Token    | Value | Notes
+// ---------|-------|---------------------------
+// xxs      |  2px  | Micro spacing (borders, subtle gaps)
+// xs       |  4px  | Tight spacing (icon gaps, inline)
+// s        |  8px  | Base unit (1x)
+// sm       | 12px  | Compact (1.5x)
+// m        | 16px  | Default (2x)
+// l        | 24px  | Comfortable (3x)
+// xl       | 32px  | Spacious (4x)
+// 3xxl     | 44px  | Section spacing (5.5x)
+//
+// CSS usage:
+//   var(--atom-space-s)   → 8px
+//   var(--atom-space-m)   → 16px
+//   var(--atom-space-xl)  → 32px
+//
+// SCSS usage:
+//   atom-space('m')       → 16px
+// ============================================
+
+// Spacing tokens are defined in core/_variables.scss ($atom-spacing)
+// and exposed as CSS custom properties in tokens/_primitive.scss.
+// This file serves as documentation for the spacing scale.

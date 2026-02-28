@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atom DS — Button Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../dist/atom-full.css">
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      padding: 32px;
+      background: #fff;
+      color: #18181b;
+    }
+    h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+    h2 { font-size: 24px; font-weight: 600; margin: 40px 0 16px; border-bottom: 1px solid #e4e4e7; padding-bottom: 8px; }
+    h3 { font-size: 16px; font-weight: 600; margin: 24px 0 12px; color: #52525c; }
+    .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+    .section { margin-bottom: 48px; }
+    .label { font-size: 11px; color: #9f9fa9; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    hr { border: none; border-top: 1px solid #e4e4e7; margin: 40px 0; }
+  </style>
+</head>
+<body>
+
+<h1>Atom Design System — Button Component</h1>
+<p style="color:#71717b; margin-bottom:40px;">First molecule. 7 variants, 5 sizes, 6 states, icon configurations.</p>
+
+<!-- ============================================ -->
+<!-- SIZES -->
+<!-- ============================================ -->
+<div class="section">
+  <h2>Sizes</h2>
+  <div class="row">
+    <button class="atom-btn atom-btn--xs">
+      <span class="atom-btn__label">Extra Small</span>
+    </button>
+    <button class="atom-btn atom-btn--sm">
+      <span class="atom-btn__label">Small</span>
+    </button>
+    <button class="atom-btn">
+      <span class="atom-btn__label">Medium (default)</span>
+    </button>
+    <button class="atom-btn atom-btn--lg">
+      <span class="atom-btn__label">Large</span>
+    </button>
+    <button class="atom-btn atom-btn--xl">
+      <span class="atom-btn__label">Extra Large</span>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- HIERARCHY / VARIANTS -->
+<!-- ============================================ -->
+<div class="section">
+  <h2>Hierarchy — Variants</h2>
+
+  <h3>Primary (default)</h3>
+  <div class="row">
+    <button class="atom-btn">
+      <i class="atom-btn__icon fa-solid fa-plus"></i>
+      <span class="atom-btn__label">Enabled</span>
+      <i class="atom-btn__icon fa-solid fa-chevron-down"></i>
+    </button>
+    <button class="atom-btn" disabled>
+      <i class="atom-btn__icon fa-solid fa-plus"></i>
+      <span class="atom-btn__label">Disabled</span>
+      <i class="atom-btn__icon fa-solid fa-chevron-down"></i>
+    </button>
+    <button class="atom-btn atom-btn--loading">
+      <span class="atom-btn__spinner"></span>
+      <span class="atom-btn__label">Loading...</span>
+    </button>
+  </div>
+
+  <h3>Secondary</h3>
+  <div class="row">
+    <button class="atom-btn atom-btn--secondary">
+      <i class="atom-btn__icon fa-solid fa-plus"></i>
+      <span class="atom-btn__label">Enabled</span>
+      <i class="atom-btn__icon fa-solid fa-chevron-down"></i>
+    </button>
+    <button class="atom-btn atom-btn--secondary" disabled>
+      <i class="atom-btn__icon fa-solid fa-plus"></i>
+      <span class="atom-btn__label">Disabled</span>
+      <i class="atom-btn__icon fa-solid fa-chevron-down"></i>
+    </button>
+    <button class="atom-btn atom-btn--secondary atom-btn--loading">
+      <span class="atom-btn__spinner"></span>
+      <span class="atom-btn__label">Loading...</span>
+    </button>
+  </div>
+
+  <h3>Tertiary</h3>
+  <div class="row">
+    <button class="atom-btn atom-btn--tertiary">
+      <i class="atom-btn__icon fa-solid fa-plus"></i>
+      <span class="atom-btn__label">Enabled</span>
+      <i class="atom-btn__icon fa-solid fa-chevron-down"></i>
+    </button>
+    <button class="atom-btn atom-btn--tertiary" disabled>
+      <i class="atom-btn__icon fa-solid fa-plus"></i>
+      <span class="atom-btn__label">Disabled</span>
+      <i class="atom-btn__icon fa-solid fa-chevron-down"></i>
+    </button>
+    <button class="atom-btn atom-btn--tertiary atom-btn--loading">
+      <span class="atom-btn__spinner"></span>
+      <span class="atom-btn__label">Loading...</span>
+    </button>
+  </div>
+
+  <h3>Link</h3>
+  <div class="row">
+    <button class="atom-btn atom-btn--link">
+      <i class="atom-btn__icon fa-solid fa-plus"></i>
+      <span class="atom-btn__label">Enabled</span>
+      <i class="atom-btn__icon fa-solid fa-chevron-down"></i>
+    </button>
+    <button class="atom-btn atom-btn--link" disabled>
+      <i class="atom-btn__icon fa-solid fa-plus"></i>
+      <span class="atom-btn__label">Disabled</span>
+      <i class="atom-btn__icon fa-solid fa-chevron-down"></i>
+    </button>
+    <button class="atom-btn atom-btn--link atom-btn--loading">
+      <span class="atom-btn__spinner"></span>
+      <span class="atom-btn__label">Loading...</span>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- DESTRUCTIVE -->
+<!-- ============================================ -->
+<div class="section">
+  <h2>Destructive Variants</h2>
+
+  <h3>Danger Primary</h3>
+  <div class="row">
+    <button class="atom-btn atom-btn--danger-primary">
+      <i class="atom-btn__icon fa-solid fa-trash"></i>
+      <span class="atom-btn__label">Delete</span>
+    </button>
+    <button class="atom-btn atom-btn--danger-primary" disabled>
+      <span class="atom-btn__label">Disabled</span>
+    </button>
+    <button class="atom-btn atom-btn--danger-primary atom-btn--loading">
+      <span class="atom-btn__spinner"></span>
+      <span class="atom-btn__label">Deleting...</span>
+    </button>
+  </div>
+
+  <h3>Danger Secondary</h3>
+  <div class="row">
+    <button class="atom-btn atom-btn--danger-secondary">
+      <i class="atom-btn__icon fa-solid fa-trash"></i>
+      <span class="atom-btn__label">Delete</span>
+    </button>
+    <button class="atom-btn atom-btn--danger-secondary" disabled>
+      <span class="atom-btn__label">Disabled</span>
+    </button>
+    <button class="atom-btn atom-btn--danger-secondary atom-btn--loading">
+      <span class="atom-btn__spinner"></span>
+      <span class="atom-btn__label">Deleting...</span>
+    </button>
+  </div>
+
+  <h3>Danger Tertiary</h3>
+  <div class="row">
+    <button class="atom-btn atom-btn--danger-tertiary">
+      <i class="atom-btn__icon fa-solid fa-trash"></i>
+      <span class="atom-btn__label">Delete</span>
+    </button>
+    <button class="atom-btn atom-btn--danger-tertiary" disabled>
+      <span class="atom-btn__label">Disabled</span>
+    </button>
+    <button class="atom-btn atom-btn--danger-tertiary atom-btn--loading">
+      <span class="atom-btn__spinner"></span>
+      <span class="atom-btn__label">Deleting...</span>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ICON CONFIGURATIONS -->
+<!-- ============================================ -->
+<div class="section">
+  <h2>Icon Configurations</h2>
+  <div class="row">
+    <div>
+      <div class="label">Text only</div>
+      <button class="atom-btn">
+        <span class="atom-btn__label">Button</span>
+      </button>
+    </div>
+    <div>
+      <div class="label">Prefix</div>
+      <button class="atom-btn">
+        <i class="atom-btn__icon fa-solid fa-plus"></i>
+        <span class="atom-btn__label">Button</span>
+      </button>
+    </div>
+    <div>
+      <div class="label">Suffix</div>
+      <button class="atom-btn">
+        <span class="atom-btn__label">Button</span>
+        <i class="atom-btn__icon fa-solid fa-chevron-down"></i>
+      </button>
+    </div>
+    <div>
+      <div class="label">Both</div>
+      <button class="atom-btn">
+        <i class="atom-btn__icon fa-solid fa-plus"></i>
+        <span class="atom-btn__label">Button</span>
+        <i class="atom-btn__icon fa-solid fa-chevron-down"></i>
+      </button>
+    </div>
+    <div>
+      <div class="label">Icon only</div>
+      <button class="atom-btn atom-btn--icon-only">
+        <i class="atom-btn__icon fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ICON BUTTON -->
+<!-- ============================================ -->
+<div class="section">
+  <h2>Icon Button (Separate Component)</h2>
+
+  <h3>Sizes</h3>
+  <div class="row">
+    <button class="atom-icon-btn atom-icon-btn--xs"><i class="fa-solid fa-plus"></i></button>
+    <button class="atom-icon-btn atom-icon-btn--sm"><i class="fa-solid fa-plus"></i></button>
+    <button class="atom-icon-btn atom-icon-btn--md"><i class="fa-solid fa-plus"></i></button>
+    <button class="atom-icon-btn atom-icon-btn--lg"><i class="fa-solid fa-plus"></i></button>
+    <button class="atom-icon-btn atom-icon-btn--xl"><i class="fa-solid fa-plus"></i></button>
+  </div>
+
+  <h3>Variants</h3>
+  <div class="row">
+    <div>
+      <div class="label">Primary</div>
+      <button class="atom-icon-btn atom-icon-btn--primary"><i class="fa-solid fa-plus"></i></button>
+    </div>
+    <div>
+      <div class="label">Secondary</div>
+      <button class="atom-icon-btn atom-icon-btn--secondary"><i class="fa-solid fa-plus"></i></button>
+    </div>
+    <div>
+      <div class="label">Tertiary</div>
+      <button class="atom-icon-btn atom-icon-btn--tertiary"><i class="fa-solid fa-plus"></i></button>
+    </div>
+    <div>
+      <div class="label">Link</div>
+      <button class="atom-icon-btn atom-icon-btn--link"><i class="fa-solid fa-plus"></i></button>
+    </div>
+    <div>
+      <div class="label">Danger</div>
+      <button class="atom-icon-btn atom-icon-btn--danger-primary"><i class="fa-solid fa-trash"></i></button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

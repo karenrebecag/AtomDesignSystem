@@ -1,0 +1,7 @@
+{
+  "$description": "Border primitive tokens — to be defined",
+  "border": {
+    "radius": {},
+    "width": {}
+  }
+}

@@ -1,0 +1,9 @@
+// Tokens — CSS Custom Properties
+// Three-tier token architecture:
+//   Tier 1: Primitives (raw values, immutable)
+//   Tier 2: Semantics (purpose-driven, theme-aware)
+//   Tier 3: Component (specific usage)
+
+@forward 'primitive';
+@forward 'semantic';
+@forward 'component';

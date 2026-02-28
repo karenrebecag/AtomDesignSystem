@@ -1,0 +1,240 @@
+// ============================================
+// Component — Toggle (Switch)
+// ============================================
+// An on/off control with a sliding knob within a track.
+//
+// Anatomy:
+//   [Track + Knob] [Label]
+//                  [Description]
+//   [Error icon + text]
+//
+// States: enabled, hover, focus, checked (on), disabled, error
+// Sizes: sm (36x20, default), md (44x24)
+//
+// Usage:
+//   <label class="atom-toggle">
+//     <input class="atom-toggle__control" type="checkbox">
+//     <span class="atom-toggle__track"><span class="atom-toggle__knob"></span></span>
+//     <span class="atom-toggle__label">Dark mode</span>
+//     <span class="atom-toggle__description">Use dark color scheme</span>
+//   </label>
+// ============================================
+
+@use '../../core/mixins' as *;
+
+// -----------------------------------------------
+// Wrapper
+// -----------------------------------------------
+
+.atom-toggle {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--atom-toggle-gap);
+  cursor: pointer;
+  position: relative;
+}
+
+// When only track, no label — center alignment
+.atom-toggle:not(:has(.atom-toggle__label)) {
+  align-items: center;
+}
+
+// -----------------------------------------------
+// Hidden native checkbox
+// -----------------------------------------------
+
+.atom-toggle__control {
+  // Visually hide but keep accessible
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// -----------------------------------------------
+// Track (the pill-shaped container)
+// -----------------------------------------------
+
+.atom-toggle__track {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--atom-toggle-track-width);
+  height: var(--atom-toggle-track-height);
+  padding: var(--atom-toggle-track-padding);
+  border-radius: var(--atom-toggle-track-radius);
+  background-color: var(--atom-toggle-track-bg);
+  box-sizing: border-box;
+  position: relative;
+  @include atom-transition((background-color, box-shadow));
+}
+
+// -----------------------------------------------
+// Knob (the sliding circle)
+// -----------------------------------------------
+
+.atom-toggle__knob {
+  display: block;
+  width: var(--atom-toggle-knob-size);
+  height: var(--atom-toggle-knob-size);
+  border-radius: 50%;
+  background-color: var(--atom-toggle-knob-bg);
+  box-shadow: var(--atom-toggle-knob-shadow);
+  transform: translateX(0);
+  @include atom-transition((transform, background-color));
+}
+
+// Checked — slide knob to the right
+.atom-toggle__control:checked ~ .atom-toggle__track {
+  background-color: var(--atom-toggle-checked-track-bg);
+
+  .atom-toggle__knob {
+    // translateX = track-width - (2 * padding) - knob-size
+    transform: translateX(calc(var(--atom-toggle-track-width) - var(--atom-toggle-knob-size) - var(--atom-toggle-track-padding) * 2));
+    background-color: var(--atom-toggle-checked-knob-bg);
+  }
+}
+
+// -----------------------------------------------
+// Text elements
+// -----------------------------------------------
+
+.atom-toggle__label {
+  font-family: var(--atom-font-family-titles);
+  font-weight: var(--atom-fw-medium);
+  font-size: var(--atom-toggle-font-size);
+  line-height: var(--atom-toggle-line-height);
+  color: var(--atom-toggle-label-color);
+  white-space: nowrap;
+}
+
+.atom-toggle__description {
+  font-family: var(--atom-font-family-content);
+  font-weight: var(--atom-fw-regular);
+  font-size: var(--atom-toggle-font-size);
+  line-height: var(--atom-toggle-line-height);
+  color: var(--atom-toggle-description-color);
+}
+
+// When label + description, wrap to stack text
+.atom-toggle:has(.atom-toggle__description) {
+  flex-wrap: wrap;
+
+  .atom-toggle__track {
+    margin-top: 2px; // align with first line of text
+  }
+
+  .atom-toggle__label,
+  .atom-toggle__description {
+    flex-basis: calc(100% - var(--atom-toggle-track-width) - var(--atom-toggle-gap));
+  }
+
+  .atom-toggle__description {
+    margin-left: calc(var(--atom-toggle-track-width) + var(--atom-toggle-gap));
+    margin-top: 0;
+  }
+}
+
+// When only label (no description), center vertically
+.atom-toggle:has(.atom-toggle__label):not(:has(.atom-toggle__description)):not(:has(.atom-toggle__error)) {
+  align-items: center;
+}
+
+// -----------------------------------------------
+// Error
+// -----------------------------------------------
+
+.atom-toggle__error {
+  display: flex;
+  align-items: center;
+  gap: var(--atom-toggle-gap);
+  width: 100%;
+  font-family: var(--atom-font-family-content);
+  font-weight: var(--atom-fw-regular);
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--atom-toggle-error-color);
+
+  > i,
+  > svg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+}
+
+// -----------------------------------------------
+// States
+// -----------------------------------------------
+
+// Hover — unchecked
+.atom-toggle:hover .atom-toggle__control:not(:disabled):not(:checked) ~ .atom-toggle__track {
+  background-color: var(--atom-toggle-hover-track-bg);
+}
+
+// Hover — checked
+.atom-toggle:hover .atom-toggle__control:not(:disabled):checked ~ .atom-toggle__track {
+  background-color: var(--atom-toggle-checked-hover-track-bg);
+}
+
+// Focus
+.atom-toggle__control:focus-visible ~ .atom-toggle__track {
+  box-shadow: var(--atom-toggle-focus-shadow);
+}
+
+// Disabled — unchecked
+.atom-toggle:has(.atom-toggle__control:disabled) {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.atom-toggle__control:disabled ~ .atom-toggle__track {
+  background-color: var(--atom-toggle-disabled-track-bg);
+
+  .atom-toggle__knob {
+    background-color: var(--atom-toggle-disabled-knob-bg);
+  }
+}
+
+// Disabled — checked
+.atom-toggle__control:disabled:checked ~ .atom-toggle__track {
+  background-color: var(--atom-toggle-checked-disabled-track-bg);
+
+  .atom-toggle__knob {
+    background-color: var(--atom-toggle-checked-disabled-knob-bg);
+  }
+}
+
+.atom-toggle:has(.atom-toggle__control:disabled) .atom-toggle__label,
+.atom-toggle:has(.atom-toggle__control:disabled) .atom-toggle__description {
+  color: var(--atom-fg-disabled, #9f9fa9);
+}
+
+// Error state
+.atom-toggle--error .atom-toggle__error {
+  color: var(--atom-toggle-error-color);
+}
+
+// -----------------------------------------------
+// Sizes
+// -----------------------------------------------
+
+// sm is default (36x20, knob 16) — no modifier needed
+
+// md (44x24, knob 20)
+.atom-toggle--md {
+  --atom-toggle-track-width: 44px;
+  --atom-toggle-track-height: 24px;
+  --atom-toggle-knob-size: 20px;
+  --atom-toggle-font-size: 16px;
+  --atom-toggle-line-height: 24px;
+}

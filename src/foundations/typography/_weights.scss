@@ -1,0 +1,29 @@
+// ============================================
+// Typography — Font Weights
+// ============================================
+// regular:  400
+// medium:   500
+// semibold: 600  (Open Sauce One / H2 only)
+// bold:     700
+//
+// CSS vars:
+//   --atom-fw-regular, --atom-fw-medium,
+//   --atom-fw-semibold, --atom-fw-bold
+// ============================================
+
+// Utility classes for font weight
+.atom-fw-regular {
+  font-weight: var(--atom-fw-regular);
+}
+
+.atom-fw-medium {
+  font-weight: var(--atom-fw-medium);
+}
+
+.atom-fw-semibold {
+  font-weight: var(--atom-fw-semibold);
+}
+
+.atom-fw-bold {
+  font-weight: var(--atom-fw-bold);
+}

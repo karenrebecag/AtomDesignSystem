@@ -1,0 +1,102 @@
+// ============================================
+// Core Functions
+// ============================================
+
+@use 'variables' as *;
+
+/// Convert px to rem (base 16px)
+/// @param {Number} $px - Value in pixels
+/// @return {Number} Value in rem
+@function atom-rem($px) {
+  @return calc($px / 16px) * 1rem;
+}
+
+/// Convert px to em relative to parent
+/// @param {Number} $px - Value in pixels
+/// @param {Number} $base - Parent font-size in pixels
+/// @return {Number} Value in em
+@function atom-em($px, $base: 16px) {
+  @return calc($px / $base) * 1em;
+}
+
+/// Get a color value from a palette
+/// @param {String} $palette - Palette name (e.g. 'zinc')
+/// @param {Number} $step - Color step (e.g. 500)
+/// @return {Color} Color value
+@function atom-color($palette, $step) {
+  $pal: map-get($atom-palettes, $palette);
+  @if not $pal {
+    @error 'Unknown palette: #{$palette}. Available: #{map-keys($atom-palettes)}';
+  }
+  $val: map-get($pal, $step);
+  @if not $val {
+    @error 'Unknown step #{$step} in palette #{$palette}. Available: #{map-keys($pal)}';
+  }
+  @return $val;
+}
+
+/// Get a font size value
+/// @param {Number} $size - Size key (e.g. 72, 16)
+/// @return {Number} Size value in px
+@function atom-font-size($size) {
+  $val: map-get($atom-font-sizes, $size);
+  @if not $val {
+    @error 'Unknown font size: #{$size}. Available: #{map-keys($atom-font-sizes)}';
+  }
+  @return $val;
+}
+
+/// Get a line height value
+/// @param {String} $token - Line height token (e.g. 'sm', 'xxl')
+/// @return {Number} Line height value in px
+@function atom-line-height($token) {
+  $val: map-get($atom-line-heights, $token);
+  @if not $val {
+    @error 'Unknown line-height token: #{$token}. Available: #{map-keys($atom-line-heights)}';
+  }
+  @return $val;
+}
+
+/// Get a letter spacing value
+/// @param {String} $token - Letter spacing token (e.g. 'tight', 'snug', 'normal')
+/// @return {Number} Letter spacing value
+@function atom-letter-spacing($token) {
+  $val: map-get($atom-letter-spacings, $token);
+  @if not $val {
+    @error 'Unknown letter-spacing token: #{$token}. Available: #{map-keys($atom-letter-spacings)}';
+  }
+  @return $val;
+}
+
+/// Get a font family value
+/// @param {String} $key - Family key (e.g. 'titles', 'content', 'secondary')
+/// @return {List} Font family stack
+@function atom-font-family($key) {
+  $val: map-get($atom-font-families, $key);
+  @if not $val {
+    @error 'Unknown font family: #{$key}. Available: #{map-keys($atom-font-families)}';
+  }
+  @return $val;
+}
+
+/// Get a font weight value
+/// @param {String} $key - Weight key (e.g. 'bold', 'medium', 'regular')
+/// @return {Number} Font weight numeric value
+@function atom-font-weight($key) {
+  $val: map-get($atom-font-weights, $key);
+  @if not $val {
+    @error 'Unknown font weight: #{$key}. Available: #{map-keys($atom-font-weights)}';
+  }
+  @return $val;
+}
+
+/// Get a spacing value
+/// @param {String} $key - Spacing token (e.g. 's', 'sm', 'm', 'l', 'xl')
+/// @return {Number} Spacing value in px
+@function atom-space($key) {
+  $val: map-get($atom-spacing, $key);
+  @if not $val {
+    @error 'Unknown spacing token: #{$key}. Available: #{map-keys($atom-spacing)}';
+  }
+  @return $val;
+}

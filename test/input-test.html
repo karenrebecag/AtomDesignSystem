@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atom DS — Input / Form Field Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../dist/atom-full.css">
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      padding: 32px;
+      background: var(--atom-bg-primary, #fff);
+      color: var(--atom-fg-primary, #18181b);
+      transition: background-color 0.2s, color 0.2s;
+    }
+    h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+    h2 { font-size: 24px; font-weight: 600; margin: 40px 0 16px; border-bottom: 1px solid #e4e4e7; padding-bottom: 8px; }
+    h3 { font-size: 16px; font-weight: 600; margin: 24px 0 12px; color: #52525c; }
+    .row { display: flex; align-items: flex-start; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; }
+    .col { display: flex; flex-direction: column; gap: 4px; min-width: 240px; max-width: 320px; flex: 1; }
+    .section { margin-bottom: 48px; }
+    .label { font-size: 11px; color: #9f9fa9; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    hr { border: none; border-top: 1px solid #e4e4e7; margin: 40px 0; }
+    .theme-toggle {
+      position: fixed; top: 16px; right: 16px; z-index: 100;
+      padding: 8px 16px; border-radius: 8px; border: 1px solid #d4d4d8;
+      background: #18181b; color: #fff; cursor: pointer; font-size: 13px; font-weight: 500;
+    }
+    [data-theme="dark"] .theme-toggle { background: #f4f4f5; color: #18181b; }
+    [data-theme="dark"] h2 { border-color: #3f3f46; }
+    [data-theme="dark"] h3 { color: #9f9fa9; }
+    [data-theme="dark"] hr { border-color: #3f3f46; }
+  </style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+
+<h1>Atom Design System — Input / Form Field</h1>
+<p style="color:#71717b; margin-bottom:40px;">Second molecule. 9 states, 5 sizes, leading/trailing slots, dark mode.</p>
+
+<!-- ============================================ -->
+<!-- DEFAULT (ENABLED) -->
+<!-- ============================================ -->
+<div class="section">
+  <h2>Default (Enabled)</h2>
+  <div class="row">
+    <div class="col">
+      <div class="label">With label + helper + counter</div>
+      <div class="atom-input">
+        <label class="atom-input__label">Label</label>
+        <div class="atom-input__field">
+          <input class="atom-input__control" type="text" placeholder="Placeholder text">
+        </div>
+        <div class="atom-input__footer">
+          <span class="atom-input__helper">
+            <i class="atom-input__helper-icon fa-solid fa-circle-info"></i>
+            Supportive text
+          </span>
+          <span class="atom-input__counter">0/200</span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">Minimal (no label, no helper)</div>
+      <div class="atom-input">
+        <div class="atom-input__field">
+          <input class="atom-input__control" type="text" placeholder="Just an input">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- STATES -->
+<!-- ============================================ -->
+<div class="section">
+  <h2>States</h2>
+
+  <h3>Filled</h3>
+  <div class="row">
+    <div class="col">
+      <div class="atom-input atom-input--filled">
+        <label class="atom-input__label">Filled</label>
+        <div class="atom-input__field">
+          <input class="atom-input__control" type="text" value="Some value entered">
+        </div>
+        <div class="atom-input__footer">
+          <span class="atom-input__helper">
+            <i class="atom-input__helper-icon fa-solid fa-circle-info"></i>
+            Supportive text
+          </span>
+          <span class="atom-input__counter">18/200</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Disabled</h3>
+  <div class="row">
+    <div class="col">
+      <div class="label">Empty disabled</div>
+      <div class="atom-input atom-input--disabled">
+        <label class="atom-input__label">Disabled</label>
+        <div class="atom-input__field">
+          <input class="atom-input__control" type="text" placeholder="Cannot type here" disabled>
+        </div>
+        <div class="atom-input__footer">
+          <span class="atom-input__helper">
+            <i class="atom-input__helper-icon fa-solid fa-circle-info"></i>
+            Supportive text
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">Filled disabled</div>
+      <div class="atom-input atom-input--disabled atom-input--filled">
+        <label class="atom-input__label">Disabled</label>
+        <div class="atom-input__field">
+          <input class="atom-input__control" type="text" value="Pre-filled value" disabled>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Error</h3>
+  <div class="row">
+    <div class="col">
+      <div class="label">Error (empty)</div>
+      <div class="atom-input atom-input--error">
+        <label class="atom-input__label">Email</label>
+        <div class="atom-input__field">
+          <input class="atom-input__control" type="email" placeholder="Enter email">
+        </div>
+        <div class="atom-input__footer">
+          <span class="atom-input__helper">
+            <i class="atom-input__helper-icon fa-solid fa-circle-exclamation"></i>
+            This field is required
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">Error (filled)</div>
+      <div class="atom-input atom-input--error atom-input--filled">
+        <label class="atom-input__label">Email</label>
+        <div class="atom-input__field">
+          <input class="atom-input__control" type="email" value="not-an-email">
+        </div>
+        <div class="atom-input__footer">
+          <span class="atom-input__helper">
+            <i class="atom-input__helper-icon fa-solid fa-circle-exclamation"></i>
+            Invalid email address
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Focus (click to test)</h3>
+  <div class="row">
+    <div class="col">
+      <div class="label">Normal focus</div>
+      <div class="atom-input">
+        <label class="atom-input__label">Focus me</label>
+        <div class="atom-input__field">
+          <input class="atom-input__control" type="text" placeholder="Click to focus">
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">Error focus</div>
+      <div class="atom-input atom-input--error">
+        <label class="atom-input__label">Error + Focus</label>
+        <div class="atom-input__field">
+          <input class="atom-input__control" type="text" placeholder="Click to focus">
+        </div>
+        <div class="atom-input__footer">
+          <span class="atom-input__helper">
+            <i class="atom-input__helper-icon fa-solid fa-circle-exclamation"></i>
+            Error persists on focus
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SIZES -->
+<!-- ============================================ -->
+<div class="section">
+  <h2>Sizes</h2>
+  <div class="row">
+    <div class="col">
+      <div class="label">XS</div>
+      <div class="atom-input atom-input--xs">
+        <label class="atom-input__label">Extra Small</label>
+        <div class="atom-input__field">
+          <span class="atom-input__leading"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input class="atom-input__control" type="text" placeholder="Extra Small">
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">SM</div>
+      <div class="atom-input atom-input--sm">
+        <label class="atom-input__label">Small</label>
+        <div class="atom-input__field">
+          <span class="atom-input__leading"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input class="atom-input__control" type="text" placeholder="Small">
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">MD (default)</div>
+      <div class="atom-input">
+        <label class="atom-input__label">Medium</label>
+        <div class="atom-input__field">
+          <span class="atom-input__leading"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input class="atom-input__control" type="text" placeholder="Medium">
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">LG</div>
+      <div class="atom-input atom-input--lg">
+        <label class="atom-input__label">Large</label>
+        <div class="atom-input__field">
+          <span class="atom-input__leading"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input class="atom-input__control" type="text" placeholder="Large">
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">XL</div>
+      <div class="atom-input atom-input--xl">
+        <label class="atom-input__label">Extra Large</label>
+        <div class="atom-input__field">
+          <span class="atom-input__leading"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input class="atom-input__control" type="text" placeholder="Extra Large">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- LEADING / TRAILING CONFIGURATIONS -->
+<!-- ============================================ -->
+<div class="section">
+  <h2>Leading / Trailing Configurations</h2>
+
+  <h3>Icons</h3>
+  <div class="row">
+    <div class="col">
+      <div class="label">Leading icon</div>
+      <div class="atom-input">
+        <label class="atom-input__label">Search</label>
+        <div class="atom-input__field">
+          <span class="atom-input__leading"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input class="atom-input__control" type="text" placeholder="Search...">
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">Trailing icon</div>
+      <div class="atom-input">
+        <label class="atom-input__label">Password</label>
+        <div class="atom-input__field">
+          <input class="atom-input__control" type="password" placeholder="Enter password">
+          <span class="atom-input__trailing"><i class="fa-solid fa-eye"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">Both icons</div>
+      <div class="atom-input">
+        <label class="atom-input__label">Email</label>
+        <div class="atom-input__field">
+          <span class="atom-input__leading"><i class="fa-solid fa-envelope"></i></span>
+          <input class="atom-input__control" type="email" placeholder="you@example.com">
+          <span class="atom-input__trailing"><i class="fa-solid fa-circle-check"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Text Slots</h3>
+  <div class="row">
+    <div class="col">
+      <div class="label">Trailing text</div>
+      <div class="atom-input">
+        <label class="atom-input__label">Amount</label>
+        <div class="atom-input__field">
+          <input class="atom-input__control" type="text" placeholder="0.00">
+          <span class="atom-input__trailing">USD</span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">Leading text</div>
+      <div class="atom-input">
+        <label class="atom-input__label">Website</label>
+        <div class="atom-input__field">
+          <span class="atom-input__leading">https://</span>
+          <input class="atom-input__control" type="text" placeholder="example.com">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Icon + Text Combined</h3>
+  <div class="row">
+    <div class="col">
+      <div class="label">Leading icon + text</div>
+      <div class="atom-input">
+        <label class="atom-input__label">Price</label>
+        <div class="atom-input__field">
+          <span class="atom-input__leading">
+            <i class="fa-solid fa-dollar-sign"></i>
+          </span>
+          <input class="atom-input__control" type="text" placeholder="0.00">
+          <span class="atom-input__trailing">USD</span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">Flag + country code</div>
+      <div class="atom-input">
+        <label class="atom-input__label">Phone</label>
+        <div class="atom-input__field">
+          <span class="atom-input__leading">
+            <img src="https://flagcdn.com/w20/us.png" alt="US" style="width:16px; height:12px; border-radius:2px;">
+            US
+          </span>
+          <input class="atom-input__control" type="tel" placeholder="+1 (555) 000-0000">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- FULL ANATOMY SHOWCASE -->
+<!-- ============================================ -->
+<div class="section">
+  <h2>Full Anatomy</h2>
+  <div class="row">
+    <div class="col" style="max-width: 400px;">
+      <div class="atom-input">
+        <label class="atom-input__label">Full Example</label>
+        <div class="atom-input__field">
+          <span class="atom-input__leading">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+          <input class="atom-input__control" type="text" placeholder="Search products...">
+          <span class="atom-input__trailing">
+            <i class="fa-solid fa-xmark"></i>
+          </span>
+        </div>
+        <div class="atom-input__footer">
+          <span class="atom-input__helper">
+            <i class="atom-input__helper-icon fa-solid fa-circle-info"></i>
+            Type at least 3 characters to search
+          </span>
+          <span class="atom-input__counter">0/100</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>

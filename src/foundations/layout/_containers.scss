@@ -1,0 +1,29 @@
+// ============================================
+// Layout — Containers
+// ============================================
+// Responsive container with max-width of 1920px.
+// Centers content with auto margins.
+// ============================================
+
+@use '../../core/variables' as *;
+@use 'breakpoints' as *;
+
+.atom-container {
+  width: 100%;
+  max-width: var(--atom-grid-max-width);
+  margin-inline: auto;
+  padding-inline: var(--atom-space-m);
+
+  @include atom-breakpoint-up('sm') {
+    padding-inline: var(--atom-space-l);
+  }
+
+  @include atom-breakpoint-up('lg') {
+    padding-inline: var(--atom-space-xl);
+  }
+}
+
+.atom-container-fluid {
+  width: 100%;
+  padding-inline: var(--atom-space-m);
+}

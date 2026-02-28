@@ -1,0 +1,28 @@
+// ============================================
+// Atom Design System — Core Bundle
+// ============================================
+// This is the main entry point for the core design system.
+// It includes tokens, foundations, and utilities.
+// Does NOT include components or product extensions.
+//
+// Usage (code platforms):
+//   @import '@atom-ds/core';
+//
+// Usage (no-code platforms):
+//   <link rel="stylesheet" href="atom.css">
+// ============================================
+
+// 1. Core infrastructure (functions, mixins, variables)
+@forward 'core';
+
+// 2. Design tokens (CSS custom properties)
+@forward 'tokens';
+
+// 3. Foundations (typography, colors, spacing, layout, etc.)
+@forward 'foundations';
+
+// 4. Themes (light base + dark mode)
+@forward 'themes';
+
+// 5. Utilities (helper classes)
+@forward 'utilities';

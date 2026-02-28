@@ -1,0 +1,55 @@
+// ============================================
+// Typography — Style Classes
+// ============================================
+// Auto-generated classes from the type scale.
+// 15 levels x 3 weights = 45 styles (+ H2 exception = 51 total)
+//
+// Class naming: .atom-{level}-{weight}
+//
+// Usage in HTML:
+//   <h1 class="atom-h1-bold">Title</h1>
+//   <p class="atom-body-regular">Paragraph</p>
+//
+// Usage in Webflow:
+//   Add class "atom-h1-bold" to any element
+//
+// Usage in Elementor:
+//   Add CSS class "atom-h1-bold" in Advanced > CSS Classes
+// ============================================
+
+@use '../../core/variables' as *;
+@use '../../core/functions' as *;
+@use 'mixins' as *;
+
+// Generate all type style classes
+@each $level, $config in $atom-type-scale {
+  @each $variant in ('bold', 'medium', 'regular') {
+    .atom-#{$level}-#{$variant} {
+      @include atom-type($level, $variant);
+    }
+  }
+}
+
+// ---- Semantic shorthand classes ----
+// These map to the most common usage patterns.
+
+// Display shortcuts (default: bold)
+.atom-display-xl { @include atom-type('display-xl', 'bold'); }
+.atom-display-lg { @include atom-type('display-lg', 'bold'); }
+.atom-display-md { @include atom-type('display-md', 'bold'); }
+.atom-display-sm { @include atom-type('display-sm', 'bold'); }
+
+// Title shortcuts (default: bold)
+.atom-huge-title { @include atom-type('huge-title', 'bold'); }
+.atom-h1 { @include atom-type('h1', 'bold'); }
+.atom-h2 { @include atom-type('h2', 'bold'); }
+.atom-h3 { @include atom-type('h3', 'bold'); }
+.atom-h4 { @include atom-type('h4', 'bold'); }
+
+// Body shortcuts (default: regular)
+.atom-heading { @include atom-type('heading', 'regular'); }
+.atom-body    { @include atom-type('body', 'regular'); }
+.atom-caption { @include atom-type('caption', 'regular'); }
+.atom-label   { @include atom-type('label', 'regular'); }
+.atom-label-sm { @include atom-type('label-sm', 'regular'); }
+.atom-footnote { @include atom-type('footnote', 'regular'); }

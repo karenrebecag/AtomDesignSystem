@@ -1,0 +1,8 @@
+// Core — Infrastructure
+// Functions, mixins, and internal variables used across the system.
+// These do NOT generate any CSS output on their own.
+
+@forward 'variables';
+@forward 'functions';
+@forward 'mixins';
+@forward 'reset';
