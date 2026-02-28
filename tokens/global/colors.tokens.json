@@ -1,0 +1,103 @@
+{
+  "$description": "Primitive color tokens — raw values from Figma",
+  "color": {
+    "$type": "color",
+    "zinc": {
+      "50":  { "$value": "#fafafa" },
+      "100": { "$value": "#f4f4f5" },
+      "200": { "$value": "#e4e4e7" },
+      "300": { "$value": "#d4d4d8" },
+      "400": { "$value": "#9f9fa9" },
+      "500": { "$value": "#71717b" },
+      "600": { "$value": "#52525c" },
+      "700": { "$value": "#3f3f46" },
+      "800": { "$value": "#27272a" },
+      "900": { "$value": "#18181b" },
+      "950": { "$value": "#09090b" }
+    },
+    "violet": {
+      "50":  { "$value": "#f5f3ff" },
+      "100": { "$value": "#ede9ff" },
+      "200": { "$value": "#ddd6ff" },
+      "300": { "$value": "#c5b3ff" },
+      "500": { "$value": "#8e51ff" },
+      "600": { "$value": "#8023ff" },
+      "700": { "$value": "#7107e7" },
+      "950": { "$value": "#2f0d68" }
+    },
+    "purple": {
+      "600": { "$value": "#990ffa" }
+    },
+    "orange": {
+      "50":  { "$value": "#fff4ed" },
+      "100": { "$value": "#ffdec8" },
+      "200": { "$value": "#ffc8a4" },
+      "300": { "$value": "#ff9d5b" },
+      "500": { "$value": "#ff6600" },
+      "900": { "$value": "#5b2400" }
+    },
+    "neutral": {
+      "0":    { "$value": "#ffffff" },
+      "50":   { "$value": "#fafafa" },
+      "950":  { "$value": "#0a0a0a" },
+      "1000": { "$value": "#000000" }
+    },
+    "alpha": {
+      "0":   { "$value": "#ffffff00" },
+      "300": { "$value": "#d4d4d4b2" },
+      "800": { "$value": "#262626b2" },
+      "950": { "$value": "#0a0a0ab2" }
+    },
+    "red": {
+      "50":  { "$value": "#fef3f3" },
+      "100": { "$value": "#ffe2e3" },
+      "200": { "$value": "#ffcaca" },
+      "400": { "$value": "#ff6467" },
+      "500": { "$value": "#fb2c37" },
+      "600": { "$value": "#e7000b" },
+      "700": { "$value": "#c10008" },
+      "800": { "$value": "#9e0812" }
+    },
+    "blue": {
+      "50":  { "$value": "#eff6ff" },
+      "100": { "$value": "#dbeaff" },
+      "400": { "$value": "#52a2ff" },
+      "500": { "$value": "#2c7fff" },
+      "600": { "$value": "#165dfc" },
+      "700": { "$value": "#1447e6" },
+      "800": { "$value": "#193cb9" }
+    },
+    "green": {
+      "50":  { "$value": "#f1fdf4" },
+      "500": { "$value": "#00c951" },
+      "800": { "$value": "#0e542c" }
+    },
+    "yellow": {
+      "50":  { "$value": "#fefce8" },
+      "500": { "$value": "#f1b100" },
+      "800": { "$value": "#894b00" }
+    },
+    "amber": {
+      "50":  { "$value": "#fffbea" },
+      "800": { "$value": "#973c00" }
+    },
+    "emerald": {
+      "50":  { "$value": "#ecfef6" },
+      "800": { "$value": "#006145" }
+    },
+    "cyan": {
+      "50":  { "$value": "#ebffff" },
+      "950": { "$value": "#053345" }
+    },
+    "pink": {
+      "100": { "$value": "#fde7f4" },
+      "700": { "$value": "#c7005c" }
+    },
+    "rose": {
+      "50": { "$value": "#fff2f2" }
+    },
+    "sky": {
+      "900": { "$value": "#004a71" }
+    }
+  }
+}

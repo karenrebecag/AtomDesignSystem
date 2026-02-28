@@ -1,6 +1,7 @@
 // ============================================
 // Tier 1: Primitive Tokens (auto-generated)
 // DO NOT EDIT — run: npm run tokens
+// Source: DTCG W3C 2025.10 format
 // ============================================
 
 :root {
@@ -12,6 +13,7 @@
   --atom-color-zinc-400: #9f9fa9;
   --atom-color-zinc-500: #71717b;
   --atom-color-zinc-600: #52525c;
+  --atom-color-zinc-700: #3f3f46;
   --atom-color-zinc-800: #27272a;
   --atom-color-zinc-900: #18181b;
   --atom-color-zinc-950: #09090b;
@@ -33,12 +35,14 @@
   --atom-color-neutral-0: #ffffff;
   --atom-color-neutral-50: #fafafa;
   --atom-color-neutral-950: #0a0a0a;
+  --atom-color-neutral-1000: #000000;
   --atom-color-alpha-0: #ffffff00;
   --atom-color-alpha-300: #d4d4d4b2;
   --atom-color-alpha-800: #262626b2;
   --atom-color-alpha-950: #0a0a0ab2;
   --atom-color-red-50: #fef3f3;
   --atom-color-red-100: #ffe2e3;
+  --atom-color-red-200: #ffcaca;
   --atom-color-red-400: #ff6467;
   --atom-color-red-500: #fb2c37;
   --atom-color-red-600: #e7000b;
@@ -118,5 +122,38 @@
   --atom-spacing-2xl: 40px;
   --atom-spacing-3xl: 48px;
   --atom-spacing-4xl: 56px;
+
+  // borders
+  --atom-border-radius-none: 0px;
+  --atom-border-radius-sm: 4px;
+  --atom-border-radius-md: 8px;
+  --atom-border-radius-lg: 12px;
+  --atom-border-radius-xl: 16px;
+  --atom-border-radius-2xxl: 9999px;
+  --atom-border-width-none: 0px;
+  --atom-border-width-thin: 1px;
+  --atom-border-width-medium: 2px;
+
+  // shadows
+  --atom-shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  --atom-shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --atom-shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --atom-shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+  // motion
+  --atom-motion-duration-instant: 75ms;
+  --atom-motion-duration-fast: 150ms;
+  --atom-motion-duration-normal: 300ms;
+  --atom-motion-duration-slow: 500ms;
+  --atom-motion-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --atom-motion-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --atom-motion-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  // breakpoints
+  --atom-breakpoint-xs: 600px;
+  --atom-breakpoint-sm: 960px;
+  --atom-breakpoint-md: 1280px;
+  --atom-breakpoint-lg: 1920px;
+  --atom-breakpoint-xl: 1921px;
 
 }

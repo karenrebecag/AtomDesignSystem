@@ -1,7 +1,0 @@
-{
-  "$description": "Template — copy and customize for a new brand",
-  "brand": {
-    "primary": { "value": "#000000" },
-    "accent": { "value": "#000000" }
-  }
-}

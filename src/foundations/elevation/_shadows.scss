@@ -1,3 +1,19 @@
 // ============================================
 // Elevation — Box Shadows
 // ============================================
+// Tokens generated from: tokens/global/shadows.tokens.json
+// Variables: --atom-shadow-sm, --atom-shadow-md, --atom-shadow-lg, --atom-shadow-xl
+//
+// Utility classes:
+//   .atom-shadow-none  — none
+//   .atom-shadow-sm    — subtle
+//   .atom-shadow-md    — moderate
+//   .atom-shadow-lg    — high
+//   .atom-shadow-xl    — dramatic
+// ============================================
+
+.atom-shadow-none { box-shadow: none; }
+.atom-shadow-sm   { box-shadow: var(--atom-shadow-sm); }
+.atom-shadow-md   { box-shadow: var(--atom-shadow-md); }
+.atom-shadow-lg   { box-shadow: var(--atom-shadow-lg); }
+.atom-shadow-xl   { box-shadow: var(--atom-shadow-xl); }

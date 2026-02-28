@@ -2,12 +2,24 @@
   border-radius: var(--atom-radius-sm);
 }
 
+.atom-rounded-md {
+  border-radius: var(--atom-radius-md);
+}
+
+.atom-rounded-lg {
+  border-radius: var(--atom-radius-lg);
+}
+
+.atom-rounded-xl {
+  border-radius: var(--atom-radius-xl);
+}
+
 .atom-rounded-2xxl {
   border-radius: var(--atom-radius-2xxl);
 }
 
 .atom-rounded-full {
-  border-radius: 9999px;
+  border-radius: var(--atom-radius-full);
 }
 
 .atom-rounded-none {

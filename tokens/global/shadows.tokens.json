@@ -1,0 +1,69 @@
+{
+  "$description": "Shadow/elevation tokens — box-shadow scale",
+  "shadow": {
+    "$type": "shadow",
+    "sm": {
+      "$value": {
+        "offsetX": { "value": 0, "unit": "px" },
+        "offsetY": { "value": 1, "unit": "px" },
+        "blur":    { "value": 2, "unit": "px" },
+        "spread":  { "value": 0, "unit": "px" },
+        "color":   "rgba(0, 0, 0, 0.05)"
+      }
+    },
+    "md": {
+      "$value": [
+        {
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 4, "unit": "px" },
+          "blur":    { "value": 6, "unit": "px" },
+          "spread":  { "value": -1, "unit": "px" },
+          "color":   "rgba(0, 0, 0, 0.1)"
+        },
+        {
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 2, "unit": "px" },
+          "blur":    { "value": 4, "unit": "px" },
+          "spread":  { "value": -2, "unit": "px" },
+          "color":   "rgba(0, 0, 0, 0.1)"
+        }
+      ]
+    },
+    "lg": {
+      "$value": [
+        {
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 10, "unit": "px" },
+          "blur":    { "value": 15, "unit": "px" },
+          "spread":  { "value": -3, "unit": "px" },
+          "color":   "rgba(0, 0, 0, 0.1)"
+        },
+        {
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 4, "unit": "px" },
+          "blur":    { "value": 6, "unit": "px" },
+          "spread":  { "value": -4, "unit": "px" },
+          "color":   "rgba(0, 0, 0, 0.1)"
+        }
+      ]
+    },
+    "xl": {
+      "$value": [
+        {
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 20, "unit": "px" },
+          "blur":    { "value": 25, "unit": "px" },
+          "spread":  { "value": -5, "unit": "px" },
+          "color":   "rgba(0, 0, 0, 0.1)"
+        },
+        {
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 8, "unit": "px" },
+          "blur":    { "value": 10, "unit": "px" },
+          "spread":  { "value": -6, "unit": "px" },
+          "color":   "rgba(0, 0, 0, 0.1)"
+        }
+      ]
+    }
+  }
+}

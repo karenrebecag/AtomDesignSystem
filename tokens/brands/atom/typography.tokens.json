@@ -1,0 +1,10 @@
+{
+  "$description": "Atom brand typography overrides",
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "titles":  { "$value": "Inter" },
+      "content": { "$value": "Inter" }
+    }
+  }
+}

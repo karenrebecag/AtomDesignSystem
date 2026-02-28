@@ -1,1 +1,19 @@
+.atom-shadow-none {
+  box-shadow: none;
+}
 
+.atom-shadow-sm {
+  box-shadow: var(--atom-shadow-sm);
+}
+
+.atom-shadow-md {
+  box-shadow: var(--atom-shadow-md);
+}
+
+.atom-shadow-lg {
+  box-shadow: var(--atom-shadow-lg);
+}
+
+.atom-shadow-xl {
+  box-shadow: var(--atom-shadow-xl);
+}

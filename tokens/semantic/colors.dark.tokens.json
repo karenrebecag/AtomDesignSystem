@@ -1,0 +1,41 @@
+{
+  "$description": "Semantic color tokens — Dark mode overrides",
+  "dark": {
+    "$type": "color",
+    "fg": {
+      "primary":          { "$value": "{color.zinc.100}" },
+      "secondary":        { "$value": "{color.zinc.200}" },
+      "tertiary":         { "$value": "{color.zinc.400}" },
+      "quaternary":       { "$value": "{color.zinc.500}" },
+      "brand":            { "$value": "{color.violet.300}" },
+      "disabled":         { "$value": "{color.zinc.400}" },
+      "inverse-primary":  { "$value": "{color.zinc.950}" },
+      "inverse-secondary": { "$value": "{color.zinc.800}" },
+      "status-error":     { "$value": "{color.red.200}" },
+      "status-warning":   { "$value": "{color.yellow.500}" },
+      "status-success":   { "$value": "{color.green.500}" },
+      "status-info":      { "$value": "{color.blue.400}" }
+    },
+    "bg": {
+      "primary":          { "$value": "{color.neutral.1000}" },
+      "secondary":        { "$value": "{color.zinc.900}" },
+      "tertiary":         { "$value": "{color.zinc.800}" },
+      "quaternary":       { "$value": "{color.zinc.600}" },
+      "inverse-primary":  { "$value": "{color.zinc.50}" },
+      "inverse-secondary": { "$value": "{color.zinc.100}" },
+      "disabled":         { "$value": "{color.zinc.800}" },
+      "soft-primary":     { "$value": "{color.violet.950}" },
+      "soft-secondary":   { "$value": "{color.violet.700}" },
+      "danger-primary":   { "$value": "{color.red.600}" },
+      "danger-secondary": { "$value": "{color.red.800}" },
+      "status-error":     { "$value": "{color.red.800}" },
+      "status-warning":   { "$value": "{color.yellow.800}" },
+      "status-success":   { "$value": "{color.green.800}" },
+      "status-info":      { "$value": "{color.blue.800}" }
+    },
+    "border": {
+      "primary":   { "$value": "{color.zinc.800}" },
+      "secondary": { "$value": "{color.zinc.700}" }
+    }
+  }
+}

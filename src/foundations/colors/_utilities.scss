@@ -111,6 +111,39 @@ $atom-brand-tokens: (
   .atom-brand-#{$name} { color: var(--atom-brand-#{$name}); }
 }
 
+// ---- Primitive Color Text (direct palette access) ----
+
+.atom-color-text-violet-600 { color: var(--atom-color-violet-600); }
+.atom-color-text-violet-300 { color: var(--atom-color-violet-300); }
+.atom-color-text-green-500  { color: var(--atom-color-green-500); }
+.atom-color-text-blue-500   { color: var(--atom-color-blue-500); }
+.atom-color-text-orange-500 { color: var(--atom-color-orange-500); }
+.atom-color-text-red-500    { color: var(--atom-color-red-500); }
+
+// ---- Primitive Color Background ----
+
+.atom-color-bg-violet-50  { background-color: var(--atom-color-violet-50); }
+.atom-color-bg-violet-600 { background-color: var(--atom-color-violet-600); }
+.atom-color-bg-green-50   { background-color: var(--atom-color-green-50); }
+.atom-color-bg-green-500  { background-color: var(--atom-color-green-500); }
+.atom-color-bg-blue-50    { background-color: var(--atom-color-blue-50); }
+.atom-color-bg-blue-500   { background-color: var(--atom-color-blue-500); }
+.atom-color-bg-neutral-0  { background-color: var(--atom-color-neutral-0); }
+
+// ---- Icon Status Combos ----
+// Pre-composed bg+fg pairs for status icons.
+//   .atom-icon-status--success  — green-50 bg + green-500 text
+//   .atom-icon-status--info     — blue-50 bg + blue-500 text
+//   .atom-icon-status--brand    — violet-50 bg + violet-600 text
+//   .atom-icon-status--warning  — orange-50 bg + orange-500 text
+//   .atom-icon-status--error    — red-50 bg + red-500 text
+
+.atom-icon-status--success { background-color: var(--atom-color-green-50); color: var(--atom-color-green-500); }
+.atom-icon-status--info    { background-color: var(--atom-color-blue-50); color: var(--atom-color-blue-500); }
+.atom-icon-status--brand   { background-color: var(--atom-color-violet-50); color: var(--atom-color-violet-600); }
+.atom-icon-status--warning { background-color: var(--atom-color-orange-50); color: var(--atom-color-orange-500); }
+.atom-icon-status--error   { background-color: var(--atom-color-red-50); color: var(--atom-color-red-500); }
+
 // ---- Resets / Inherit ----
 
 .atom-text-inherit      { color: inherit; }

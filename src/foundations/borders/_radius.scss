@@ -1,20 +1,22 @@
 // ============================================
 // Borders — Border Radius
 // ============================================
-// Radius tokens from the design system.
-//
-// Token  | Value | Usage
-// -------|-------|------------------------
-// sm     | 12px  | Cards, inputs, buttons
-// 2xxl   | 40px  | Pills, large containers
-//
-// CSS: var(--atom-radius-sm), var(--atom-radius-2xxl)
+// Token  | Value  | Usage
+// -------|--------|------------------------
+// sm     |  4px   | Subtle rounding
+// md     |  8px   | Cards, containers
+// lg     | 12px   | Cards, inputs
+// xl     | 16px   | Large containers, modals
+// 2xxl   | 9999px | Pills, badges
 //
 // Utility classes:
-//   .atom-rounded-sm    — 12px
-//   .atom-rounded-2xxl  — 40px
-//   .atom-rounded-full  — 9999px (circle/pill)
 //   .atom-rounded-none  — 0
+//   .atom-rounded-sm    — 4px
+//   .atom-rounded-md    — 8px
+//   .atom-rounded-lg    — 12px
+//   .atom-rounded-xl    — 16px
+//   .atom-rounded-2xxl  — 9999px (pill)
+//   .atom-rounded-full  — 50% (circle)
 // ============================================
 
 @use '../../core/variables' as *;
@@ -25,5 +27,5 @@
   }
 }
 
-.atom-rounded-full { border-radius: 9999px; }
+.atom-rounded-full { border-radius: var(--atom-radius-full); }
 .atom-rounded-none { border-radius: 0; }

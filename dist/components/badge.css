@@ -1,1 +1,47 @@
+.atom-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--atom-space-xs);
+  padding: var(--atom-space-xs) var(--atom-space-sm);
+  border-radius: var(--atom-radius-2xxl);
+  font-size: var(--atom-fs-12);
+  font-weight: var(--atom-fw-medium);
+  line-height: var(--atom-lh-xs);
+  white-space: nowrap;
+  background-color: var(--atom-bg-soft-primary);
+  color: var(--atom-fg-brand);
+}
 
+.atom-badge__dot {
+  width: var(--atom-space-s);
+  height: var(--atom-space-s);
+  border-radius: var(--atom-radius-full);
+  background-color: currentColor;
+  animation: atom-pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.atom-badge--brand {
+  background-color: var(--atom-bg-soft-primary);
+  color: var(--atom-fg-brand);
+}
+
+.atom-badge--success {
+  background-color: var(--atom-bg-status-success);
+  color: var(--atom-fg-status-success);
+}
+
+.atom-badge--warning {
+  background-color: var(--atom-bg-status-warning);
+  color: var(--atom-fg-status-warning);
+}
+
+.atom-badge--error {
+  background-color: var(--atom-bg-status-error);
+  color: var(--atom-fg-status-error);
+}
+
+.atom-badge--info {
+  background-color: var(--atom-bg-status-info);
+  color: var(--atom-fg-status-info);
+}

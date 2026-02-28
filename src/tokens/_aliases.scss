@@ -56,10 +56,26 @@
   --atom-space-4xl: var(--atom-spacing-4xl);
 
   // ---- Border Radius (radius) ----
-  --atom-radius-none: 0;
-  --atom-radius-sm: 4px;
-  --atom-radius-md: 8px;
-  --atom-radius-lg: 12px;
-  --atom-radius-xl: 16px;
-  --atom-radius-2xxl: 9999px;
+  // Now sourced from JSON → _primitive.scss (--atom-border-radius-*)
+  --atom-radius-none: var(--atom-border-radius-none);
+  --atom-radius-sm: var(--atom-border-radius-sm);
+  --atom-radius-md: var(--atom-border-radius-md);
+  --atom-radius-lg: var(--atom-border-radius-lg);
+  --atom-radius-xl: var(--atom-border-radius-xl);
+  --atom-radius-2xxl: var(--atom-border-radius-2xxl);
+  --atom-radius-full: 50%;
+
+  // ---- Shadows ----
+  // Aliases for generated shadow tokens (--atom-shadow-*)
+  // Primitives already use --atom-shadow-sm/md/lg/xl, no alias needed.
+
+  // ---- Motion ----
+  // Aliases for generated motion tokens
+  --atom-duration-instant: var(--atom-motion-duration-instant);
+  --atom-duration-fast: var(--atom-motion-duration-fast);
+  --atom-duration-normal: var(--atom-motion-duration-normal);
+  --atom-duration-slow: var(--atom-motion-duration-slow);
+  --atom-ease-in: var(--atom-motion-easing-ease-in);
+  --atom-ease-out: var(--atom-motion-easing-ease-out);
+  --atom-ease-in-out: var(--atom-motion-easing-ease-in-out);
 }

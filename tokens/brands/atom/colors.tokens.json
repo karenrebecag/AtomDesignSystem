@@ -1,0 +1,8 @@
+{
+  "$description": "Atom brand color overrides (default brand)",
+  "brand": {
+    "$type": "color",
+    "primary": { "$value": "{color.violet.700}" },
+    "accent":  { "$value": "{color.orange.500}" }
+  }
+}

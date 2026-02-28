@@ -388,6 +388,79 @@
 }
 
 // -----------------------------------------------
+// Variant: Brand (violet / accent CTA)
+// -----------------------------------------------
+
+.atom-btn--brand {
+  --atom-btn-bg: var(--atom-color-violet-600);
+  --atom-btn-fg: var(--atom-color-neutral-0);
+  --atom-btn-border-color: var(--atom-color-violet-600);
+  --atom-btn-border-width: 0px;
+
+  &:hover {
+    --atom-btn-bg: var(--atom-color-violet-700);
+  }
+
+  &:focus-visible {
+    --atom-btn-focus-ring-color: var(--atom-color-violet-200);
+  }
+
+  &:active {
+    --atom-btn-bg: var(--atom-color-violet-700);
+    --atom-btn-fg: var(--atom-color-violet-200);
+  }
+
+  &[disabled],
+  &.atom-btn--disabled {
+    --atom-btn-bg: var(--atom-color-zinc-100);
+    --atom-btn-fg: var(--atom-color-zinc-400);
+  }
+
+  &.atom-btn--loading {
+    --atom-btn-bg: var(--atom-color-violet-600);
+    --atom-btn-fg: var(--atom-color-neutral-0);
+  }
+}
+
+// -----------------------------------------------
+// Variant: Ghost (transparent with border)
+// -----------------------------------------------
+
+.atom-btn--ghost {
+  --atom-btn-bg: transparent;
+  --atom-btn-fg: var(--atom-fg-secondary);
+  --atom-btn-border-color: var(--atom-border-primary);
+  --atom-btn-border-width: 1px;
+
+  &:hover {
+    --atom-btn-bg: var(--atom-color-zinc-50);
+  }
+
+  &:focus-visible {
+    --atom-btn-border-color: var(--atom-color-zinc-500);
+    --atom-btn-focus-ring-color: var(--atom-color-zinc-200);
+  }
+
+  &:active {
+    --atom-btn-bg: var(--atom-color-zinc-100);
+    --atom-btn-fg: var(--atom-color-zinc-600);
+  }
+
+  &[disabled],
+  &.atom-btn--disabled {
+    --atom-btn-bg: transparent;
+    --atom-btn-fg: var(--atom-color-zinc-400);
+    --atom-btn-border-color: var(--atom-color-zinc-200);
+  }
+
+  &.atom-btn--loading {
+    --atom-btn-bg: transparent;
+    --atom-btn-fg: var(--atom-fg-secondary);
+    --atom-btn-border-color: var(--atom-border-primary);
+  }
+}
+
+// -----------------------------------------------
 // Variant: Danger Tertiary
 // -----------------------------------------------
 

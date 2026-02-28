@@ -1,0 +1,11 @@
+{
+  "$description": "Responsive breakpoints — 8pt grid system with 4/8/12 column layouts",
+  "breakpoint": {
+    "$type": "dimension",
+    "xs": { "$value": { "value": 600, "unit": "px" }, "$description": "0–599 → 4 columns, design: 360px" },
+    "sm": { "$value": { "value": 960, "unit": "px" }, "$description": "600–960 → 4 columns, design: 600px" },
+    "md": { "$value": { "value": 1280, "unit": "px" }, "$description": "961–1280 → 8 columns, design: 1024px" },
+    "lg": { "$value": { "value": 1920, "unit": "px" }, "$description": "1281–1920 → 12 columns, design: 1280px" },
+    "xl": { "$value": { "value": 1921, "unit": "px" }, "$description": "1921+ → 12 columns, design: 1921px" }
+  }
+}

@@ -1,3 +1,15 @@
 // ============================================
 // Motion — Easing Curves
 // ============================================
+// Tokens generated from: tokens/global/motion.tokens.json
+// Variables: --atom-ease-in, --atom-ease-out, --atom-ease-in-out
+//
+// Utility classes:
+//   .atom-ease-in
+//   .atom-ease-out
+//   .atom-ease-in-out
+// ============================================
+
+.atom-ease-in      { transition-timing-function: var(--atom-ease-in); }
+.atom-ease-out     { transition-timing-function: var(--atom-ease-out); }
+.atom-ease-in-out  { transition-timing-function: var(--atom-ease-in-out); }

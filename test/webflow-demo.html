@@ -10,221 +10,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 
-  <!-- Atom Design System (local build for testing, switch to CDN for production) -->
+  <!-- Atom Design System -->
   <link rel="stylesheet" href="../dist/atom-full.css">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    /* ══════════════════════════════════════════════
+       PAGE-SPECIFIC styles only.
+       Everything reusable lives in the design system.
+       ══════════════════════════════════════════════ */
 
-    body {
-      font-family: var(--atom-font-family-content);
-      color: var(--atom-fg-primary);
-      background: var(--atom-bg-primary);
-      transition: background 0.4s ease, color 0.4s ease;
-      overflow-x: hidden;
-    }
-
-    /* ── Navbar ── */
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: var(--atom-space-sm) var(--atom-space-l);
-    }
-    .nav-logo {
-      font-family: var(--atom-font-family-titles);
-      font-weight: var(--atom-fw-bold);
-      font-size: var(--atom-fs-20);
-      letter-spacing: -0.5px;
-    }
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: var(--atom-space-m);
-    }
-
-    /* ── Hero ── */
-    .hero {
-      position: relative;
-      overflow: hidden;
-    }
+    /* ── Hero background gradient (page-specific) ── */
     .hero-bg {
-      position: absolute;
-      inset: 0;
       background:
         radial-gradient(ellipse 80% 60% at 20% 80%, var(--atom-color-violet-100) 0%, transparent 60%),
         radial-gradient(ellipse 60% 50% at 80% 20%, var(--atom-color-blue-100) 0%, transparent 50%),
         var(--atom-bg-primary);
-      opacity: 0.7;
-      transition: opacity 0.4s ease;
     }
     [data-theme="dark"] .hero-bg {
       background:
         radial-gradient(ellipse 80% 60% at 20% 80%, var(--atom-color-violet-950) 0%, transparent 60%),
         radial-gradient(ellipse 60% 50% at 80% 20%, var(--atom-color-blue-800) 0%, transparent 50%),
         var(--atom-bg-primary);
-      opacity: 0.5;
-    }
-    .hero-inner {
-      position: relative;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: var(--atom-space-3xxl) var(--atom-space-l);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--atom-space-xl);
-      align-items: center;
     }
 
-    /* ── Badge ── */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 12px 4px 6px;
-      border-radius: var(--atom-radius-2xxl);
-      background: var(--atom-bg-soft-primary);
-      color: var(--atom-fg-brand);
-      font-size: var(--atom-fs-12);
-      font-weight: var(--atom-fw-medium);
-      margin-bottom: var(--atom-space-m);
-      transition: background 0.3s;
-    }
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--atom-color-green-500);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
-    /* ── Headline ── */
-    .hero-headline {
-      font-family: var(--atom-font-family-titles);
-      font-size: var(--atom-fs-48);
-      font-weight: var(--atom-fw-bold);
-      line-height: var(--atom-lh-xxl);
-      letter-spacing: -1.5px;
-      color: var(--atom-fg-primary);
-      margin-bottom: var(--atom-space-m);
-    }
-    .hero-headline .accent-violet { color: var(--atom-color-violet-600); }
-    .hero-headline .accent-green { color: var(--atom-color-green-500); }
-
-    .hero-sub {
-      font-size: var(--atom-fs-16);
-      line-height: var(--atom-lh-sm);
-      color: var(--atom-fg-secondary);
-      max-width: 480px;
-      margin-bottom: var(--atom-space-l);
-    }
-
-    /* ── CTA row ── */
-    .cta-row {
-      display: flex;
-      gap: var(--atom-space-s);
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: var(--atom-space-l);
-    }
-
-    /* ── Social proof ── */
-    .proof {
-      display: flex;
-      align-items: center;
-      gap: var(--atom-space-m);
-    }
-    .proof-avatars {
-      display: flex;
-    }
+    /* ── Proof avatars overlap (page-specific layout) ── */
     .proof-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 2px solid var(--atom-bg-primary);
-      margin-left: -8px;
-      background: var(--atom-bg-tertiary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: var(--atom-fw-semibold);
-      color: var(--atom-fg-tertiary);
+      width: var(--atom-space-xl);
+      height: var(--atom-space-xl);
+      border: var(--atom-space-xxs) solid var(--atom-bg-primary);
+      margin-left: calc(-1 * var(--atom-space-s));
     }
     .proof-avatar:first-child { margin-left: 0; }
-    .proof-text {
-      font-size: var(--atom-fs-12);
-      color: var(--atom-fg-tertiary);
-      line-height: 1.4;
-    }
-    .proof-text strong {
-      color: var(--atom-fg-primary);
-      font-weight: var(--atom-fw-semibold);
-    }
 
-    /* ── Hero visual (right side) ── */
-    .hero-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .phone-frame {
-      width: 280px;
-      background: var(--atom-bg-secondary);
-      border-radius: var(--atom-radius-xl);
-      border: 1px solid var(--atom-border-primary);
-      padding: var(--atom-space-s);
-      box-shadow:
-        0 20px 60px -12px var(--atom-color-alpha-800),
-        0 0 0 1px var(--atom-color-alpha-300);
-      transition: background 0.4s, border-color 0.4s;
-    }
-    .phone-screen {
-      background: var(--atom-bg-primary);
-      border-radius: var(--atom-radius-lg);
-      overflow: hidden;
-      transition: background 0.4s;
-    }
-    .phone-header {
-      padding: var(--atom-space-sm) var(--atom-space-sm);
-      background: var(--atom-color-green-500);
-      color: var(--atom-color-neutral-0);
-      display: flex;
-      align-items: center;
-      gap: var(--atom-space-xs);
-    }
-    .phone-header-name {
-      font-size: var(--atom-fs-14);
-      font-weight: var(--atom-fw-semibold);
-    }
-    .phone-header-status {
-      font-size: 10px;
-      opacity: 0.85;
-    }
-    .chat-body {
-      padding: var(--atom-space-sm);
-      display: flex;
-      flex-direction: column;
-      gap: var(--atom-space-xs);
-      min-height: 320px;
-    }
-    .chat-bubble {
-      max-width: 85%;
-      padding: var(--atom-space-xs) var(--atom-space-sm);
-      border-radius: var(--atom-radius-lg);
-      font-size: var(--atom-fs-12);
-      line-height: 1.5;
-    }
+    /* ── Phone mockup (page-specific) ── */
+    .phone-frame { width: 280px; }
+    .phone-header { background: var(--atom-color-green-500); color: var(--atom-color-neutral-0); }
+    .chat-body { min-height: 320px; }
+    .chat-bubble { max-width: 85%; }
     .chat-bubble--user {
       align-self: flex-end;
       background: var(--atom-color-green-500);
@@ -236,156 +61,25 @@
       background: var(--atom-bg-tertiary);
       color: var(--atom-fg-primary);
       border-bottom-left-radius: var(--atom-radius-sm);
-      transition: background 0.4s, color 0.4s;
     }
-    .chat-bubble .typing {
-      display: inline-flex;
-      gap: 3px;
-      padding: 4px 0;
-    }
+
+    /* ── Typing dots (page-specific animation) ── */
     .typing span {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
+      width: var(--atom-space-xs);
+      height: var(--atom-space-xs);
       background: var(--atom-fg-quaternary);
-      animation: typingBounce 1.4s infinite;
     }
     .typing span:nth-child(2) { animation-delay: 0.2s; }
     .typing span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes typingBounce {
-      0%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-4px); }
-    }
 
-    /* Floating cards around phone */
-    .float-card {
-      position: absolute;
-      background: var(--atom-bg-primary);
-      border: 1px solid var(--atom-border-primary);
-      border-radius: var(--atom-radius-md);
-      padding: var(--atom-space-xs) var(--atom-space-sm);
-      font-size: var(--atom-fs-12);
-      box-shadow: 0 8px 32px -8px var(--atom-color-alpha-800);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-      transition: background 0.4s, border-color 0.4s;
-      animation: float 6s ease-in-out infinite;
-    }
+    /* ── Floating cards positions (page-specific) ── */
     .float-card:nth-child(2) { animation-delay: -2s; }
     .float-card:nth-child(3) { animation-delay: -4s; }
     .float-card--tl { top: 16%; left: -8%; }
     .float-card--tr { top: 8%; right: -4%; }
     .float-card--bl { bottom: 12%; left: -12%; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    .float-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: var(--atom-radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      flex-shrink: 0;
-    }
 
-    /* ── Stats strip ── */
-    .stats-strip {
-      background: var(--atom-bg-secondary);
-      border-top: 1px solid var(--atom-border-primary);
-      border-bottom: 1px solid var(--atom-border-primary);
-      transition: background 0.4s, border-color 0.4s;
-    }
-    .stats-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: var(--atom-space-l) var(--atom-space-l);
-      display: flex;
-      justify-content: space-between;
-      text-align: center;
-    }
-    .stat {
-      flex: 1;
-    }
-    .stat-value {
-      font-family: var(--atom-font-family-titles);
-      font-size: var(--atom-fs-28);
-      font-weight: var(--atom-fw-bold);
-      letter-spacing: -0.5px;
-      color: var(--atom-fg-primary);
-    }
-    .stat-label {
-      font-size: var(--atom-fs-12);
-      color: var(--atom-fg-tertiary);
-      margin-top: 2px;
-    }
-
-    /* ── Features ── */
-    .features {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: var(--atom-space-3xxl) var(--atom-space-l);
-    }
-    .features-header {
-      text-align: center;
-      margin-bottom: var(--atom-space-xl);
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--atom-space-m);
-    }
-    .feat-card {
-      padding: var(--atom-space-l);
-      border-radius: var(--atom-radius-lg);
-      background: var(--atom-bg-secondary);
-      border: 1px solid var(--atom-border-primary);
-      transition: background 0.4s, border-color 0.3s, transform 0.2s;
-    }
-    .feat-card:hover {
-      border-color: var(--atom-color-violet-300);
-      transform: translateY(-2px);
-    }
-    .feat-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: var(--atom-radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      margin-bottom: var(--atom-space-sm);
-    }
-    .feat-title {
-      font-family: var(--atom-font-family-titles);
-      font-size: var(--atom-fs-16);
-      font-weight: var(--atom-fw-semibold);
-      margin-bottom: var(--atom-space-xs);
-    }
-    .feat-desc {
-      font-size: var(--atom-fs-14);
-      color: var(--atom-fg-tertiary);
-      line-height: 1.5;
-    }
-
-    /* ── CTA Section ── */
-    .cta-section {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 var(--atom-space-l) var(--atom-space-3xxl);
-    }
-    .cta-box {
-      background: var(--atom-color-zinc-950);
-      border-radius: var(--atom-radius-xl);
-      padding: var(--atom-space-3xxl) var(--atom-space-xl);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
+    /* ── CTA box gradient overlay (page-specific) ── */
     .cta-box::before {
       content: '';
       position: absolute;
@@ -396,66 +90,20 @@
       opacity: 0.4;
     }
     .cta-box > * { position: relative; }
-    .cta-tagline {
-      font-size: var(--atom-fs-12);
-      font-weight: var(--atom-fw-medium);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--atom-color-violet-300);
-      margin-bottom: var(--atom-space-sm);
-    }
-    .cta-headline {
-      font-family: var(--atom-font-family-titles);
-      font-size: var(--atom-fs-32);
-      font-weight: var(--atom-fw-bold);
-      color: var(--atom-color-neutral-0);
-      letter-spacing: -0.5px;
-      margin-bottom: var(--atom-space-sm);
-    }
-    .cta-sub {
-      font-size: var(--atom-fs-14);
-      color: var(--atom-color-zinc-400);
-      max-width: 460px;
-      margin: 0 auto var(--atom-space-l);
-      line-height: 1.5;
-    }
-    .cta-buttons {
-      display: flex;
-      gap: var(--atom-space-s);
-      justify-content: center;
-      flex-wrap: wrap;
-    }
 
-    /* ── Footer ── */
-    .footer {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: var(--atom-space-l);
-      text-align: center;
-      font-size: var(--atom-fs-12);
-      color: var(--atom-fg-quaternary);
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        padding: var(--atom-space-xl) var(--atom-space-m);
-        text-align: center;
-      }
-      .hero-headline {
-        font-size: var(--atom-fs-32);
-        line-height: var(--atom-lh-l);
-      }
-      .hero-sub { margin-left: auto; margin-right: auto; }
-      .cta-row { justify-content: center; }
-      .proof { justify-content: center; }
-      .hero-visual { order: -1; }
-      .phone-frame { width: 240px; }
-      .float-card { display: none; }
+    /* ── Responsive layout (page-specific breakpoints) ── */
+    @media (max-width: 960px) {
+      .hero-grid     { grid-template-columns: 1fr; text-align: center; }
+      .hero-headline { font-size: var(--atom-fs-32); line-height: var(--atom-lh-l); }
+      .hero-sub      { margin-inline: auto; }
+      .cta-row       { justify-content: center; }
+      .proof         { justify-content: center; }
+      .hero-visual   { order: -1; }
+      .phone-frame   { width: 240px; }
+      .float-card    { display: none; }
       .features-grid { grid-template-columns: 1fr; }
-      .stats-inner { flex-wrap: wrap; gap: var(--atom-space-m); }
-      .stat { min-width: 120px; }
+      .stats-inner   { flex-wrap: wrap; }
+      .stat          { min-width: 120px; }
     }
   </style>
 </head>
@@ -464,9 +112,9 @@
   <!-- ═══════════════════════════════════════════ -->
   <!-- NAVBAR                                      -->
   <!-- ═══════════════════════════════════════════ -->
-  <nav class="nav">
-    <div class="nav-logo">Atom</div>
-    <div class="nav-right">
+  <nav class="atom-container atom-flex atom-justify-between atom-items-center atom-py-sm atom-px-l">
+    <div class="atom-font-titles atom-font-bold atom-fs-20">Atom</div>
+    <div class="atom-flex atom-items-center atom-gap-m">
       <label class="atom-toggle">
         <input class="atom-toggle__control" type="checkbox" id="themeToggle">
         <span class="atom-toggle__track"><span class="atom-toggle__knob"></span></span>
@@ -479,93 +127,103 @@
   <!-- ═══════════════════════════════════════════ -->
   <!-- HERO                                        -->
   <!-- ═══════════════════════════════════════════ -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="badge">
-          <span class="badge-dot"></span>
+  <section class="atom-relative atom-overflow-hidden">
+    <div class="hero-bg atom-absolute atom-inset-0 atom-opacity-70"></div>
+    <div class="atom-container atom-relative atom-grid hero-grid atom-grid-cols-2 atom-gap-xl atom-items-center atom-py-3xl atom-px-l">
+      <div>
+        <!-- Badge -->
+        <div class="atom-badge atom-mb-m">
+          <span class="atom-badge__dot"></span>
           Nuevo — Respuestas con imágenes y audio
         </div>
-        <h1 class="hero-headline">
+
+        <!-- Headline -->
+        <h1 class="hero-headline atom-font-titles atom-font-bold atom-fs-48 atom-lh-xxl atom-tracking-snug atom-mb-m">
           Tu equipo de ventas<br>
-          <span class="accent-violet">nunca duerme</span><br>
-          en <span class="accent-green">WhatsApp</span>
+          <span class="atom-color-text-violet-600">nunca duerme</span><br>
+          en <span class="atom-color-text-green-500">WhatsApp</span>
         </h1>
-        <p class="hero-sub">
+
+        <!-- Subtitle -->
+        <p class="hero-sub atom-fs-16 atom-lh-sm atom-text-secondary atom-mb-l atom-max-w-lg">
           Atom conecta IA multimodal a tu WhatsApp Business.
           Responde preguntas, califica leads y cierra ventas las 24 horas,
           en el idioma de tu cliente.
         </p>
-        <div class="cta-row">
+
+        <!-- CTA row -->
+        <div class="cta-row atom-flex atom-gap-s atom-flex-wrap atom-items-center atom-mb-l">
           <a href="#" class="atom-btn atom-btn--primary atom-btn--lg">
-            <i class="fa-brands fa-whatsapp" style="margin-right: 6px;"></i>
+            <i class="fa-brands fa-whatsapp"></i>
             Probar en WhatsApp
           </a>
           <a href="#" class="atom-btn atom-btn--secondary atom-btn--lg">
             Ver demo — 3 min
           </a>
         </div>
-        <div class="proof">
-          <div class="proof-avatars">
-            <div class="proof-avatar">KO</div>
-            <div class="proof-avatar">MR</div>
-            <div class="proof-avatar">AL</div>
-            <div class="proof-avatar">+</div>
+
+        <!-- Social proof -->
+        <div class="proof atom-flex atom-items-center atom-gap-m">
+          <div class="atom-flex">
+            <div class="proof-avatar atom-rounded-full atom-bg-tertiary atom-flex atom-items-center atom-justify-center atom-fs-10 atom-font-semibold atom-text-tertiary">KO</div>
+            <div class="proof-avatar atom-rounded-full atom-bg-tertiary atom-flex atom-items-center atom-justify-center atom-fs-10 atom-font-semibold atom-text-tertiary">MR</div>
+            <div class="proof-avatar atom-rounded-full atom-bg-tertiary atom-flex atom-items-center atom-justify-center atom-fs-10 atom-font-semibold atom-text-tertiary">AL</div>
+            <div class="proof-avatar atom-rounded-full atom-bg-tertiary atom-flex atom-items-center atom-justify-center atom-fs-10 atom-font-semibold atom-text-tertiary">+</div>
           </div>
-          <div class="proof-text">
-            <strong>150+ empresas</strong> ya automatizan<br>sus conversaciones con Atom
+          <div class="atom-fs-12 atom-text-tertiary atom-lh-xs">
+            <strong class="atom-text-primary atom-font-semibold">150+ empresas</strong> ya automatizan<br>sus conversaciones con Atom
           </div>
         </div>
       </div>
 
-      <div class="hero-visual">
+      <!-- Hero visual -->
+      <div class="hero-visual atom-relative atom-flex atom-justify-center atom-items-center">
         <!-- Floating cards -->
-        <div class="float-card float-card--tl">
-          <div class="float-icon" style="background: var(--atom-color-green-50); color: var(--atom-color-green-500);">
+        <div class="float-card float-card--tl atom-absolute atom-animate-float atom-bg-primary atom-border atom-border-primary atom-rounded-md atom-px-sm atom-py-xs atom-fs-12 atom-flex atom-items-center atom-gap-xs atom-whitespace-nowrap atom-shadow-lg">
+          <div class="atom-icon-status--success atom-size-l atom-flex atom-items-center atom-justify-center atom-rounded-sm atom-fs-12 atom-shrink-0">
             <i class="fa-solid fa-check"></i>
           </div>
           <span>Lead calificado</span>
         </div>
-        <div class="float-card float-card--tr">
-          <div class="float-icon" style="background: var(--atom-color-blue-50); color: var(--atom-color-blue-500);">
+        <div class="float-card float-card--tr atom-absolute atom-animate-float atom-bg-primary atom-border atom-border-primary atom-rounded-md atom-px-sm atom-py-xs atom-fs-12 atom-flex atom-items-center atom-gap-xs atom-whitespace-nowrap atom-shadow-lg">
+          <div class="atom-icon-status--info atom-size-l atom-flex atom-items-center atom-justify-center atom-rounded-sm atom-fs-12 atom-shrink-0">
             <i class="fa-solid fa-language"></i>
           </div>
           <span>5 idiomas</span>
         </div>
-        <div class="float-card float-card--bl">
-          <div class="float-icon" style="background: var(--atom-color-violet-50); color: var(--atom-color-violet-600);">
+        <div class="float-card float-card--bl atom-absolute atom-animate-float atom-bg-primary atom-border atom-border-primary atom-rounded-md atom-px-sm atom-py-xs atom-fs-12 atom-flex atom-items-center atom-gap-xs atom-whitespace-nowrap atom-shadow-lg">
+          <div class="atom-icon-status--brand atom-size-l atom-flex atom-items-center atom-justify-center atom-rounded-sm atom-fs-12 atom-shrink-0">
             <i class="fa-solid fa-bolt"></i>
           </div>
           <span>Respuesta en 3.2s</span>
         </div>
 
         <!-- Phone mockup -->
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <div class="phone-header">
-              <i class="fa-solid fa-robot" style="font-size: 14px;"></i>
+        <div class="phone-frame atom-bg-secondary atom-rounded-xl atom-border atom-border-primary atom-p-s atom-shadow-xl">
+          <div class="atom-bg-primary atom-rounded-lg atom-overflow-hidden">
+            <div class="phone-header atom-p-sm atom-flex atom-items-center atom-gap-xs">
+              <i class="fa-solid fa-robot atom-fs-14"></i>
               <div>
-                <div class="phone-header-name">Atom AI</div>
-                <div class="phone-header-status">en línea</div>
+                <div class="atom-fs-14 atom-font-semibold">Atom AI</div>
+                <div class="atom-opacity-85 atom-fs-10">en línea</div>
               </div>
             </div>
-            <div class="chat-body">
-              <div class="chat-bubble chat-bubble--user">
+            <div class="chat-body atom-p-sm atom-flex atom-flex-col atom-gap-xs">
+              <div class="chat-bubble chat-bubble--user atom-px-sm atom-py-xs atom-rounded-lg atom-fs-12 atom-lh-xs">
                 Hola, quiero saber los precios del plan Pro
               </div>
-              <div class="chat-bubble chat-bubble--bot">
+              <div class="chat-bubble chat-bubble--bot atom-px-sm atom-py-xs atom-rounded-lg atom-fs-12 atom-lh-xs">
                 El Plan Pro cuesta <strong>$29/mes</strong> e incluye mensajes ilimitados, soporte prioritario y conexión con tu CRM.
               </div>
-              <div class="chat-bubble chat-bubble--user">
+              <div class="chat-bubble chat-bubble--user atom-px-sm atom-py-xs atom-rounded-lg atom-fs-12 atom-lh-xs">
                 Puedo probarlo gratis?
               </div>
-              <div class="chat-bubble chat-bubble--bot">
+              <div class="chat-bubble chat-bubble--bot atom-px-sm atom-py-xs atom-rounded-lg atom-fs-12 atom-lh-xs">
                 Claro, tienes <strong>14 días gratis</strong> sin tarjeta de crédito. Te envío el link de registro ahora mismo.
               </div>
-              <div class="chat-bubble chat-bubble--bot">
-                <div class="typing">
-                  <span></span><span></span><span></span>
+              <div class="chat-bubble chat-bubble--bot atom-px-sm atom-py-xs atom-rounded-lg atom-fs-12">
+                <div class="typing atom-inline-flex atom-gap-xxs atom-py-xs">
+                  <span class="atom-rounded-full atom-animate-bounce"></span><span class="atom-rounded-full atom-animate-bounce"></span><span class="atom-rounded-full atom-animate-bounce"></span>
                 </div>
               </div>
             </div>
@@ -578,23 +236,23 @@
   <!-- ═══════════════════════════════════════════ -->
   <!-- STATS STRIP                                 -->
   <!-- ═══════════════════════════════════════════ -->
-  <div class="stats-strip">
-    <div class="stats-inner">
-      <div class="stat">
-        <div class="stat-value">10K+</div>
-        <div class="stat-label">Conversaciones / día</div>
+  <div class="atom-bg-secondary atom-border-t atom-border-b atom-border-primary">
+    <div class="stats-inner atom-container atom-flex atom-justify-between atom-text-center atom-p-l">
+      <div class="stat atom-flex-1">
+        <div class="atom-font-titles atom-fs-28 atom-font-bold atom-tracking-normal atom-text-primary">10K+</div>
+        <div class="atom-fs-12 atom-text-tertiary atom-mt-xxs">Conversaciones / día</div>
       </div>
-      <div class="stat">
-        <div class="stat-value">98%</div>
-        <div class="stat-label">Satisfacción</div>
+      <div class="stat atom-flex-1">
+        <div class="atom-font-titles atom-fs-28 atom-font-bold atom-tracking-normal atom-text-primary">98%</div>
+        <div class="atom-fs-12 atom-text-tertiary atom-mt-xxs">Satisfacción</div>
       </div>
-      <div class="stat">
-        <div class="stat-value">3.2s</div>
-        <div class="stat-label">Respuesta promedio</div>
+      <div class="stat atom-flex-1">
+        <div class="atom-font-titles atom-fs-28 atom-font-bold atom-tracking-normal atom-text-primary">3.2s</div>
+        <div class="atom-fs-12 atom-text-tertiary atom-mt-xxs">Respuesta promedio</div>
       </div>
-      <div class="stat">
-        <div class="stat-value">40%</div>
-        <div class="stat-label">Más conversiones</div>
+      <div class="stat atom-flex-1">
+        <div class="atom-font-titles atom-fs-28 atom-font-bold atom-tracking-normal atom-text-primary">40%</div>
+        <div class="atom-fs-12 atom-text-tertiary atom-mt-xxs">Más conversiones</div>
       </div>
     </div>
   </div>
@@ -602,33 +260,33 @@
   <!-- ═══════════════════════════════════════════ -->
   <!-- FEATURES                                    -->
   <!-- ═══════════════════════════════════════════ -->
-  <section class="features">
-    <div class="features-header">
-      <p style="font-size: var(--atom-fs-12); font-weight: var(--atom-fw-medium); text-transform: uppercase; letter-spacing: 1.5px; color: var(--atom-fg-brand); margin-bottom: var(--atom-space-xs);">Capacidades</p>
+  <section class="atom-container atom-py-3xl atom-px-l">
+    <div class="atom-text-center atom-mb-xl">
+      <p class="atom-fs-12 atom-font-medium atom-uppercase atom-tracking-snug atom-text-brand atom-mb-xs">Capacidades</p>
       <h2 class="atom-h2-bold">Todo lo que necesitas, un solo link</h2>
-      <p style="font-size: var(--atom-fs-14); color: var(--atom-fg-tertiary); margin-top: var(--atom-space-xs);">Tokens, tipografía, componentes y temas. Sin instalar nada.</p>
+      <p class="atom-fs-14 atom-text-tertiary atom-mt-xs">Tokens, tipografía, componentes y temas. Sin instalar nada.</p>
     </div>
-    <div class="features-grid">
-      <div class="feat-card">
-        <div class="feat-icon" style="background: var(--atom-color-violet-50); color: var(--atom-color-violet-600);">
+    <div class="features-grid atom-grid atom-grid-cols-3 atom-gap-m">
+      <div class="feat-card atom-p-l atom-rounded-lg atom-bg-secondary atom-border atom-border-primary atom-transition atom-hover-lift atom-cursor-pointer">
+        <div class="atom-icon-status--brand atom-size-2xl atom-flex atom-items-center atom-justify-center atom-rounded-md atom-fs-16 atom-mb-sm">
           <i class="fa-solid fa-brain"></i>
         </div>
-        <div class="feat-title">IA Multimodal</div>
-        <div class="feat-desc">Entiende texto, imágenes y audio. Responde en contexto como un agente humano.</div>
+        <div class="atom-font-titles atom-fs-16 atom-font-semibold atom-mb-xs">IA Multimodal</div>
+        <div class="atom-fs-14 atom-text-tertiary atom-lh-sm">Entiende texto, imágenes y audio. Responde en contexto como un agente humano.</div>
       </div>
-      <div class="feat-card">
-        <div class="feat-icon" style="background: var(--atom-color-green-50); color: var(--atom-color-green-500);">
+      <div class="feat-card atom-p-l atom-rounded-lg atom-bg-secondary atom-border atom-border-primary atom-transition atom-hover-lift atom-cursor-pointer">
+        <div class="atom-icon-status--success atom-size-2xl atom-flex atom-items-center atom-justify-center atom-rounded-md atom-fs-16 atom-mb-sm">
           <i class="fa-brands fa-whatsapp"></i>
         </div>
-        <div class="feat-title">WhatsApp Nativo</div>
-        <div class="feat-desc">Integración directa con WhatsApp Business API. Sin apps externas, sin fricción.</div>
+        <div class="atom-font-titles atom-fs-16 atom-font-semibold atom-mb-xs">WhatsApp Nativo</div>
+        <div class="atom-fs-14 atom-text-tertiary atom-lh-sm">Integración directa con WhatsApp Business API. Sin apps externas, sin fricción.</div>
       </div>
-      <div class="feat-card">
-        <div class="feat-icon" style="background: var(--atom-color-blue-50); color: var(--atom-color-blue-500);">
+      <div class="feat-card atom-p-l atom-rounded-lg atom-bg-secondary atom-border atom-border-primary atom-transition atom-hover-lift atom-cursor-pointer">
+        <div class="atom-icon-status--info atom-size-2xl atom-flex atom-items-center atom-justify-center atom-rounded-md atom-fs-16 atom-mb-sm">
           <i class="fa-solid fa-chart-line"></i>
         </div>
-        <div class="feat-title">Lead Scoring</div>
-        <div class="feat-desc">Califica automáticamente cada conversación y conecta los leads calientes con tu equipo.</div>
+        <div class="atom-font-titles atom-fs-16 atom-font-semibold atom-mb-xs">Lead Scoring</div>
+        <div class="atom-fs-14 atom-text-tertiary atom-lh-sm">Califica automáticamente cada conversación y conecta los leads calientes con tu equipo.</div>
       </div>
     </div>
   </section>
@@ -636,19 +294,19 @@
   <!-- ═══════════════════════════════════════════ -->
   <!-- CTA                                         -->
   <!-- ═══════════════════════════════════════════ -->
-  <section class="cta-section">
-    <div class="cta-box">
-      <div class="cta-tagline">Empieza hoy</div>
-      <h2 class="cta-headline">14 días gratis. Sin tarjeta. Sin excusas.</h2>
-      <p class="cta-sub">
+  <section class="atom-container atom-px-l atom-pb-3xl">
+    <div class="cta-box atom-bg-inverse-primary atom-rounded-xl atom-py-3xl atom-px-xl atom-text-center atom-relative atom-overflow-hidden">
+      <div class="cta-tagline atom-fs-12 atom-font-medium atom-uppercase atom-tracking-snug atom-mb-sm">Empieza hoy</div>
+      <h2 class="atom-font-titles atom-fs-32 atom-font-bold atom-text-inverse-primary atom-tracking-normal atom-mb-sm">14 días gratis. Sin tarjeta. Sin excusas.</h2>
+      <p class="atom-fs-14 atom-text-inverse-tertiary atom-lh-sm atom-mb-l atom-mx-auto atom-max-w-md">
         Conecta tu WhatsApp Business en 5 minutos y deja que Atom
         haga el trabajo pesado mientras tú cierras ventas.
       </p>
-      <div class="cta-buttons">
-        <a href="#" class="atom-btn atom-btn--primary atom-btn--lg" style="--atom-btn-bg: var(--atom-color-violet-600); --atom-btn-fg: white; --atom-btn-border-color: var(--atom-color-violet-600);">
+      <div class="atom-flex atom-gap-s atom-justify-center atom-flex-wrap">
+        <a href="#" class="atom-btn atom-btn--brand atom-btn--lg">
           Empezar gratis
         </a>
-        <a href="#" class="atom-btn atom-btn--secondary atom-btn--lg" style="--atom-btn-bg: transparent; --atom-btn-fg: var(--atom-color-zinc-300); --atom-btn-border-color: var(--atom-color-zinc-600);">
+        <a href="#" class="atom-btn atom-btn--ghost atom-btn--lg">
           Hablar con ventas
         </a>
       </div>
@@ -656,7 +314,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="atom-container atom-p-l atom-text-center atom-fs-12 atom-text-quaternary">
     Atom Design System v0.1.0 — Cargado desde <code>cdn.jsdelivr.net</code> — Zero build, zero config
   </footer>
 

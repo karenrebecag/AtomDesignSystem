@@ -4,3 +4,31 @@
 // Lightweight reset/normalize for consistent cross-browser behavior.
 // Only includes essentials — not a full reset framework.
 // ============================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: var(--atom-font-family-content);
+  color: var(--atom-fg-primary);
+  background-color: var(--atom-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

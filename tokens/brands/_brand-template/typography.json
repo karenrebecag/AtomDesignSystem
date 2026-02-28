@@ -1,9 +1,0 @@
-{
-  "$description": "Template — copy and customize for a new brand",
-  "font": {
-    "family": {
-      "titles": { "value": "Inter" },
-      "content": { "value": "Inter" }
-    }
-  }
-}

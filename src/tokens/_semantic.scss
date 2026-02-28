@@ -1,6 +1,7 @@
 // ============================================
 // Tier 2: Semantic Tokens (auto-generated)
 // DO NOT EDIT — run: npm run tokens
+// Source: DTCG W3C 2025.10 format
 // ============================================
 
 :root {
@@ -49,5 +50,38 @@
   --atom-brand-secondary-orange: var(--atom-color-orange-500);
   --atom-brand-secondary-rose: var(--atom-color-rose-50);
   --atom-brand-secondary-violet: var(--atom-color-violet-500);
+}
+
+[data-theme='dark'],
+.atom-theme-dark {
+  --atom-fg-primary: var(--atom-color-zinc-100);
+  --atom-fg-secondary: var(--atom-color-zinc-200);
+  --atom-fg-tertiary: var(--atom-color-zinc-400);
+  --atom-fg-quaternary: var(--atom-color-zinc-500);
+  --atom-fg-brand: var(--atom-color-violet-300);
+  --atom-fg-disabled: var(--atom-color-zinc-400);
+  --atom-fg-inverse-primary: var(--atom-color-zinc-950);
+  --atom-fg-inverse-secondary: var(--atom-color-zinc-800);
+  --atom-fg-status-error: var(--atom-color-red-200);
+  --atom-fg-status-warning: var(--atom-color-yellow-500);
+  --atom-fg-status-success: var(--atom-color-green-500);
+  --atom-fg-status-info: var(--atom-color-blue-400);
+  --atom-bg-primary: var(--atom-color-neutral-1000);
+  --atom-bg-secondary: var(--atom-color-zinc-900);
+  --atom-bg-tertiary: var(--atom-color-zinc-800);
+  --atom-bg-quaternary: var(--atom-color-zinc-600);
+  --atom-bg-inverse-primary: var(--atom-color-zinc-50);
+  --atom-bg-inverse-secondary: var(--atom-color-zinc-100);
+  --atom-bg-disabled: var(--atom-color-zinc-800);
+  --atom-bg-soft-primary: var(--atom-color-violet-950);
+  --atom-bg-soft-secondary: var(--atom-color-violet-700);
+  --atom-bg-danger-primary: var(--atom-color-red-600);
+  --atom-bg-danger-secondary: var(--atom-color-red-800);
+  --atom-bg-status-error: var(--atom-color-red-800);
+  --atom-bg-status-warning: var(--atom-color-yellow-800);
+  --atom-bg-status-success: var(--atom-color-green-800);
+  --atom-bg-status-info: var(--atom-color-blue-800);
+  --atom-border-primary: var(--atom-color-zinc-800);
+  --atom-border-secondary: var(--atom-color-zinc-700);
 }
 

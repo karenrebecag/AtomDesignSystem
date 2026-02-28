@@ -1,8 +1,12 @@
 // ============================================
-// Theme — Base (Light)
+// Theme — Base (Light) — Component Overrides
 // ============================================
-// Default light theme. Always loaded.
-// Maps semantic tokens to primitive values.
+// Semantic token defaults (fg, bg, border, status, brand)
+// are now auto-generated from:
+//   tokens/semantic/colors.tokens.json → src/tokens/_semantic.scss
+//
+// This file contains ONLY component-level light mode tokens
+// that are too specific/stateful for the token JSON layer.
 //
 // Applied via: :root (default), [data-theme="light"],
 //              .atom-theme-light
@@ -11,17 +15,6 @@
 :root,
 [data-theme='light'],
 .atom-theme-light {
-  // ---- Global Semantics ----
-
-  --atom-fg-primary: var(--atom-color-zinc-900);
-  --atom-fg-secondary: var(--atom-color-zinc-800);
-  --atom-fg-tertiary: var(--atom-color-zinc-600);
-  --atom-fg-disabled: var(--atom-color-zinc-400);
-  --atom-bg-primary: var(--atom-color-neutral-0);
-  --atom-bg-tertiary: var(--atom-color-zinc-100);
-  --atom-border-secondary: var(--atom-color-zinc-300);
-  --atom-fg-status-error: var(--atom-color-red-800);
-
   // ---- Input Controls ----
 
   --atom-input-bg: var(--atom-color-neutral-0);
@@ -49,18 +42,18 @@
   // ---- Radio Button ----
 
   --atom-radio-bg: var(--atom-color-neutral-0);
-  --atom-radio-border: #71717b;
+  --atom-radio-border: var(--atom-color-zinc-500);
   --atom-radio-checked-bg: var(--atom-color-zinc-950);
   --atom-radio-dot-color: var(--atom-color-zinc-50);
   --atom-radio-hover-bg: var(--atom-color-zinc-50);
   --atom-radio-checked-hover-bg: var(--atom-color-zinc-800);
   --atom-radio-disabled-bg: var(--atom-color-zinc-100);
   --atom-radio-disabled-border: var(--atom-color-zinc-100);
-  --atom-radio-disabled-dot-color: #9f9fa9;
+  --atom-radio-disabled-dot-color: var(--atom-color-zinc-400);
   --atom-radio-error-border: var(--atom-color-red-500);
   --atom-radio-label-color: var(--atom-color-zinc-800);
   --atom-radio-description-color: var(--atom-color-zinc-600);
-  --atom-radio-error-color: #9e0812;
+  --atom-radio-error-color: var(--atom-color-red-800);
 
   // ---- Toggle ----
 
@@ -76,5 +69,5 @@
   --atom-toggle-checked-disabled-knob-bg: var(--atom-color-zinc-200);
   --atom-toggle-label-color: var(--atom-color-zinc-800);
   --atom-toggle-description-color: var(--atom-color-zinc-600);
-  --atom-toggle-error-color: #9e0812;
+  --atom-toggle-error-color: var(--atom-color-red-800);
 }

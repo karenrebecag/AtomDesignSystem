@@ -1,7 +1,53 @@
 // ============================================
-// Utilities — Text
+// Utilities — Text & Typography
 // ============================================
-// .atom-text-left, .atom-text-center, .atom-text-right
-// .atom-truncate, .atom-line-clamp-{n}
-// .atom-uppercase, .atom-lowercase, .atom-capitalize
-// ============================================
+
+@use '../core/variables' as *;
+
+// ---- Text Alignment ----
+.atom-text-left   { text-align: left; }
+.atom-text-center { text-align: center; }
+.atom-text-right  { text-align: right; }
+
+// ---- Text Transform ----
+.atom-uppercase  { text-transform: uppercase; }
+.atom-lowercase  { text-transform: lowercase; }
+.atom-capitalize { text-transform: capitalize; }
+.atom-normal-case { text-transform: none; }
+
+// ---- White Space ----
+.atom-whitespace-nowrap { white-space: nowrap; }
+.atom-whitespace-normal { white-space: normal; }
+
+// ---- Text Overflow ----
+.atom-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// ---- Font Family ----
+.atom-font-titles    { font-family: var(--atom-font-family-titles); }
+.atom-font-content   { font-family: var(--atom-font-family-content); }
+.atom-font-secondary { font-family: var(--atom-font-family-secondary); }
+
+// ---- Font Weight ----
+.atom-font-regular  { font-weight: var(--atom-fw-regular); }
+.atom-font-medium   { font-weight: var(--atom-fw-medium); }
+.atom-font-semibold { font-weight: var(--atom-fw-semibold); }
+.atom-font-bold     { font-weight: var(--atom-fw-bold); }
+
+// ---- Font Size ----
+@each $size in map-keys($atom-font-sizes) {
+  .atom-fs-#{$size} { font-size: var(--atom-fs-#{$size}); }
+}
+
+// ---- Line Height ----
+@each $key in map-keys($atom-line-heights) {
+  .atom-lh-#{$key} { line-height: var(--atom-lh-#{$key}); }
+}
+
+// ---- Letter Spacing ----
+.atom-tracking-tight  { letter-spacing: var(--atom-font-letterSpacing-tight); }
+.atom-tracking-snug   { letter-spacing: var(--atom-font-letterSpacing-snug); }
+.atom-tracking-normal { letter-spacing: var(--atom-font-letterSpacing-normal); }

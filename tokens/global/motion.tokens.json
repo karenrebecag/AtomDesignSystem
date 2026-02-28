@@ -1,0 +1,18 @@
+{
+  "$description": "Motion/animation tokens — duration and easing",
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "instant": { "$value": { "value": 75, "unit": "ms" } },
+      "fast":    { "$value": { "value": 150, "unit": "ms" } },
+      "normal":  { "$value": { "value": 300, "unit": "ms" } },
+      "slow":    { "$value": { "value": 500, "unit": "ms" } }
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "ease-in":     { "$value": [0.4, 0, 1, 1] },
+      "ease-out":    { "$value": [0, 0, 0.2, 1] },
+      "ease-in-out": { "$value": [0.4, 0, 0.2, 1] }
+    }
+  }
+}

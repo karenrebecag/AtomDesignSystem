@@ -1,3 +1,18 @@
 // ============================================
 // Motion — Duration Scale
 // ============================================
+// Tokens generated from: tokens/global/motion.tokens.json
+// Variables: --atom-duration-instant, --atom-duration-fast,
+//            --atom-duration-normal, --atom-duration-slow
+//
+// Utility classes:
+//   .atom-duration-instant
+//   .atom-duration-fast
+//   .atom-duration-normal
+//   .atom-duration-slow
+// ============================================
+
+.atom-duration-instant { transition-duration: var(--atom-duration-instant); }
+.atom-duration-fast    { transition-duration: var(--atom-duration-fast); }
+.atom-duration-normal  { transition-duration: var(--atom-duration-normal); }
+.atom-duration-slow    { transition-duration: var(--atom-duration-slow); }

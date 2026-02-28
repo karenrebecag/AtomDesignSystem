@@ -1,1 +1,72 @@
+.atom-duration-instant {
+  transition-duration: var(--atom-duration-instant);
+}
 
+.atom-duration-fast {
+  transition-duration: var(--atom-duration-fast);
+}
+
+.atom-duration-normal {
+  transition-duration: var(--atom-duration-normal);
+}
+
+.atom-duration-slow {
+  transition-duration: var(--atom-duration-slow);
+}
+
+.atom-ease-in {
+  transition-timing-function: var(--atom-ease-in);
+}
+
+.atom-ease-out {
+  transition-timing-function: var(--atom-ease-out);
+}
+
+.atom-ease-in-out {
+  transition-timing-function: var(--atom-ease-in-out);
+}
+
+@keyframes atom-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+.atom-animate-pulse {
+  animation: atom-pulse 2s ease-in-out infinite;
+}
+
+@keyframes atom-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(-1 * var(--atom-space-s)));
+  }
+}
+.atom-animate-float {
+  animation: atom-float 6s ease-in-out infinite;
+}
+
+@keyframes atom-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.atom-animate-spin {
+  animation: atom-spin 600ms linear infinite;
+}
+
+@keyframes atom-bounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(calc(-1 * var(--atom-space-xs)));
+  }
+}
+.atom-animate-bounce {
+  animation: atom-bounce 1.4s infinite;
+}

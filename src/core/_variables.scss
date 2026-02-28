@@ -19,6 +19,7 @@ $atom-colors-zinc: (
   400: #9f9fa9,
   500: #71717b,
   600: #52525c,
+  700: #3f3f46,
   800: #27272a,
   900: #18181b,
   950: #09090b,
@@ -49,9 +50,10 @@ $atom-colors-orange: (
 ) !default;
 
 $atom-colors-neutral: (
-  0:   #ffffff,
-  50:  #fafafa,
-  950: #0a0a0a,
+  0:    #ffffff,
+  50:   #fafafa,
+  950:  #0a0a0a,
+  1000: #000000,
 ) !default;
 
 $atom-colors-alpha: (
@@ -64,6 +66,7 @@ $atom-colors-alpha: (
 $atom-colors-red: (
   50:  #fef3f3,
   100: #ffe2e3,
+  200: #ffcaca,
   400: #ff6467,
   500: #fb2c37,
   600: #e7000b,
@@ -276,8 +279,11 @@ $atom-spacing: (
 
 // -- Border Radius --
 $atom-radius: (
-  'sm':   12px,
-  '2xxl': 40px,
+  'sm':   4px,
+  'md':   8px,
+  'lg':   12px,
+  'xl':   16px,
+  '2xxl': 9999px,
 ) !default;
 
 // -- Breakpoints --

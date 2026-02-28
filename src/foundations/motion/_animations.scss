@@ -1,0 +1,49 @@
+// ============================================
+// Motion — Common Animations
+// ============================================
+// Reusable keyframes + utility classes.
+//
+//   .atom-animate-pulse    — Opacity pulse (status dots, live indicators)
+//   .atom-animate-float    — Gentle vertical float (decorative cards)
+//   .atom-animate-spin     — Continuous rotation (loaders)
+//   .atom-animate-bounce   — Subtle bounce (typing dots)
+// ============================================
+
+// ---- Pulse (opacity) ----
+@keyframes atom-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.atom-animate-pulse {
+  animation: atom-pulse 2s ease-in-out infinite;
+}
+
+// ---- Float (vertical) ----
+@keyframes atom-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(calc(-1 * var(--atom-space-s))); }
+}
+
+.atom-animate-float {
+  animation: atom-float 6s ease-in-out infinite;
+}
+
+// ---- Spin ----
+@keyframes atom-spin {
+  to { transform: rotate(360deg); }
+}
+
+.atom-animate-spin {
+  animation: atom-spin 600ms linear infinite;
+}
+
+// ---- Bounce (typing indicator) ----
+@keyframes atom-bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(calc(-1 * var(--atom-space-xs))); }
+}
+
+.atom-animate-bounce {
+  animation: atom-bounce 1.4s infinite;
+}
