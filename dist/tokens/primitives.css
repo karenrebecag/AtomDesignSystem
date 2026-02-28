@@ -1,10 +1,4 @@
-// ============================================
-// Tier 1: Primitive Tokens (auto-generated)
-// DO NOT EDIT — run: npm run tokens
-// ============================================
-
 :root {
-  // colors
   --atom-color-zinc-50: #fafafa;
   --atom-color-zinc-100: #f4f4f5;
   --atom-color-zinc-200: #e4e4e7;
@@ -67,8 +61,6 @@
   --atom-color-pink-700: #c7005c;
   --atom-color-rose-50: #fff2f2;
   --atom-color-sky-900: #004a71;
-
-  // typography
   --atom-font-family-titles: Inter;
   --atom-font-family-content: Inter;
   --atom-font-family-secondary: Open Sauce One;
@@ -106,13 +98,10 @@
   --atom-font-letterSpacing-tight: -4px;
   --atom-font-letterSpacing-snug: -2px;
   --atom-font-letterSpacing-normal: 0px;
-
-  // spacing
   --atom-spacing-s: 8px;
   --atom-spacing-sm: 12px;
   --atom-spacing-m: 16px;
   --atom-spacing-l: 24px;
   --atom-spacing-xl: 32px;
   --atom-spacing-3xxl: 44px;
-
 }

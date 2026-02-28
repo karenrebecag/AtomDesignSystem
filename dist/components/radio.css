@@ -1,0 +1,156 @@
+.atom-radio {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--atom-radio-gap);
+  cursor: pointer;
+  position: relative;
+}
+
+.atom-radio:not(:has(.atom-radio__label)) {
+  align-items: center;
+}
+
+.atom-radio__control {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  flex-shrink: 0;
+  width: var(--atom-radio-size);
+  height: var(--atom-radio-size);
+  border: var(--atom-radio-border-width) solid var(--atom-radio-border);
+  border-radius: 50%;
+  background-color: var(--atom-radio-bg);
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+.atom-radio__control::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: var(--atom-radio-dot-size);
+  height: var(--atom-radio-dot-size);
+  border-radius: 50%;
+  background-color: var(--atom-radio-dot-color);
+  transition: transform 150ms ease-in-out;
+}
+.atom-radio__control:checked {
+  background-color: var(--atom-radio-checked-bg);
+  border-color: var(--atom-radio-checked-bg);
+}
+.atom-radio__control:checked::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.atom-radio__label {
+  font-family: var(--atom-font-family-titles);
+  font-weight: var(--atom-fw-medium);
+  font-size: var(--atom-radio-font-size);
+  line-height: var(--atom-radio-line-height);
+  color: var(--atom-radio-label-color);
+  white-space: nowrap;
+}
+
+.atom-radio__description {
+  font-family: var(--atom-font-family-content);
+  font-weight: var(--atom-fw-regular);
+  font-size: var(--atom-radio-font-size);
+  line-height: var(--atom-radio-line-height);
+  color: var(--atom-radio-description-color);
+}
+
+.atom-radio:has(.atom-radio__description) {
+  flex-wrap: wrap;
+}
+.atom-radio:has(.atom-radio__description) .atom-radio__control {
+  margin-top: 2px;
+}
+.atom-radio:has(.atom-radio__description) .atom-radio__label,
+.atom-radio:has(.atom-radio__description) .atom-radio__description {
+  flex-basis: calc(100% - var(--atom-radio-size) - var(--atom-radio-gap));
+}
+.atom-radio:has(.atom-radio__description) .atom-radio__description {
+  margin-left: calc(var(--atom-radio-size) + var(--atom-radio-gap));
+  margin-top: 0;
+}
+
+.atom-radio:has(.atom-radio__label):not(:has(.atom-radio__description)):not(:has(.atom-radio__error)) {
+  align-items: center;
+}
+
+.atom-radio__error {
+  display: flex;
+  align-items: center;
+  gap: var(--atom-radio-gap);
+  width: 100%;
+  font-family: var(--atom-font-family-content);
+  font-weight: var(--atom-fw-regular);
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--atom-radio-error-color);
+}
+.atom-radio__error > i,
+.atom-radio__error > svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.atom-radio:hover .atom-radio__control:not(:disabled):not(:checked) {
+  background-color: var(--atom-radio-hover-bg);
+  border-color: var(--atom-radio-hover-border);
+}
+
+.atom-radio:hover .atom-radio__control:not(:disabled):checked {
+  background-color: var(--atom-radio-checked-hover-bg);
+  border-color: var(--atom-radio-checked-hover-bg);
+}
+
+.atom-radio__control:focus-visible {
+  box-shadow: var(--atom-radio-focus-shadow);
+}
+
+.atom-radio:has(.atom-radio__control:disabled) {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.atom-radio__control:disabled {
+  background-color: var(--atom-radio-disabled-bg);
+  border-color: var(--atom-radio-disabled-border);
+  cursor: not-allowed;
+}
+.atom-radio__control:disabled:checked {
+  background-color: var(--atom-radio-disabled-bg);
+  border-color: var(--atom-radio-disabled-border);
+}
+.atom-radio__control:disabled:checked::after {
+  background-color: var(--atom-radio-disabled-dot-color);
+}
+
+.atom-radio:has(.atom-radio__control:disabled) .atom-radio__label,
+.atom-radio:has(.atom-radio__control:disabled) .atom-radio__description {
+  color: var(--atom-fg-disabled, #9f9fa9);
+}
+
+.atom-radio--error .atom-radio__control {
+  border-color: var(--atom-radio-error-border);
+}
+
+.atom-radio--error .atom-radio__control:checked {
+  border-color: var(--atom-radio-error-border);
+}
+
+.atom-radio--md {
+  --atom-radio-size: 24px;
+  --atom-radio-dot-size: 10px;
+  --atom-radio-font-size: 16px;
+  --atom-radio-line-height: 24px;
+}

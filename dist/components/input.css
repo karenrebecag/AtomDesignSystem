@@ -1,0 +1,231 @@
+.atom-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atom-input-inner-gap);
+  width: 100%;
+}
+
+.atom-input__label {
+  font-family: var(--atom-input-label-font-family);
+  font-weight: var(--atom-input-label-font-weight);
+  font-size: var(--atom-input-font-size);
+  line-height: var(--atom-input-line-height);
+  color: var(--atom-input-label-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.atom-input__field {
+  display: flex;
+  align-items: center;
+  gap: var(--atom-input-gap);
+  padding: var(--atom-input-padding);
+  background-color: var(--atom-input-bg);
+  border: var(--atom-input-border-width) solid var(--atom-input-border-color);
+  border-radius: var(--atom-input-radius);
+  overflow: clip;
+  box-sizing: border-box;
+  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out, color 150ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+
+.atom-input__control {
+  flex: 1 0 0;
+  min-width: 0;
+  min-height: 1px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-family: var(--atom-input-font-family);
+  font-weight: var(--atom-input-font-weight);
+  font-size: var(--atom-input-font-size);
+  line-height: var(--atom-input-line-height);
+  color: var(--atom-input-fg);
+  box-sizing: border-box;
+}
+.atom-input__control::placeholder {
+  color: var(--atom-input-fg);
+  opacity: 1;
+}
+.atom-input__control::-webkit-search-cancel-button, .atom-input__control::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.atom-input__leading,
+.atom-input__trailing {
+  display: flex;
+  align-items: center;
+  gap: var(--atom-input-inner-gap);
+  flex-shrink: 0;
+  font-family: var(--atom-input-font-family);
+  font-weight: var(--atom-input-font-weight);
+  font-size: var(--atom-input-font-size);
+  line-height: var(--atom-input-line-height);
+  color: var(--atom-input-fg);
+  white-space: nowrap;
+}
+.atom-input__leading > i,
+.atom-input__leading > svg,
+.atom-input__leading > .atom-icon,
+.atom-input__trailing > i,
+.atom-input__trailing > svg,
+.atom-input__trailing > .atom-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--atom-input-icon-size);
+  height: var(--atom-input-icon-size);
+  font-size: var(--atom-input-icon-size);
+  flex-shrink: 0;
+}
+.atom-input__leading > img,
+.atom-input__trailing > img {
+  width: var(--atom-input-icon-size);
+  height: var(--atom-input-icon-size);
+  border-radius: 2px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.atom-input__footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.atom-input__helper {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  gap: var(--atom-input-inner-gap);
+  min-width: 0;
+  font-family: var(--atom-input-font-family);
+  font-weight: var(--atom-input-font-weight);
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--atom-input-helper-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.atom-input__helper-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--atom-input-helper-icon-size);
+  height: var(--atom-input-helper-icon-size);
+  font-size: var(--atom-input-helper-icon-size);
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.atom-input__counter {
+  flex-shrink: 0;
+  font-family: var(--atom-input-font-family);
+  font-weight: var(--atom-input-font-weight);
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--atom-input-fg);
+  text-align: right;
+}
+
+.atom-input:hover .atom-input__field,
+.atom-input__field:hover {
+  --atom-input-fg: var(--atom-input-hover-fg);
+  border-color: var(--atom-input-hover-border);
+}
+
+.atom-input__field:focus-within {
+  --atom-input-fg: var(--atom-input-fg);
+  border-color: var(--atom-input-focus-border);
+  border-width: 2px;
+  padding: calc(var(--atom-input-padding) - 1px);
+}
+
+.atom-input--filled .atom-input__field {
+  --atom-input-fg: var(--atom-input-filled-fg);
+  border-color: var(--atom-input-filled-border);
+}
+
+.atom-input--filled .atom-input__control {
+  color: var(--atom-input-filled-fg);
+}
+
+.atom-input--disabled .atom-input__field,
+.atom-input__field:has(.atom-input__control:disabled) {
+  --atom-input-fg: var(--atom-input-disabled-fg);
+  background-color: var(--atom-input-disabled-bg);
+  border-color: var(--atom-input-disabled-border);
+  pointer-events: none;
+}
+
+.atom-input--disabled .atom-input__label,
+.atom-input__field:has(.atom-input__control:disabled) ~ .atom-input__label {
+  color: var(--atom-input-disabled-fg);
+}
+
+.atom-input--disabled .atom-input__control,
+.atom-input__control:disabled {
+  color: var(--atom-input-disabled-fg);
+  cursor: not-allowed;
+}
+.atom-input--disabled .atom-input__control::placeholder,
+.atom-input__control:disabled::placeholder {
+  color: var(--atom-input-disabled-fg);
+}
+
+.atom-input--error .atom-input__field {
+  border-color: var(--atom-input-error-border);
+}
+
+.atom-input--error .atom-input__field:focus-within {
+  border-color: var(--atom-input-error-border);
+}
+
+.atom-input--error.atom-input--filled .atom-input__field {
+  --atom-input-fg: var(--atom-input-filled-fg);
+  border-color: var(--atom-input-error-border);
+}
+
+.atom-input--error .atom-input__helper {
+  color: var(--atom-input-error-color);
+}
+
+.atom-input--error .atom-input__helper-icon {
+  color: var(--atom-input-error-color);
+}
+
+.atom-input--xs .atom-input__field {
+  --atom-input-padding: var(--atom-space-xs);
+  --atom-input-icon-size: 12px;
+}
+
+.atom-input--sm .atom-input__field {
+  --atom-input-padding: var(--atom-space-s);
+  --atom-input-icon-size: 14px;
+}
+
+.atom-input--md .atom-input__field {
+  --atom-input-padding: var(--atom-space-sm);
+  --atom-input-icon-size: 16px;
+}
+
+.atom-input--lg .atom-input__field {
+  --atom-input-padding: var(--atom-space-m);
+  --atom-input-icon-size: 16px;
+}
+
+.atom-input--xl .atom-input__field {
+  --atom-input-padding: var(--atom-space-m);
+  --atom-input-font-size: var(--atom-fs-16);
+  --atom-input-line-height: var(--atom-lh-sm);
+  --atom-input-icon-size: 20px;
+}
+
+.atom-input--xl .atom-input__control {
+  font-size: var(--atom-fs-16);
+  line-height: var(--atom-lh-sm);
+}

@@ -1,10 +1,4 @@
-// ============================================
-// Tier 1: Primitive Tokens (auto-generated)
-// DO NOT EDIT — run: npm run tokens
-// ============================================
-
 :root {
-  // colors
   --atom-color-zinc-50: #fafafa;
   --atom-color-zinc-100: #f4f4f5;
   --atom-color-zinc-200: #e4e4e7;
@@ -67,8 +61,6 @@
   --atom-color-pink-700: #c7005c;
   --atom-color-rose-50: #fff2f2;
   --atom-color-sky-900: #004a71;
-
-  // typography
   --atom-font-family-titles: Inter;
   --atom-font-family-content: Inter;
   --atom-font-family-secondary: Open Sauce One;
@@ -106,13 +98,58 @@
   --atom-font-letterSpacing-tight: -4px;
   --atom-font-letterSpacing-snug: -2px;
   --atom-font-letterSpacing-normal: 0px;
-
-  // spacing
   --atom-spacing-s: 8px;
   --atom-spacing-sm: 12px;
   --atom-spacing-m: 16px;
   --atom-spacing-l: 24px;
   --atom-spacing-xl: 32px;
   --atom-spacing-3xxl: 44px;
+}
 
+:root {
+  --atom-fg-primary: var(--atom-color-zinc-900);
+  --atom-fg-secondary: var(--atom-color-zinc-800);
+  --atom-fg-tertiary: var(--atom-color-zinc-600);
+  --atom-fg-quaternary: var(--atom-color-zinc-500);
+  --atom-fg-brand: var(--atom-color-violet-700);
+  --atom-fg-disabled: var(--atom-color-zinc-400);
+  --atom-fg-inverse-primary: var(--atom-color-neutral-0);
+  --atom-fg-inverse-secondary: var(--atom-color-zinc-200);
+  --atom-fg-inverse-tertiary: var(--atom-color-zinc-400);
+  --atom-fg-inverse-disabled: var(--atom-color-zinc-500);
+  --atom-fg-status-error: var(--atom-color-red-600);
+  --atom-fg-status-warning: var(--atom-color-yellow-800);
+  --atom-fg-status-success: var(--atom-color-green-800);
+  --atom-fg-status-info: var(--atom-color-blue-700);
+  --atom-bg-primary: var(--atom-color-neutral-0);
+  --atom-bg-secondary: var(--atom-color-zinc-50);
+  --atom-bg-tertiary: var(--atom-color-zinc-100);
+  --atom-bg-quaternary: var(--atom-color-zinc-200);
+  --atom-bg-inverse-primary: var(--atom-color-zinc-950);
+  --atom-bg-inverse-secondary: var(--atom-color-zinc-900);
+  --atom-bg-inverse-tertiary: var(--atom-color-zinc-600);
+  --atom-bg-disabled: var(--atom-color-zinc-100);
+  --atom-bg-soft-primary: var(--atom-color-violet-50);
+  --atom-bg-soft-secondary: var(--atom-color-violet-100);
+  --atom-bg-danger-primary: var(--atom-color-red-500);
+  --atom-bg-danger-secondary: var(--atom-color-red-50);
+  --atom-bg-status-error: var(--atom-color-red-50);
+  --atom-bg-status-warning: var(--atom-color-yellow-50);
+  --atom-bg-status-success: var(--atom-color-green-50);
+  --atom-bg-status-info: var(--atom-color-blue-50);
+  --atom-border-primary: var(--atom-color-zinc-500);
+  --atom-border-secondary: var(--atom-color-zinc-300);
+  --atom-border-tertiary: var(--atom-color-zinc-200);
+  --atom-border-brand: var(--atom-color-violet-700);
+  --atom-border-disabled: var(--atom-color-zinc-200);
+  --atom-border-status-error: var(--atom-color-red-500);
+  --atom-border-status-warning: var(--atom-color-yellow-500);
+  --atom-border-status-success: var(--atom-color-green-500);
+  --atom-border-status-info: var(--atom-color-blue-500);
+  --atom-brand-primary: var(--atom-color-violet-700);
+  --atom-brand-secondary-blue: var(--atom-color-blue-600);
+  --atom-brand-secondary-green: var(--atom-color-green-500);
+  --atom-brand-secondary-orange: var(--atom-color-orange-500);
+  --atom-brand-secondary-rose: var(--atom-color-rose-50);
+  --atom-brand-secondary-violet: var(--atom-color-violet-500);
 }

@@ -1,0 +1,49 @@
+.atom-rounded-sm {
+  border-radius: var(--atom-radius-sm);
+}
+
+.atom-rounded-2xxl {
+  border-radius: var(--atom-radius-2xxl);
+}
+
+.atom-rounded-full {
+  border-radius: 9999px;
+}
+
+.atom-rounded-none {
+  border-radius: 0;
+}
+
+.atom-border {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.atom-border-2 {
+  border-width: 2px;
+  border-style: solid;
+}
+
+.atom-border-0 {
+  border-width: 0;
+}
+
+.atom-border-t {
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.atom-border-r {
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.atom-border-b {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.atom-border-l {
+  border-left-width: 1px;
+  border-left-style: solid;
+}

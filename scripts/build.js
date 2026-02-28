@@ -36,6 +36,8 @@ const modules = [
   { entry: 'components/input/_index.scss', output: 'components/input.css' },
   { entry: 'components/modal/_index.scss', output: 'components/modal.css' },
   { entry: 'components/badge/_index.scss', output: 'components/badge.css' },
+  { entry: 'components/radio/_index.scss', output: 'components/radio.css' },
+  { entry: 'components/toggle/_index.scss', output: 'components/toggle.css' },
   { entry: 'components/tag/_index.scss', output: 'components/tag.css' },
 
   // Extensions

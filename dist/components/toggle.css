@@ -1,0 +1,162 @@
+.atom-toggle {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--atom-toggle-gap);
+  cursor: pointer;
+  position: relative;
+}
+
+.atom-toggle:not(:has(.atom-toggle__label)) {
+  align-items: center;
+}
+
+.atom-toggle__control {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.atom-toggle__track {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--atom-toggle-track-width);
+  height: var(--atom-toggle-track-height);
+  padding: var(--atom-toggle-track-padding);
+  border-radius: var(--atom-toggle-track-radius);
+  background-color: var(--atom-toggle-track-bg);
+  box-sizing: border-box;
+  position: relative;
+  transition: background-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+
+.atom-toggle__knob {
+  display: block;
+  width: var(--atom-toggle-knob-size);
+  height: var(--atom-toggle-knob-size);
+  border-radius: 50%;
+  background-color: var(--atom-toggle-knob-bg);
+  box-shadow: var(--atom-toggle-knob-shadow);
+  transform: translateX(0);
+  transition: transform 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+.atom-toggle__control:checked ~ .atom-toggle__track {
+  background-color: var(--atom-toggle-checked-track-bg);
+}
+.atom-toggle__control:checked ~ .atom-toggle__track .atom-toggle__knob {
+  transform: translateX(calc(var(--atom-toggle-track-width) - var(--atom-toggle-knob-size) - var(--atom-toggle-track-padding) * 2));
+  background-color: var(--atom-toggle-checked-knob-bg);
+}
+
+.atom-toggle__label {
+  font-family: var(--atom-font-family-titles);
+  font-weight: var(--atom-fw-medium);
+  font-size: var(--atom-toggle-font-size);
+  line-height: var(--atom-toggle-line-height);
+  color: var(--atom-toggle-label-color);
+  white-space: nowrap;
+}
+
+.atom-toggle__description {
+  font-family: var(--atom-font-family-content);
+  font-weight: var(--atom-fw-regular);
+  font-size: var(--atom-toggle-font-size);
+  line-height: var(--atom-toggle-line-height);
+  color: var(--atom-toggle-description-color);
+}
+
+.atom-toggle:has(.atom-toggle__description) {
+  flex-wrap: wrap;
+}
+.atom-toggle:has(.atom-toggle__description) .atom-toggle__track {
+  margin-top: 2px;
+}
+.atom-toggle:has(.atom-toggle__description) .atom-toggle__label,
+.atom-toggle:has(.atom-toggle__description) .atom-toggle__description {
+  flex-basis: calc(100% - var(--atom-toggle-track-width) - var(--atom-toggle-gap));
+}
+.atom-toggle:has(.atom-toggle__description) .atom-toggle__description {
+  margin-left: calc(var(--atom-toggle-track-width) + var(--atom-toggle-gap));
+  margin-top: 0;
+}
+
+.atom-toggle:has(.atom-toggle__label):not(:has(.atom-toggle__description)):not(:has(.atom-toggle__error)) {
+  align-items: center;
+}
+
+.atom-toggle__error {
+  display: flex;
+  align-items: center;
+  gap: var(--atom-toggle-gap);
+  width: 100%;
+  font-family: var(--atom-font-family-content);
+  font-weight: var(--atom-fw-regular);
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--atom-toggle-error-color);
+}
+.atom-toggle__error > i,
+.atom-toggle__error > svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.atom-toggle:hover .atom-toggle__control:not(:disabled):not(:checked) ~ .atom-toggle__track {
+  background-color: var(--atom-toggle-hover-track-bg);
+}
+
+.atom-toggle:hover .atom-toggle__control:not(:disabled):checked ~ .atom-toggle__track {
+  background-color: var(--atom-toggle-checked-hover-track-bg);
+}
+
+.atom-toggle__control:focus-visible ~ .atom-toggle__track {
+  box-shadow: var(--atom-toggle-focus-shadow);
+}
+
+.atom-toggle:has(.atom-toggle__control:disabled) {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.atom-toggle__control:disabled ~ .atom-toggle__track {
+  background-color: var(--atom-toggle-disabled-track-bg);
+}
+.atom-toggle__control:disabled ~ .atom-toggle__track .atom-toggle__knob {
+  background-color: var(--atom-toggle-disabled-knob-bg);
+}
+
+.atom-toggle__control:disabled:checked ~ .atom-toggle__track {
+  background-color: var(--atom-toggle-checked-disabled-track-bg);
+}
+.atom-toggle__control:disabled:checked ~ .atom-toggle__track .atom-toggle__knob {
+  background-color: var(--atom-toggle-checked-disabled-knob-bg);
+}
+
+.atom-toggle:has(.atom-toggle__control:disabled) .atom-toggle__label,
+.atom-toggle:has(.atom-toggle__control:disabled) .atom-toggle__description {
+  color: var(--atom-fg-disabled, #9f9fa9);
+}
+
+.atom-toggle--error .atom-toggle__error {
+  color: var(--atom-toggle-error-color);
+}
+
+.atom-toggle--md {
+  --atom-toggle-track-width: 44px;
+  --atom-toggle-track-height: 24px;
+  --atom-toggle-knob-size: 20px;
+  --atom-toggle-font-size: 16px;
+  --atom-toggle-line-height: 24px;
+}
