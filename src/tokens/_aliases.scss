@@ -1,0 +1,64 @@
+// ============================================
+// Token Aliases — Short names for convenience
+// ============================================
+// Maps short aliases (used in components & utilities)
+// to the full primitive token names.
+
+:root {
+  // ---- Font Size (fs) ----
+  --atom-fs-8: var(--atom-font-size-8);
+  --atom-fs-10: var(--atom-font-size-10);
+  --atom-fs-12: var(--atom-font-size-12);
+  --atom-fs-14: 14px; // not in primitives, common web size
+  --atom-fs-16: var(--atom-font-size-16);
+  --atom-fs-20: var(--atom-font-size-20);
+  --atom-fs-24: var(--atom-font-size-24);
+  --atom-fs-28: var(--atom-font-size-28);
+  --atom-fs-32: var(--atom-font-size-32);
+  --atom-fs-36: var(--atom-font-size-36);
+  --atom-fs-44: var(--atom-font-size-44);
+  --atom-fs-48: var(--atom-font-size-48);
+  --atom-fs-52: var(--atom-font-size-52);
+  --atom-fs-56: var(--atom-font-size-56);
+  --atom-fs-64: var(--atom-font-size-64);
+  --atom-fs-72: var(--atom-font-size-72);
+
+  // ---- Font Weight (fw) ----
+  --atom-fw-regular: var(--atom-font-weight-regular);
+  --atom-fw-medium: var(--atom-font-weight-medium);
+  --atom-fw-semibold: var(--atom-font-weight-semibold);
+  --atom-fw-bold: var(--atom-font-weight-bold);
+
+  // ---- Line Height (lh) ----
+  --atom-lh-xxs: var(--atom-font-lineHeight-xxs);
+  --atom-lh-xs: var(--atom-font-lineHeight-xs);
+  --atom-lh-sm: var(--atom-font-lineHeight-sm);
+  --atom-lh-md: var(--atom-font-lineHeight-md);
+  --atom-lh-m: var(--atom-font-lineHeight-m);
+  --atom-lh-l: var(--atom-font-lineHeight-l);
+  --atom-lh-xl: var(--atom-font-lineHeight-xl);
+  --atom-lh-xxl: var(--atom-font-lineHeight-xxl);
+  --atom-lh-2xxl: var(--atom-font-lineHeight-2xxl);
+  --atom-lh-3xxl: var(--atom-font-lineHeight-3xxl);
+  --atom-lh-4xxl: var(--atom-font-lineHeight-4xxl);
+  --atom-lh-5xxl: var(--atom-font-lineHeight-5xxl);
+
+  // ---- Spacing (space) ----
+  --atom-space-xxs: 4px;
+  --atom-space-xs: 6px;
+  --atom-space-s: var(--atom-spacing-s);
+  --atom-space-sm: var(--atom-spacing-sm);
+  --atom-space-m: var(--atom-spacing-m);
+  --atom-space-l: var(--atom-spacing-l);
+  --atom-space-xl: var(--atom-spacing-xl);
+  --atom-space-2xl: 40px;
+  --atom-space-3xxl: var(--atom-spacing-3xxl);
+
+  // ---- Border Radius (radius) ----
+  --atom-radius-none: 0;
+  --atom-radius-sm: 4px;
+  --atom-radius-md: 8px;
+  --atom-radius-lg: 12px;
+  --atom-radius-xl: 16px;
+  --atom-radius-2xxl: 9999px;
+}
